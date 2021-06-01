@@ -1,4 +1,4 @@
-package com.horizon.appsrc.components;
+package com.horizon.randomplay.components;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package com.horizon.appsrc.components;
+package com.horizon.randomplay.components;
 
-import com.horizon.appsrc.util.Tuple;
+import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -23,10 +23,11 @@ public class MoodsSeries extends Series {
         this(series.getName(), series.getSeasons());
     }
 
-    public void setMood(Mood mood, Tuple<Integer, Integer>... episodes) {
+    @SafeVarargs
+    public final void setMood(Mood mood, Tuple<Integer, Integer>... episodes) {
         ArrayList<Episode> es = new ArrayList<>();
-        for (int i = 0; i < episodes.length; i++) {
-            es.add(fromSetToEpisode(episodes[i]));
+        for (Tuple<Integer, Integer> episode : episodes) {
+            es.add(fromSetToEpisode(episode));
         }
         this.episodesMoods.get(mood).addAll(es);
     }
@@ -35,8 +36,18 @@ public class MoodsSeries extends Series {
         return this.getSeasons().get(tuple.x - 1).getEpisodes().get(tuple.y - 1);
     }
 
-    public ArrayList<Episode> getEpisodesMoods(Mood mood) {
+    public ArrayList<Episode> getEpisodesByMoods(Mood mood) {
         return this.episodesMoods.get(mood);
+    }
+
+    public ArrayList<Mood> getAvailableMoods() {
+        ArrayList<Mood> arrayList = new ArrayList<>();
+        for (int i = 0; i < Mood.values().length; i++) {
+            if (this.episodesMoods.get(Mood.values()[i]).size() > 0) {
+                arrayList.add(Mood.values()[i]);
+            }
+        }
+        return arrayList;
     }
 
 }

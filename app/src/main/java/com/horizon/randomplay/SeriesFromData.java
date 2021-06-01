@@ -1,11 +1,12 @@
-package com.horizon.appsrc;
+package com.horizon.randomplay;
 
-import com.horizon.appsrc.components.Episode;
-import com.horizon.appsrc.components.Season;
-import com.horizon.appsrc.components.Series;
+import com.horizon.randomplay.components.Episode;
+import com.horizon.randomplay.components.Season;
+import com.horizon.randomplay.components.Series;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -13,9 +14,10 @@ import java.util.Scanner;
 
 public class SeriesFromData {
 
-    private final static Path PATH = Paths.get(Paths.get(".").toAbsolutePath().normalize().toString(), "data");
+    private final static Path PATH = FileSystems.getDefault().getPath("data");
 
     public static Series get(String name) throws FileNotFoundException {
+        System.out.println(PATH);
         File f = Paths.get(PATH.toString(), name.replace(" ", "") + ".txt").toFile();
         Scanner reader = new Scanner(f);
 
