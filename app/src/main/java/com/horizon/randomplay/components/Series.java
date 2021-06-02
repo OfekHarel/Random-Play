@@ -1,5 +1,7 @@
 package com.horizon.randomplay.components;
 
+import com.horizon.randomplay.util.Tuple;
+
 import java.util.ArrayList;
 
 public class Series {
@@ -31,5 +33,14 @@ public class Series {
     @Override
     public String toString() {
         return this.name + " has: " + this.seasons.size() + " seasons";
+    }
+
+    public Season getSeason(Episode episode) {
+        for (Season season: this.seasons) {
+            if (season.getEpisodes().contains(episode)) {
+                return season;
+            }
+        }
+        return null;
     }
 }

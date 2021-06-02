@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Genrator;
 import com.horizon.randomplay.R;
 
 import id.co.ionsoft.randomnumberanimationlibrary.RandomNumberAnimation;
@@ -15,6 +16,8 @@ public class RandomActivity extends BaseActivity {
 
     private RandomNumberAnimation rightNumGen;
     private RandomNumberAnimation leftNumGen;
+
+    private final int delay = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +32,16 @@ public class RandomActivity extends BaseActivity {
         this.leftNumGen = new RandomNumberAnimation(this.leftNum);
         this.leftNumGen.setFPS(25);
 
-        RandomActivity inst = this;
-
         Handler handler = new Handler();
-        handler.postAtTime(()-> leftNumGen.start(), 2500);
-        handler.postDelayed(()-> rightNumGen.start(), 250);
+        handler.postAtTime(()-> {
+            leftNumGen.start();
+            rightNumGen.start();
+        }, delay);
 
         handler.postDelayed(()-> {
             leftNumGen.stop(true);
             rightNumGen.stop(true);
             redirectActivity(this, ResultActivity.class);
-        }, 2500);
-
-
+        }, delay);
     }
 }
