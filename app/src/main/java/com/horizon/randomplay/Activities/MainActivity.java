@@ -1,6 +1,7 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -9,17 +10,16 @@ import android.widget.Spinner;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
+import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Vars;
+import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
 
-    private Spinner seriesSpinner;
-    private Spinner moodSpinner;
-
-    private ArrayAdapter<String> seriesSpinnerAdapter;
-    private ArrayAdapter<String> moodSpinnerAdapter;
+    private ScrollChoice seriesScroll;
+    private ScrollChoice moodScroll;
 
     ArrayList<String> moods;
 
@@ -32,58 +32,43 @@ public class MainActivity extends BaseActivity {
 
         moods = Mood.getNames();
 
-        this.seriesSpinner = findViewById(R.id.series_spinner);
-        this.moodSpinner = findViewById(R.id.mood_spinner);
+        this.seriesScroll = findViewById(R.id.scroll_series);
+        this.moodScroll = findViewById(R.id.scroll_mood);
+        this.moodScroll.animate();
 
-        this.seriesSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
-                SeriesHolder.SeriesKind.getNames());
-        this.seriesSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.seriesSpinner.setAdapter(this.seriesSpinnerAdapter);
-        this.seriesSpinnerAdapter.notifyDataSetChanged();
-        this.seriesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                SeriesHolder.SeriesKind series = SeriesHolder
-                        .SeriesKind.getByValue(seriesSpinnerAdapter.getItem(position));
-                Vars.choice.x = series;
 
-                moods = Mood.getNames(SeriesHolder.getAllSeries()
-                                .get(series.getName()).getAvailableMoods());
-                runOnUiThread(() -> updateMoods(moods));
-            }
+        this.seriesScroll.addItems(SeriesHolder.SeriesKind.getNames(), 0);
+        this.seriesScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
+           SeriesHolder.SeriesKind series = SeriesHolder
+                   .SeriesKind.getByValue(seriesScroll.getCurrentSelection());
+           Vars.choice.x = series;
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-            }
+           moods = Mood.getNames(SeriesHolder.getAllSeries()
+                   .get(series.getName()).getAvailableMoods());
+           runOnUiThread(() -> updateMoods(moods));
+            this.moodScroll.notifyDatasetChanged();
+
         });
 
-        this.moodSpinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,
-                moods);
-        this.moodSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.moodSpinner.setAdapter(this.moodSpinnerAdapter);
-        this.moodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                Vars.choice.y = Mood.getByValue(moodSpinnerAdapter.getItem(position));
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-            }
-        });
+        this.moodScroll.addItems(moods, 0);
+        this.moodScroll.setOnItemSelectedListener((scrollChoice, position, name) ->
+                Vars.choice.y = Mood.getByValue(moodScroll.getCurrentSelection()));
+        moodScroll.animate();
 
     }
 
     private void updateMoods(ArrayList<String> newArr) {
-        moodSpinnerAdapter.clear();
-        moodSpinnerAdapter.add(Mood.ANYTHING.getName());
-        for (String newS: newArr) {
-            moodSpinnerAdapter.add(newS);
-        }
-        moodSpinner.setSelection(0, true);
+        ArrayList<String> temp = new ArrayList<>();
+        temp.add(Mood.ANYTHING.getName());
+        temp.addAll(newArr);
+        moods = temp;
+        moodScroll.addItems(moods, 0);
+        moodScroll.animate();
     }
 
     public void clickGenerate(View view) {
+        preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
         redirectActivity(this, RandomActivity.class);
     }
 }

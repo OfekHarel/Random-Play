@@ -17,20 +17,20 @@ public class RandomActivity extends BaseActivity {
     private RandomNumberAnimation rightNumGen;
     private RandomNumberAnimation leftNumGen;
 
-    private final int delay = 2000;
+    private final int delay = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
-        this.rightNum = (TextView) findViewById(R.id.right_gen_num);
+        this.rightNum = findViewById(R.id.right_gen_num);
         this.rightNumGen = new RandomNumberAnimation(this.rightNum);
-        this.rightNumGen.setFPS(25);
+        this.rightNumGen.setFPS(15);
 
-        this.leftNum = (TextView) findViewById(R.id.left_gen_num);
+        this.leftNum = findViewById(R.id.left_gen_num);
         this.leftNumGen = new RandomNumberAnimation(this.leftNum);
-        this.leftNumGen.setFPS(25);
+        this.leftNumGen.setFPS(15);
 
         Handler handler = new Handler();
         handler.postAtTime(()-> {
@@ -39,9 +39,9 @@ public class RandomActivity extends BaseActivity {
         }, delay);
 
         handler.postDelayed(()-> {
+            redirectActivity(this, ResultActivity.class);
             leftNumGen.stop(true);
             rightNumGen.stop(true);
-            redirectActivity(this, ResultActivity.class);
         }, delay);
     }
 }

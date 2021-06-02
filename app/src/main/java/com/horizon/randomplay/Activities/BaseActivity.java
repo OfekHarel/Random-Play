@@ -1,11 +1,21 @@
 package com.horizon.randomplay.Activities;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.horizon.randomplay.R;
+
 public class BaseActivity extends AppCompatActivity {
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+    }
 
     /**
      * This function allows a simple transition between activities.
@@ -15,7 +25,7 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void redirectActivity(AppCompatActivity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         activity.startActivity(intent);
     }
 

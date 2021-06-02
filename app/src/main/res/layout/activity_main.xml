@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activities.MainActivity"
     android:background="@drawable/grad_background">
 
@@ -30,59 +31,90 @@
             android:background="@color/app_grey"/>
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Series"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginVertical="40dp"/>
+            android:paddingHorizontal="20dp"
+            android:translationY="-20dp">
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginVertical="10dp"
-            android:id="@+id/series_spinner"
-            android:textAlignment="center"
-            android:scaleY="1.2"
-            android:scaleX="1.2"
-            android:layout_gravity="center_horizontal"
-            android:dropDownWidth="250dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Series"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginVertical="40dp"
+                android:gravity="start"
+                android:id="@+id/series_text"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingVertical="20dp"
-            android:layout_gravity="center_horizontal"
-            android:text="Mood"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            <com.webianks.library.scroll_choice.ScrollChoice
+                android:id="@+id/scroll_series"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:scroll_background_color="@color/transparent"
+                app:scroll_selected_item_background="@color/app_black"
+                app:scroll_item_text_color="@color/white"
+                app:scroll_atmospheric="true"
+                app:scroll_indicator="true"
+                app:scroll_indicator_color="@color/app_grey"
+                app:scroll_item_align="center"
+                app:scroll_selected_item_text_color="@color/white"
+                app:scroll_item_text_size="23sp"
+                android:layout_marginVertical="30dp"
+                android:paddingHorizontal="30dp" />
 
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginVertical="10dp"
-            android:id="@+id/mood_spinner"
-            android:textAlignment="center"
-            android:scaleY="1.2"
-            android:scaleX="1.2"
-            android:layout_gravity="center_horizontal"
-            android:dropDownWidth="250dp"
-            android:dropDownSelector="@color/black"/>
+            <TextView
+                android:id="@+id/mood_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Mood"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="start"
+                android:translationY="50dp"
+                android:layout_alignBottom="@+id/scroll_series"/>
 
-        <ImageButton
-            android:layout_width="243dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="25dp"
-            android:background="@drawable/ripple"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
-            android:src="@drawable/generate"
-            android:onClick="clickGenerate" />
+            <com.webianks.library.scroll_choice.ScrollChoice
+                android:id="@+id/scroll_mood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:scroll_background_color="@color/transparent"
+                app:scroll_selected_item_background="@color/app_black"
+                app:scroll_item_text_color="@color/white"
+                app:scroll_atmospheric="true"
+                app:scroll_indicator="true"
+                app:scroll_indicator_color="@color/app_grey"
+                app:scroll_item_align="center"
+                app:scroll_selected_item_text_color="@color/white"
+                android:layout_alignBottom="@+id/mood_title"
+                app:scroll_item_text_size="23sp"
+                android:translationY="210dp"
+                android:paddingHorizontal="30dp"/>
+
+            <ImageButton
+                android:layout_width="243dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ripple"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:src="@drawable/generate"
+                android:onClick="clickGenerate"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center_horizontal"
+                android:layout_alignBottom="@+id/scroll_mood"
+                android:layout_alignParentBottom="true"
+                android:translationY="25dp"/>
+
+        </RelativeLayout>
+
+
+
     </LinearLayout>
 
 

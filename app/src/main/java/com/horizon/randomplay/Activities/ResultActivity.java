@@ -2,6 +2,7 @@ package com.horizon.randomplay.Activities;
 
 
 import android.os.Bundle;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -67,6 +68,7 @@ public class ResultActivity extends BaseActivity {
 
         this.epName = findViewById(R.id.episode_name);
         this.epName.setText(this.episode.getName());
+
     }
 
     private void showLogo() {
