@@ -41,7 +41,7 @@
                 android:textSize="70sp"
                 android:textStyle="bold"
                 android:paddingVertical="20dp"
-                android:textColor="@color/white"
+                android:textColor="@color/app_black"
                 android:id="@+id/left_gen_num"/>
 
             <TextView
@@ -51,7 +51,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="24"
                 android:paddingVertical="10dp"
-                android:textColor="@color/white"
+                android:textColor="@color/app_black"
                 android:textSize="70sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generating..."
-            android:textColor="@color/white"
+            android:textColor="@color/app_black"
             android:textSize="45sp"
             android:paddingVertical="50dp"
             android:textStyle="bold"

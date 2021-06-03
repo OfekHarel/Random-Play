@@ -87,6 +87,7 @@ public class ResultActivity extends BaseActivity {
 
     public void clickRegenerate(View view) {
         redirectActivity(this, RandomActivity.class);
+        preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.horizon.randomplay.util.Vars;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends BaseActivity {
 
@@ -37,25 +38,26 @@ public class MainActivity extends BaseActivity {
         this.moodScroll.animate();
 
 
-        this.seriesScroll.addItems(SeriesHolder.SeriesKind.getNames(), 0);
+        this.seriesScroll.addItems(SeriesHolder.SeriesKind.getNames(), SeriesHolder.SeriesKind.getNames().indexOf(Vars.choice.x.getName()));
         this.seriesScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
            SeriesHolder.SeriesKind series = SeriesHolder
                    .SeriesKind.getByValue(seriesScroll.getCurrentSelection());
            Vars.choice.x = series;
 
-           moods = Mood.getNames(SeriesHolder.getAllSeries()
-                   .get(series.getName()).getAvailableMoods());
+            assert series != null;
+            moods = Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
+                   .get(series.getName())).getAvailableMoods());
            runOnUiThread(() -> updateMoods(moods));
             this.moodScroll.notifyDatasetChanged();
-
+            preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);
         });
 
 
-        this.moodScroll.addItems(moods, 0);
-        this.moodScroll.setOnItemSelectedListener((scrollChoice, position, name) ->
-                Vars.choice.y = Mood.getByValue(moodScroll.getCurrentSelection()));
-        moodScroll.animate();
-
+        this.moodScroll.addItems(moods, moods.indexOf(Vars.choice.y.getName()));
+        this.moodScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
+            Vars.choice.y = Mood.getByValue(moodScroll.getCurrentSelection());
+            preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);
+        });
     }
 
     private void updateMoods(ArrayList<String> newArr) {

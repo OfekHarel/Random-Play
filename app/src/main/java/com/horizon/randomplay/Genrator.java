@@ -49,7 +49,9 @@ public class Genrator {
             } while (this.recent.isExist(this.series.getEpisodesByMoods(this.mood).get(randNum)));
 
             episode = this.series.getEpisodesByMoods(this.mood).get(randNum);
+
         }
+        this.recent.insert(episode);
         return episode;
     }
 }

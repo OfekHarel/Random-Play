@@ -11,7 +11,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomPlay">
-        <activity android:name=".Activities.ResultActivity"></activity>
+        <activity android:name=".Activities.ResultActivity" />
         <activity android:name=".Activities.RandomActivity" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>

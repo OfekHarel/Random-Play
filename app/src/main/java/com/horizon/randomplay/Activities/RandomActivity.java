@@ -17,7 +17,7 @@ public class RandomActivity extends BaseActivity {
     private RandomNumberAnimation rightNumGen;
     private RandomNumberAnimation leftNumGen;
 
-    private final int delay = 1500;
+    private final int delay = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +43,13 @@ public class RandomActivity extends BaseActivity {
             leftNumGen.stop(true);
             rightNumGen.stop(true);
         }, delay);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        this.rightNumGen.stop(true);
+        this.leftNumGen.stop(true);
+        redirectActivity(this, ResultActivity.class);
     }
 }
