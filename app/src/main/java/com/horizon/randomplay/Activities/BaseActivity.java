@@ -25,8 +25,9 @@ public class BaseActivity extends AppCompatActivity {
      */
     protected void redirectActivity(AppCompatActivity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
+        activity.finish();
     }
 
     /**

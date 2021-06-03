@@ -1,6 +1,7 @@
 package com.horizon.randomplay.Activities;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
@@ -15,8 +16,6 @@ import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
 import com.horizon.randomplay.util.Vars;
 
-import java.util.Random;
-
 public class ResultActivity extends BaseActivity {
 
     private enum LogoSeries {
@@ -25,7 +24,7 @@ public class ResultActivity extends BaseActivity {
         FRIENDS(R.id.friends_logo);
 
         private final int logoId;
-        private LogoSeries(int id) {
+        LogoSeries(int id) {
             this.logoId = id;
         }
 
@@ -43,32 +42,24 @@ public class ResultActivity extends BaseActivity {
         }
     }
 
-    private MoodsSeries series;
-    private Mood mood;
-    private Episode episode;
-    private int seasonNum;
-
-    private TextView genInfo;
-    private TextView epName;
-
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        this.series = SeriesHolder.getAllSeries().get(Vars.choice.x.getName());
-        this.mood = Vars.choice.y;
-        this.episode = Genrator.getInstance().genEpisode(this.series, this.mood);
-        this.seasonNum = this.series.getSeason(this.episode).getNumber();
+        MoodsSeries series = SeriesHolder.getAllSeries().get(Vars.choice.x.getName());
+        Mood mood = Vars.choice.y;
+        Episode episode = Genrator.getInstance().genEpisode(series, mood);
+        int seasonNum = series.getSeason(episode).getNumber();
 
         showLogo();
 
-        this.genInfo = findViewById(R.id.gen_info);
-        this.genInfo.setText("Season " + this.seasonNum + " Episode " + this.episode.getNumber());
+        TextView genInfo = findViewById(R.id.gen_info);
+        genInfo.setText(String.format("Season %d Episode %d", seasonNum, episode.getNumber()));
 
-        this.epName = findViewById(R.id.episode_name);
-        this.epName.setText(this.episode.getName());
-
+        TextView epName = findViewById(R.id.episode_name);
+        epName.setText(episode.getName());
     }
 
     private void showLogo() {
@@ -92,6 +83,7 @@ public class ResultActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         redirectActivity(this, MainActivity.class);
     }
 }

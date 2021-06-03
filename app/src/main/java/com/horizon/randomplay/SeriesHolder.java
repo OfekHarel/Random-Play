@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +26,7 @@ public class SeriesHolder {
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother");
 
         private final String name;
-        private SeriesKind(String name) {
+        SeriesKind(String name) {
             this.name = name;
         }
 
@@ -55,7 +54,7 @@ public class SeriesHolder {
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
-
+    private static boolean wasInit = false;
     public static void init(Context context) {
         try {
             for (int i = 0; i < SeriesKind.values().length; i++) {

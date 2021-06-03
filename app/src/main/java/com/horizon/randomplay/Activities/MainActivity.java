@@ -3,14 +3,9 @@ package com.horizon.randomplay.Activities;
 import android.os.Bundle;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Vars;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
@@ -22,7 +17,7 @@ public class MainActivity extends BaseActivity {
     private ScrollChoice seriesScroll;
     private ScrollChoice moodScroll;
 
-    ArrayList<String> moods;
+    private ArrayList<String> moods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +67,10 @@ public class MainActivity extends BaseActivity {
     public void clickGenerate(View view) {
         preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
         redirectActivity(this, RandomActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+        exit();
     }
 }
