@@ -6,11 +6,11 @@ import android.view.View;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
+import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Vars;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,12 +26,13 @@ public class MainActivity extends BaseActivity {
 
         SeriesHolder.init(this);
 
-        moods = Mood.getNames();
-
         this.seriesScroll = findViewById(R.id.scroll_series);
         this.moodScroll = findViewById(R.id.scroll_mood);
         this.moodScroll.animate();
 
+        moods = Mood.getNames();
+        updateMoods(Mood.getNames(SeriesHolder.getAllSeries()
+                .get(Vars.choice.x.getName()).getAvailableMoods()));
 
         this.seriesScroll.addItems(SeriesHolder.SeriesKind.getNames(), SeriesHolder.SeriesKind.getNames().indexOf(Vars.choice.x.getName()));
         this.seriesScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
@@ -39,16 +40,15 @@ public class MainActivity extends BaseActivity {
                    .SeriesKind.getByValue(seriesScroll.getCurrentSelection());
            Vars.choice.x = series;
 
-            assert series != null;
-            moods = Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                   .get(series.getName())).getAvailableMoods());
+            moods = Mood.getNames(SeriesHolder.getAllSeries()
+                   .get(series.getName()).getAvailableMoods());
            runOnUiThread(() -> updateMoods(moods));
             this.moodScroll.notifyDatasetChanged();
             preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);
         });
 
-
         this.moodScroll.addItems(moods, moods.indexOf(Vars.choice.y.getName()));
+        System.out.println(moods.indexOf(Vars.choice.y.getName()));
         this.moodScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
             Vars.choice.y = Mood.getByValue(moodScroll.getCurrentSelection());
             preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);

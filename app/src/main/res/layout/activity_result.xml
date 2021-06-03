@@ -35,10 +35,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/friends_logo"
-                android:translationY="-150dp"
+                android:translationY="-130dp"
                 android:scaleX="0.8"
                 android:scaleY="0.8"
-                android:visibility="invisible"
+                android:visibility="visible"
                 android:id="@+id/friends_logo"/>
 
             <ImageView
@@ -54,11 +54,31 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/bnn_logo"
+                android:translationY="-80dp"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:visibility="invisible"
+                android:id="@+id/bnn_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/the_office_logo"
+                android:translationY="-20dp"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:visibility="invisible"
+                android:id="@+id/the_office_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/tbbt_logo"
                 android:translationY="-222dp"
                 android:scaleX="0.4"
                 android:scaleY="0.4"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:id="@+id/tbbt_logo_logo"/>
 
             <TextView

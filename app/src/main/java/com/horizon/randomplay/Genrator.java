@@ -42,7 +42,7 @@ public class Genrator {
 
             episode = this.series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
 
-        } else {
+        } else if (this.series.getAvailableMoods().size() > 0){
             int randNum = 0;
             do {
                 randNum = this.randomGen.nextInt(this.series.getEpisodesByMoods(mood).size() - 1);

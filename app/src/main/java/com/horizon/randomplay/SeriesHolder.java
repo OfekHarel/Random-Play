@@ -23,7 +23,9 @@ public class SeriesHolder {
     public enum SeriesKind {
         FRIENDS("Friends"),
         THE_BIG_BANG_THEORY("The Big Bang Theory"),
-        HOW_I_MET_YOUR_MOTHER("How I Met Your Mother");
+        HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
+        BROOKLYN_NINE_NINE("Brooklyn Nine Nine"),
+        THE_OFFICE("The Office");
 
         private final String name;
         SeriesKind(String name) {
@@ -54,7 +56,6 @@ public class SeriesHolder {
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
-    private static boolean wasInit = false;
     public static void init(Context context) {
         try {
             for (int i = 0; i < SeriesKind.values().length; i++) {
@@ -66,7 +67,6 @@ public class SeriesHolder {
             setHowIMetYourMotherMoods();
             setTheBigBangTheoryMoods();
         } catch (IOException e) {
-            System.out.println("noooooooooooooooooooooooooooooooooooooooooooooooo");
             e.getStackTrace();
         }
     }

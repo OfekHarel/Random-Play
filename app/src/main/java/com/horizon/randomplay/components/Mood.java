@@ -14,7 +14,7 @@ public enum Mood {
     BEST("Premium Super Deluxe +");
 
     private final String name;
-    private Mood(String name) {
+    Mood(String name) {
         this.name = name;
     }
 

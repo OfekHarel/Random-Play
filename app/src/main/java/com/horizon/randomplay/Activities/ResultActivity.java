@@ -21,7 +21,9 @@ public class ResultActivity extends BaseActivity {
     private enum LogoSeries {
         THE_BIG_BANG_THEORY(R.id.tbbt_logo_logo),
         HOW_I_MET_YOUR_MOTHER(R.id.himym_logo),
-        FRIENDS(R.id.friends_logo);
+        FRIENDS(R.id.friends_logo),
+        BROOKLYN_NINE_NINE(R.id.bnn_logo),
+        THE_OFFICE(R.id.the_office_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -73,6 +75,12 @@ public class ResultActivity extends BaseActivity {
             case THE_BIG_BANG_THEORY:
                 LogoSeries.THE_BIG_BANG_THEORY.display(this);
                 break;
+            case BROOKLYN_NINE_NINE:
+                LogoSeries.BROOKLYN_NINE_NINE.display(this);
+                break;
+            case THE_OFFICE:
+                LogoSeries.THE_OFFICE.display(this);
+                break;
         }
     }
 
@@ -83,7 +91,6 @@ public class ResultActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         redirectActivity(this, MainActivity.class);
     }
 }
