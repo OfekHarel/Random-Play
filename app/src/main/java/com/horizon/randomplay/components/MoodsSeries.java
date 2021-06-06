@@ -47,7 +47,7 @@ public class MoodsSeries extends Series {
     public ArrayList<Mood> getAvailableMoods() {
         ArrayList<Mood> arrayList = new ArrayList<>();
         for (int i = 0; i < Mood.values().length; i++) {
-            if (this.episodesMoods.get(Mood.values()[i]).size() > 0) {
+            if (this.episodesMoods.get(Mood.values()[i]).size() > 1) {
                 arrayList.add(Mood.values()[i]);
             }
         }

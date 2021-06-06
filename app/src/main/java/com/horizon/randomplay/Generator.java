@@ -9,7 +9,6 @@ import com.horizon.randomplay.components.MoodsSeries;
 import com.horizon.randomplay.util.DynamicArray;
 import com.horizon.randomplay.util.Tuple;
 
-import java.util.Enumeration;
 import java.util.Random;
 
 public class Generator {
@@ -27,7 +26,8 @@ public class Generator {
     private Generator() {
         this.randomGen = new Random();
         this.recentEpisodes = new DynamicArray<>(6);
-        this.recentSeries = new DynamicArray<>((SeriesHolder.SeriesKind.values().length - 1) / 2);
+
+        this.recentSeries = new DynamicArray<>((SeriesHolder.SeriesKind.values().length - 1) / 3);
     }
 
     public Tuple<MoodsSeries, Episode> genEpisode(SeriesHolder.SeriesKind seriesKind, Mood mood) {
@@ -36,12 +36,14 @@ public class Generator {
         if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
             int seriesNum;
             do {
-                seriesNum = this.randomGen.nextInt(SeriesHolder.SeriesKind.values().length - 2) + 1;
+                seriesNum = this.randomGen.nextInt(SeriesHolder.SeriesKind.values().length - 1);
 
-            } while(this.recentSeries.isExist(SeriesHolder.SeriesKind.values()[seriesNum].getName()));
+            }  while(SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING)
+                    || this.recentSeries.isExist(SeriesHolder.SeriesKind.values()[seriesNum].getName()));
             series = SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.values()[seriesNum].getName());
+            mood = Mood.ANYTHING;
+            }
             this.recentSeries.insert(series.getName());
-        }
 
         Episode episode = null;
         if (mood.equals(Mood.ANYTHING)) {
@@ -55,7 +57,7 @@ public class Generator {
 
             episode = series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
 
-        } else if (series.getAvailableMoods().size() > 0) {
+        } else if (series.getAvailableMoods().size() > 1) {
             int randNum;
             do {
                 randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size() - 1);

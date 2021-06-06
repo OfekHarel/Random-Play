@@ -68,9 +68,6 @@ public class SeriesHolder {
 
             allSeries.put(SeriesKind.ANYTHING.getName(),
                     new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
-            for (Mood mood: Mood.values()) {
-                allSeries.get(SeriesKind.ANYTHING.getName()).addMood(mood);
-            }
 
             setFriendsMoods();
             setHowIMetYourMotherMoods();
@@ -163,5 +160,16 @@ public class SeriesHolder {
 
     public static Map<String, MoodsSeries> getAllSeries() {
         return allSeries;
+    }
+
+    public static ArrayList<MoodsSeries> getSeriesBasedOnMood(Mood mood) {
+        ArrayList<MoodsSeries> arrayList = new ArrayList<>();
+
+        for (SeriesKind sk: SeriesKind.values()) {
+            if (allSeries.get(sk.getName()).getAvailableMoods().contains(mood)) {
+                arrayList.add(allSeries.get(sk.getName()));
+            }
+        }
+        return arrayList;
     }
 }
