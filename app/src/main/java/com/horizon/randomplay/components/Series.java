@@ -1,13 +1,11 @@
 package com.horizon.randomplay.components;
 
-import com.horizon.randomplay.util.Tuple;
-
 import java.util.ArrayList;
 
 public class Series {
 
     private final String name;
-    private ArrayList<Season> seasons;
+    private final ArrayList<Season> seasons;
 
     public Series(String name, ArrayList<Season> seasons) {
         this.name = name;

@@ -21,6 +21,7 @@ import java.util.Map;
 public class SeriesHolder {
 
     public enum SeriesKind {
+        ANYTHING("IDK Bro"),
         FRIENDS("Friends"),
         THE_BIG_BANG_THEORY("The Big Bang Theory"),
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
@@ -36,10 +37,10 @@ public class SeriesHolder {
             return name;
         }
 
-        public static ArrayList<String> getNames() {
-            ArrayList<String> names = new ArrayList<>();
+        public static String[] getNames() {
+            String[] names = new String[SeriesKind.values().length];
             for (int i = 0; i < SeriesKind.values().length; i++) {
-                names.add(SeriesKind.values()[i].getName());
+                names[i] = SeriesKind.values()[i].getName();
             }
             return names;
         }
@@ -59,8 +60,16 @@ public class SeriesHolder {
     public static void init(Context context) {
         try {
             for (int i = 0; i < SeriesKind.values().length; i++) {
-                allSeries.put(SeriesKind.getNames().get(i),
-                        new MoodsSeries(getSeriesFromRaw(SeriesKind.values()[i].getName(), context)));
+                if (!SeriesKind.values()[i].equals(SeriesKind.ANYTHING)) {
+                    allSeries.put(SeriesKind.getNames()[i],
+                            new MoodsSeries(getSeriesFromRaw(SeriesKind.values()[i].getName(), context)));
+                }
+            }
+
+            allSeries.put(SeriesKind.ANYTHING.getName(),
+                    new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
+            for (Mood mood: Mood.values()) {
+                allSeries.get(SeriesKind.ANYTHING.getName()).addMood(mood);
             }
 
             setFriendsMoods();
@@ -89,7 +98,7 @@ public class SeriesHolder {
                 continue;
             }
 
-            if (data.contains("Season")) {
+            if (data.contains("Season ")) {
                 if (episodeIndex > 0) {
                     series.addSeason(season);
                     seasonIndex++;

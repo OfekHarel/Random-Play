@@ -32,6 +32,10 @@ public class MoodsSeries extends Series {
         this.episodesMoods.get(mood).addAll(es);
     }
 
+    public void addMood(Mood mood) {
+        this.episodesMoods.get(mood).add(new Episode(0, "0"));
+    }
+
     private Episode fromSetToEpisode(Tuple<Integer, Integer> tuple) {
         return this.getSeasons().get(tuple.x - 1).getEpisodes().get(tuple.y - 1);
     }

@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.horizon.randomplay.Genrator;
+import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.components.Series;
+import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 public class ResultActivity extends BaseActivity {
@@ -50,12 +52,15 @@ public class ResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        MoodsSeries series = SeriesHolder.getAllSeries().get(Vars.choice.x.getName());
+        SeriesHolder.init(this);
+
         Mood mood = Vars.choice.y;
-        Episode episode = Genrator.getInstance().genEpisode(series, mood);
+        Tuple<MoodsSeries, Episode> gen = Generator.getInstance().genEpisode(Vars.choice.x, mood);
+        MoodsSeries series = gen.x;
+        Episode episode = gen.y;
         int seasonNum = series.getSeason(episode).getNumber();
 
-        showLogo();
+        showLogo(SeriesHolder.SeriesKind.getByValue(series.getName()));
 
         TextView genInfo = findViewById(R.id.gen_info);
         genInfo.setText(String.format("Season %d Episode %d", seasonNum, episode.getNumber()));
@@ -64,8 +69,8 @@ public class ResultActivity extends BaseActivity {
         epName.setText(episode.getName());
     }
 
-    private void showLogo() {
-        switch (Vars.choice.x) {
+    private void showLogo(SeriesHolder.SeriesKind dispKind) {
+        switch (dispKind) {
             case FRIENDS:
                 LogoSeries.FRIENDS.display(this);
                 break;

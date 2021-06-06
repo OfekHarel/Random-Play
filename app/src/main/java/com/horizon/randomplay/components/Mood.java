@@ -18,18 +18,18 @@ public enum Mood {
         this.name = name;
     }
 
-    public static ArrayList<String> getNames() {
-        ArrayList<String> arrayList = new ArrayList<>();
+    public static String[] getNames() {
+        String[] arrayList = new String[Mood.values().length];
         for (int i = 0; i < Mood.values().length; i++) {
-            arrayList.add(Mood.values()[i].getName());
+            arrayList[i] = Mood.values()[i].getName();
         }
         return arrayList;
     }
 
-    public static ArrayList<String> getNames(ArrayList<Mood> moods) {
-        ArrayList<String> arrayList = new ArrayList<>();
+    public static String[] getNames(ArrayList<Mood> moods) {
+        String[] arrayList = new String[moods.size()];
         for (int i = 0; i < moods.size(); i++) {
-            arrayList.add(moods.get(i).getName());
+            arrayList[i] = moods.get(i).getName();
         }
         return arrayList;
     }

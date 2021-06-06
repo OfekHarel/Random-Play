@@ -1,23 +1,26 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
+
+import androidx.viewpager.widget.ViewPager;
+
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Vars;
-import com.webianks.library.scroll_choice.ScrollChoice;
-
-import java.util.ArrayList;
+import com.shawnlin.numberpicker.NumberPicker;
 
 public class MainActivity extends BaseActivity {
 
-    private ScrollChoice seriesScroll;
-    private ScrollChoice moodScroll;
+    private NumberPicker seriesScroll;
+    private NumberPicker moodScroll;
 
-    private ArrayList<String> moods;
+    private String[] series;
+    private String[] moods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,42 +29,73 @@ public class MainActivity extends BaseActivity {
 
         SeriesHolder.init(this);
 
-        this.seriesScroll = findViewById(R.id.scroll_series);
+        this.seriesScroll = findViewById(R.id.series_scroll);
         this.moodScroll = findViewById(R.id.scroll_mood);
-        this.moodScroll.animate();
 
         moods = Mood.getNames();
-        updateMoods(Mood.getNames(SeriesHolder.getAllSeries()
-                .get(Vars.choice.x.getName()).getAvailableMoods()));
 
-        this.seriesScroll.addItems(SeriesHolder.SeriesKind.getNames(), SeriesHolder.SeriesKind.getNames().indexOf(Vars.choice.x.getName()));
-        this.seriesScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
-           SeriesHolder.SeriesKind series = SeriesHolder
-                   .SeriesKind.getByValue(seriesScroll.getCurrentSelection());
-           Vars.choice.x = series;
+        initPicker(SeriesHolder.SeriesKind.getNames(), this.seriesScroll);
+        initPicker(moods, this.moodScroll);
 
-            moods = Mood.getNames(SeriesHolder.getAllSeries()
-                   .get(series.getName()).getAvailableMoods());
-           runOnUiThread(() -> updateMoods(moods));
-            this.moodScroll.notifyDatasetChanged();
-            preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);
+        this.seriesScroll.setOnValueChangedListener((picker, oldVal, newVal) -> {
+                SeriesHolder.SeriesKind series = SeriesHolder
+                    .SeriesKind.values()[picker.getValue() - 1];
+                Vars.choice.x = series;
+
+                moods = updateMoodsArr(Mood.getNames(SeriesHolder.getAllSeries()
+                    .get(series.getName()).getAvailableMoods()));
+                initPicker(moods, moodScroll);
+            });
+
+        this.seriesScroll.setOnScrollListener((picker, scrollState) -> {
+            if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
+                preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
+            }
         });
 
-        this.moodScroll.addItems(moods, moods.indexOf(Vars.choice.y.getName()));
-        System.out.println(moods.indexOf(Vars.choice.y.getName()));
-        this.moodScroll.setOnItemSelectedListener((scrollChoice, position, name) -> {
-            Vars.choice.y = Mood.getByValue(moodScroll.getCurrentSelection());
-            preformVibration(seriesScroll, HapticFeedbackConstants.CLOCK_TICK);
+        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> Vars.choice.y = Mood.getByValue(moods[newVal - 1]));
+        this.moodScroll.setOnScrollListener((picker, scrollState) -> {
+            if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
+                preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
+            }
         });
+
+        restoreLatestPick();
     }
 
-    private void updateMoods(ArrayList<String> newArr) {
-        ArrayList<String> temp = new ArrayList<>();
-        temp.add(Mood.ANYTHING.getName());
-        temp.addAll(newArr);
-        moods = temp;
-        moodScroll.addItems(moods, 0);
-        moodScroll.animate();
+    private void initPicker(String[] arr, NumberPicker picker) {
+        picker.setDisplayedValues(null);
+        picker.setMinValue(1);
+        picker.setMaxValue(arr.length);
+        picker.setDisplayedValues(arr);
+        picker.setValue(1);
+    }
+
+    private String[] updateMoodsArr(String[] newMoods) {
+        String[] arr = new String[newMoods.length + 1];
+        arr[0] = Mood.ANYTHING.getName();
+        System.arraycopy(newMoods, 0, arr, 1, arr.length - 1);
+        return arr;
+    }
+
+    private void restoreLatestPick() {
+        // series
+        for (int i = 0; i < SeriesHolder.SeriesKind.getNames().length; i ++) {
+            if (SeriesHolder.SeriesKind.getNames()[i].equals(Vars.choice.x.getName())) {
+                this.seriesScroll.setValue(i + 1);
+            }
+        }
+
+        // mood
+        moods = updateMoodsArr(Mood.getNames(SeriesHolder.getAllSeries()
+                .get(Vars.choice.x.getName()).getAvailableMoods()));
+        initPicker(moods, moodScroll);
+        for (int i = 0; i < moods.length; i ++) {
+            if (moods[i].equals(Vars.choice.y.getName())) {
+                this.moodScroll.setValue(i + 1);
+            }
+        }
+
     }
 
     public void clickGenerate(View view) {
@@ -72,5 +106,11 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         exit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        restoreLatestPick();
     }
 }
