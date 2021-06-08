@@ -1,6 +1,5 @@
 package com.horizon.randomplay.Activities;
 
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.HapticFeedbackConstants;
@@ -14,7 +13,6 @@ import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
-import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 

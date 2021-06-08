@@ -1,9 +1,6 @@
 package com.horizon.randomplay.components;
 
-import com.horizon.randomplay.SeriesHolder;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public enum Mood {
     ANYTHING("Literally Anything"),

@@ -1,8 +1,5 @@
 package com.horizon.randomplay;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.horizon.randomplay.components.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
@@ -18,60 +15,66 @@ public class Generator {
     private final DynamicArray<String> recentSeries;
     private final Random randomGen;
 
-
     public static Generator getInstance() {
         return instance == null ? instance = new Generator() : instance;
     }
 
     private Generator() {
         this.randomGen = new Random();
-        this.recentEpisodes = new DynamicArray<>(6);
-
+        this.recentEpisodes = new DynamicArray<>(5);
         this.recentSeries = new DynamicArray<>((SeriesHolder.SeriesKind.values().length - 1) / 3);
+    }
+
+    private MoodsSeries genRandSeries() {
+        int seriesNum;
+        do {
+            seriesNum = this.randomGen.nextInt(SeriesHolder.SeriesKind.values().length - 1);
+
+        } while (SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING)
+                || this.recentSeries.isExist(SeriesHolder.SeriesKind.values()[seriesNum].getName()));
+        return SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.values()[seriesNum].getName());
+    }
+
+    private MoodsSeries genRandSeries(Mood mood) {
+        int seriesNum;
+        do {
+            seriesNum = this.randomGen.nextInt(SeriesHolder.getSeriesBasedOnMood(mood).size() - 1);
+
+        } while (SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING));
+        return SeriesHolder.getAllSeries().get(SeriesHolder.getSeriesBasedOnMood(mood).get(seriesNum).getName());
+    }
+
+    private Episode genRandEpisode(MoodsSeries series) {
+        int seasonNum;
+        int episodeNum;
+        do {
+            seasonNum = this.randomGen.nextInt(series.getSeasons().size() - 1);
+            episodeNum = this.randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
+
+        } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum)));
+
+        return series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
+    }
+
+    private Episode genRandEpisode(MoodsSeries series, Mood mood) {
+        int randNum;
+        do {
+            randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size() - 1);
+        } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum)));
+
+        return series.getEpisodesByMoods(mood).get(randNum);
     }
 
     public Tuple<MoodsSeries, Episode> genEpisode(SeriesHolder.SeriesKind seriesKind, Mood mood) {
         MoodsSeries series = SeriesHolder.getAllSeries().get(seriesKind.getName());
-        Episode episode = null;
-        switch (seriesKind) {
-            case ANYTHING:
-                int seriesNum;
-                do {
-                    seriesNum = this.randomGen.nextInt(SeriesHolder.SeriesKind.values().length - 1);
-
-                } while (SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING)
-                        || this.recentSeries.isExist(SeriesHolder.SeriesKind.values()[seriesNum].getName()));
-                series = SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.values()[seriesNum].getName());
-                mood = Mood.ANYTHING;
-
-                this.recentSeries.insert(series.getName());
-
-            default:
-                switch (mood) {
-                    case ANYTHING:
-                        int seasonNum;
-                        int episodeNum;
-                        do {
-                            seasonNum = this.randomGen.nextInt(series.getSeasons().size() - 1);
-                            episodeNum = this.randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
-
-                        } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum)));
-
-                        episode = series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
-                        break;
-                    default:
-                        if (series.getAvailableMoods().size() > 1) {
-                            int randNum;
-                            do {
-                                randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size() - 1);
-                            } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum)));
-
-                            episode = series.getEpisodesByMoods(mood).get(randNum);
-                        }
-                        this.recentEpisodes.insert(episode);
-                        break;
-                }
+        Episode episode;
+        if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
+            series = mood.equals(Mood.ANYTHING)? genRandSeries(): genRandSeries(mood);
+            this.recentSeries.insert(series.getName());
         }
+
+        episode = mood.equals(Mood.ANYTHING)? genRandEpisode(series): genRandEpisode(series, mood);
+        this.recentEpisodes.insert(episode);
         return new Tuple<>(series, episode);
     }
 }

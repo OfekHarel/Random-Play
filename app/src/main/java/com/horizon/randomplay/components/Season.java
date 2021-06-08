@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Season {
     
     private final int number;
-    private ArrayList<Episode> episodes;
+    private final ArrayList<Episode> episodes;
 
     public Season(int number, ArrayList<Episode> episodes) {
         this.number = number;

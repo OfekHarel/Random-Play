@@ -116,9 +116,12 @@ public class SeriesHolder {
     private static void initAllSeries() {
         allSeries.put(SeriesKind.ANYTHING.getName(),
                 new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
+        allSeries.get(SeriesKind.ANYTHING.getName()).addMood(Mood.CRY);
+        allSeries.get(SeriesKind.ANYTHING.getName()).addMood(Mood.HAPPY);
+
         for (Mood mood: Mood.values()) {
             allSeries.get(SeriesKind.ANYTHING.getName()).addMood(mood);
- f       }
+       }
     }
 
     @SuppressWarnings("unchecked")

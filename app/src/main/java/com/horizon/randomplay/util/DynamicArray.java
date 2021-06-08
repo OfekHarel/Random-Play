@@ -3,7 +3,7 @@ package com.horizon.randomplay.util;
 import java.util.ArrayList;
 
 public class DynamicArray<T> {
-    private ArrayList<T> arr;
+    private final ArrayList<T> arr;
     private final int SIZE;
 
     public DynamicArray(int size) {

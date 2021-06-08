@@ -1,16 +1,12 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
-
-import androidx.viewpager.widget.ViewPager;
 
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.Vars;
 import com.shawnlin.numberpicker.NumberPicker;
 
@@ -19,7 +15,6 @@ public class MainActivity extends BaseActivity {
     private NumberPicker seriesScroll;
     private NumberPicker moodScroll;
 
-    private String[] series;
     private String[] moods;
 
     @Override
@@ -59,7 +54,6 @@ public class MainActivity extends BaseActivity {
                 preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
             }
         });
-
         restoreLatestPick();
     }
 
