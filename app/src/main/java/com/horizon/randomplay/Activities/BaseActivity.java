@@ -8,8 +8,6 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.horizon.randomplay.R;
-
 public class BaseActivity extends AppCompatActivity {
 
     @Override
