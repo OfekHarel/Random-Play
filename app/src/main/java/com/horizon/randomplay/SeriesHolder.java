@@ -66,8 +66,7 @@ public class SeriesHolder {
                 }
             }
 
-            allSeries.put(SeriesKind.ANYTHING.getName(),
-                    new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
+            initAllSeries();
 
             setFriendsMoods();
             setHowIMetYourMotherMoods();
@@ -112,6 +111,14 @@ public class SeriesHolder {
 
         reader.close();
         return series;
+    }
+
+    private static void initAllSeries() {
+        allSeries.put(SeriesKind.ANYTHING.getName(),
+                new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
+        for (Mood mood: Mood.values()) {
+            allSeries.get(SeriesKind.ANYTHING.getName()).addMood(mood);
+ f       }
     }
 
     @SuppressWarnings("unchecked")
