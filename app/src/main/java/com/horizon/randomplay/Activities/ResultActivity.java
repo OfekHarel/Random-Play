@@ -23,7 +23,8 @@ public class ResultActivity extends BaseActivity {
         HOW_I_MET_YOUR_MOTHER(R.id.himym_logo),
         FRIENDS(R.id.friends_logo),
         BROOKLYN_NINE_NINE(R.id.bnn_logo),
-        THE_OFFICE(R.id.the_office_logo);
+        THE_OFFICE(R.id.the_office_logo),
+        RICK_AND_MORTY(R.id.rick_and_morty_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -83,6 +84,9 @@ public class ResultActivity extends BaseActivity {
                 break;
             case THE_OFFICE:
                 LogoSeries.THE_OFFICE.display(this);
+                break;
+            case RICK_AND_MORTY:
+                LogoSeries.RICK_AND_MORTY.display(this);
                 break;
         }
     }

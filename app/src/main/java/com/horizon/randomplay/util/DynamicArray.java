@@ -19,6 +19,11 @@ public class DynamicArray<T> {
     }
 
     public boolean isExist(T e) {
-        return arr.contains(e);
+        for (T t: arr) {
+            if (t.equals(e)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -11,7 +11,7 @@ import java.util.Random;
 public class Generator {
     private static Generator instance = null;
 
-    private final DynamicArray<Episode> recentEpisodes;
+    private final DynamicArray<String> recentEpisodes;
     private final DynamicArray<String> recentSeries;
     private final Random randomGen;
 
@@ -51,7 +51,7 @@ public class Generator {
             seasonNum = this.randomGen.nextInt(series.getSeasons().size() - 1);
             episodeNum = this.randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
 
-        } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum)));
+        } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
 
         return series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
     }
@@ -60,7 +60,7 @@ public class Generator {
         int randNum;
         do {
             randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size() - 1);
-        } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum)));
+        } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum).getName()));
 
         return series.getEpisodesByMoods(mood).get(randNum);
     }
@@ -74,7 +74,7 @@ public class Generator {
         }
 
         episode = mood.equals(Mood.ANYTHING)? genRandEpisode(series): genRandEpisode(series, mood);
-        this.recentEpisodes.insert(episode);
+        this.recentEpisodes.insert(episode.getName());
         return new Tuple<>(series, episode);
     }
 }

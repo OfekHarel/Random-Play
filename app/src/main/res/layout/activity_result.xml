@@ -38,7 +38,7 @@
                 android:translationY="-130dp"
                 android:scaleX="0.8"
                 android:scaleY="0.8"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:id="@+id/friends_logo"/>
 
             <ImageView
@@ -64,11 +64,20 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/the_office_logo"
-                android:translationY="-20dp"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
+                android:src="@drawable/rick_and_morty__logo"
+                android:translationY="-10dp"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
                 android:visibility="invisible"
+                android:id="@+id/rick_and_morty_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/the_office_logo"
+                android:scaleX="0.6"
+                android:scaleY="0.6"
+                android:visibility="visible"
                 android:id="@+id/the_office_logo"/>
 
             <ImageView

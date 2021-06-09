@@ -26,7 +26,8 @@ public class SeriesHolder {
         THE_BIG_BANG_THEORY("The Big Bang Theory"),
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
         BROOKLYN_NINE_NINE("Brooklyn Nine Nine"),
-        THE_OFFICE("The Office");
+        THE_OFFICE("The Office"),
+        RICK_AND_MORTY("Rick And Morty");
 
         private final String name;
         SeriesKind(String name) {
@@ -71,6 +72,9 @@ public class SeriesHolder {
             setFriendsMoods();
             setHowIMetYourMotherMoods();
             setTheBigBangTheoryMoods();
+            setBrooklyn99();
+            setTheOffice();
+            setRickAndMorty();
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -166,6 +170,47 @@ public class SeriesHolder {
         allSeries.get(SeriesKind.THE_BIG_BANG_THEORY.getName()).setMood(Mood.BEST, new Tuple<>(12, 24), new Tuple<>(11, 24), new Tuple<>(10, 24),
                 new Tuple<>(9, 11), new Tuple<>(8, 15), new Tuple<>(7, 9), new Tuple<>(6, 13), new Tuple<>(5, 24),
                 new Tuple<>(4, 1), new Tuple<>(3, 23), new Tuple<>(2, 11), new Tuple<>(1, 17));
+
+        allSeries.get(SeriesKind.THE_BIG_BANG_THEORY.getName()).setMood(Mood.CRY, new Tuple<>(6, 19), new Tuple<>(8, 18), new Tuple<>(8, 24),
+                new Tuple<>(3, 19), new Tuple<>(12, 24), new Tuple<>(7, 22), new Tuple<>(9, 9), new Tuple<>(7, 24),
+                new Tuple<>(12, 9), new Tuple<>(7, 12));
+
+        allSeries.get(SeriesKind.THE_BIG_BANG_THEORY.getName()).setMood(Mood.LAUGH, new Tuple<>(3, 22), new Tuple<>(5, 10), new Tuple<>(4, 24),
+                new Tuple<>(4, 21), new Tuple<>(4, 18), new Tuple<>(3, 23), new Tuple<>(3, 8), new Tuple<>(2, 11),
+                new Tuple<>(3, 11), new Tuple<>(4, 10));
+
+        allSeries.get(SeriesKind.THE_BIG_BANG_THEORY.getName()).setMood(Mood.SMART, new Tuple<>(1, 4), new Tuple<>(1, 6), new Tuple<>(1, 17),
+                new Tuple<>(2, 18), new Tuple<>(3, 10), new Tuple<>(2, 23), new Tuple<>(11, 24), new Tuple<>(11, 9),
+                new Tuple<>(10, 2), new Tuple<>(9, 16), new Tuple<>(8, 14), new Tuple<>(5, 24), new Tuple<>(4, 12), new Tuple<>(4, 2),
+                new Tuple<>(3, 22), new Tuple<>(3, 14));
+    }
+
+    private static void setBrooklyn99() {
+        allSeries.get(SeriesKind.BROOKLYN_NINE_NINE.getName()).setMood(Mood.LAUGH, new Tuple<>(1, 16), new Tuple<>(2, 12), new Tuple<>(3, 10),
+                new Tuple<>(4, 5), new Tuple<>(5, 19));
+
+        allSeries.get(SeriesKind.BROOKLYN_NINE_NINE.getName()).setMood(Mood.HAPPY, new Tuple<>(1, 13), new Tuple<>(2, 3), new Tuple<>(3, 4),
+                new Tuple<>(3, 13), new Tuple<>(4, 17));
+
+        allSeries.get(SeriesKind.BROOKLYN_NINE_NINE.getName()).setMood(Mood.BEST, new Tuple<>(1, 10), new Tuple<>(1, 13), new Tuple<>(2, 3),
+                new Tuple<>(2, 12), new Tuple<>(3, 5), new Tuple<>(3, 10), new Tuple<>(4, 1), new Tuple<>(4, 2),
+                new Tuple<>(4, 3), new Tuple<>(5, 4), new Tuple<>(5, 9), new Tuple<>(5, 10));
+    }
+
+    private static void setTheOffice() {
+        allSeries.get(SeriesKind.THE_OFFICE.getName()).setMood(Mood.LAUGH, new Tuple<>(4, 13), new Tuple<>(5, 14), new Tuple<>(5, 15),
+                new Tuple<>(3, 20), new Tuple<>(4, 7), new Tuple<>(4, 8));
+
+        allSeries.get(SeriesKind.THE_OFFICE.getName()).setMood(Mood.CRY, new Tuple<>(7, 22), new Tuple<>(2, 22), new Tuple<>(9, 22),
+                new Tuple<>(3, 17));
+
+        allSeries.get(SeriesKind.THE_OFFICE.getName()).setMood(Mood.HAPPY, new Tuple<>(9, 24), new Tuple<>(5, 1), new Tuple<>(5, 2),
+                new Tuple<>(7, 19), new Tuple<>(6, 4), new Tuple<>(6, 5), new Tuple<>(3, 23));
+    }
+
+    private static void setRickAndMorty() {
+        allSeries.get(SeriesKind.RICK_AND_MORTY.getName()).setMood(Mood.SMART, new Tuple<>(1, 5), new Tuple<>(1, 2), new Tuple<>(2, 10),
+                new Tuple<>(2, 6), new Tuple<>(2, 4), new Tuple<>(3, 1), new Tuple<>(3, 6), new Tuple<>(3, 7));
     }
 
     public static Map<String, MoodsSeries> getAllSeries() {

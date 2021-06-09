@@ -8,7 +8,8 @@ public enum Mood {
     LAUGH("To Laugh"),
     HAPPY("When Your Happy"),
     ROMANTIC("Romantic Vibes"),
-    BEST("Premium Super Deluxe +");
+    BEST("Premium Super Deluxe +"),
+    SMART("High IQ WARNING!");
 
     private final String name;
     Mood(String name) {
