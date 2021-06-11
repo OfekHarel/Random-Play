@@ -62,6 +62,7 @@ public class MainActivity extends BaseActivity {
         picker.setMinValue(1);
         picker.setMaxValue(arr.length);
         picker.setDisplayedValues(arr);
+        picker.setWrapSelectorWheel(true);
         picker.setValue(1);
     }
 

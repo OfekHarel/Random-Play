@@ -20,11 +20,11 @@ public class RandomActivity extends BaseActivity {
 
         TextView rightNum = findViewById(R.id.right_gen_num);
         this.rightNumGen = new RandomNumberAnimation(rightNum);
-        this.rightNumGen.setFPS(15);
+        this.rightNumGen.setFPS(20);
 
         TextView leftNum = findViewById(R.id.left_gen_num);
         this.leftNumGen = new RandomNumberAnimation(leftNum);
-        this.leftNumGen.setFPS(15);
+        this.leftNumGen.setFPS(20);
 
         Handler handler = new Handler();
         int delay = 1000;
@@ -46,5 +46,10 @@ public class RandomActivity extends BaseActivity {
         this.rightNumGen.stop(true);
         this.leftNumGen.stop(true);
         redirectActivity(this, ResultActivity.class);
+    }
+
+    @Override
+    public void onBackPressed() {
+        redirectActivity(this, MainActivity.class);
     }
 }

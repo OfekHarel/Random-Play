@@ -27,7 +27,8 @@ public class SeriesHolder {
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
         BROOKLYN_NINE_NINE("Brooklyn Nine Nine"),
         THE_OFFICE("The Office"),
-        RICK_AND_MORTY("Rick And Morty");
+        RICK_AND_MORTY("Rick And Morty"),
+        MODERN_FAMILY("Modern Family");
 
         private final String name;
         SeriesKind(String name) {
@@ -75,6 +76,7 @@ public class SeriesHolder {
             setBrooklyn99();
             setTheOffice();
             setRickAndMorty();
+            setModernFamily();
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -211,6 +213,13 @@ public class SeriesHolder {
     private static void setRickAndMorty() {
         allSeries.get(SeriesKind.RICK_AND_MORTY.getName()).setMood(Mood.SMART, new Tuple<>(1, 5), new Tuple<>(1, 2), new Tuple<>(2, 10),
                 new Tuple<>(2, 6), new Tuple<>(2, 4), new Tuple<>(3, 1), new Tuple<>(3, 6), new Tuple<>(3, 7));
+    }
+
+    private static void setModernFamily() {
+        allSeries.get(SeriesKind.MODERN_FAMILY.getName()).setMood(Mood.LAUGH, new Tuple<>(5, 18), new Tuple<>(2, 13), new Tuple<>(4, 13),
+                new Tuple<>(6, 24), new Tuple<>(1, 15), new Tuple<>(2, 16), new Tuple<>(2, 2), new Tuple<>(3, 24),
+                new Tuple<>(3, 16), new Tuple<>(3, 7), new Tuple<>(4, 6), new Tuple<>(4, 12), new Tuple<>(4, 2),
+                new Tuple<>(5, 24), new Tuple<>(6, 16), new Tuple<>(4, 2));
     }
 
     public static Map<String, MoodsSeries> getAllSeries() {

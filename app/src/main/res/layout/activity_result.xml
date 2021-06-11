@@ -74,10 +74,19 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src="@drawable/modern_family_logo"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:visibility="invisible"
+                android:id="@+id/modern_family_logo"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:src="@drawable/the_office_logo"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
-                android:visibility="visible"
+                android:visibility="invisible"
                 android:id="@+id/the_office_logo"/>
 
             <ImageView

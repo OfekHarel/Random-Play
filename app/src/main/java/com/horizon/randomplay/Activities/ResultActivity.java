@@ -1,11 +1,17 @@
 package com.horizon.randomplay.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
@@ -16,6 +22,8 @@ import com.horizon.randomplay.components.MoodsSeries;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
+import java.util.Objects;
+
 public class ResultActivity extends BaseActivity {
 
     private enum LogoSeries {
@@ -24,7 +32,8 @@ public class ResultActivity extends BaseActivity {
         FRIENDS(R.id.friends_logo),
         BROOKLYN_NINE_NINE(R.id.bnn_logo),
         THE_OFFICE(R.id.the_office_logo),
-        RICK_AND_MORTY(R.id.rick_and_morty_logo);
+        RICK_AND_MORTY(R.id.rick_and_morty_logo),
+        MODERN_FAMILY(R.id.modern_family_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -37,7 +46,6 @@ public class ResultActivity extends BaseActivity {
             }
             ImageView imageView = activity.findViewById(this.logoId);
             imageView.setVisibility(View.VISIBLE);
-
         }
 
         public int getLogoId() {
@@ -45,6 +53,7 @@ public class ResultActivity extends BaseActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +68,16 @@ public class ResultActivity extends BaseActivity {
         Episode episode = gen.y;
         int seasonNum = series.getSeason(episode).getNumber();
 
-        showLogo(SeriesHolder.SeriesKind.getByValue(series.getName()));
+        showLogo(Objects.requireNonNull(SeriesHolder.SeriesKind.getByValue(series.getName())));
 
         TextView genInfo = findViewById(R.id.gen_info);
         genInfo.setText(String.format("Season %d Episode %d", seasonNum, episode.getNumber()));
 
         TextView epName = findViewById(R.id.episode_name);
         epName.setText(episode.getName());
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(VibrationEffect.createOneShot(7, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
     private void showLogo(SeriesHolder.SeriesKind dispKind) {
@@ -87,6 +99,9 @@ public class ResultActivity extends BaseActivity {
                 break;
             case RICK_AND_MORTY:
                 LogoSeries.RICK_AND_MORTY.display(this);
+                break;
+            case MODERN_FAMILY:
+                LogoSeries.MODERN_FAMILY.display(this);
                 break;
         }
     }

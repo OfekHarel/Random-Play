@@ -13,6 +13,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     /**
@@ -48,4 +49,11 @@ public class BaseActivity extends AppCompatActivity {
         view.performHapticFeedback(type);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isFinishing()) {
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        }
+    }
 }
