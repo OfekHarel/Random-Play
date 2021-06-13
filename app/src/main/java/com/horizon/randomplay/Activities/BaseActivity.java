@@ -1,8 +1,11 @@
 package com.horizon.randomplay.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -47,6 +50,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void preformVibration(View view, int type) {
         view.setHapticFeedbackEnabled(true);
         view.performHapticFeedback(type);
+    }
+
+    protected void preformVibration(int milli, int kind) {
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(VibrationEffect.createOneShot(milli, kind));
     }
 
     @Override

@@ -1,11 +1,9 @@
 package com.horizon.randomplay.Activities;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ImageView;
@@ -76,8 +74,7 @@ public class ResultActivity extends BaseActivity {
         TextView epName = findViewById(R.id.episode_name);
         epName.setText(episode.getName());
 
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(VibrationEffect.createOneShot(7, VibrationEffect.DEFAULT_AMPLITUDE));
+        preformVibration(7, VibrationEffect.DEFAULT_AMPLITUDE);
     }
 
     private void showLogo(SeriesHolder.SeriesKind dispKind) {
