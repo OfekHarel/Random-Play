@@ -1,118 +1,90 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.view.HapticFeedbackConstants;
-import android.view.View;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.util.Vars;
-import com.shawnlin.numberpicker.NumberPicker;
+import com.horizon.randomplay.util.FragmentAdapter;
+import com.horizon.randomplay.util.SharedData;
 
-import java.util.Objects;
 
 public class MainActivity extends BaseActivity {
 
-    private NumberPicker seriesScroll;
-    private NumberPicker moodScroll;
-
-    private String[] moods;
+    private TabLayout tabLayout;
+    private ViewPager2 pager2;
+    private FragmentAdapter fragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedData.getInstance(this);
         SeriesHolder.init(this);
 
-        this.seriesScroll = findViewById(R.id.series_scroll);
-        this.moodScroll = findViewById(R.id.scroll_mood);
+        MainActivity cont = this;
 
-        moods = Mood.getNames();
+        this.tabLayout = findViewById(R.id.tab_layout);
+        this.pager2 = findViewById(R.id.view_pager);
 
-        initPicker(SeriesHolder.SeriesKind.getNames(), this.seriesScroll);
-        initPicker(moods, this.moodScroll);
+        FragmentManager fm = getSupportFragmentManager();
+        this.fragmentAdapter = new FragmentAdapter(fm, getLifecycle());
+        this.pager2.setAdapter(this.fragmentAdapter);
 
-        this.seriesScroll.setOnValueChangedListener((picker, oldVal, newVal) -> {
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.HISTORY.getTabNum())));
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.HOME.getTabNum())));
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.PREFF.getTabNum())));
+        this.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        this.pager2.setCurrentItem(FragmentAdapter.Tabs.HOME.getTabNum());
+        this.tabLayout.getTabAt(FragmentAdapter.Tabs.HOME.getTabNum()).select();
 
-            SeriesHolder.SeriesKind series = SeriesHolder
-                .SeriesKind.values()[picker.getValue() - 1];
-            Vars.choice.x = series;
+        this.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (SharedData.getInstance().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.PREFF.getTabNum())) {
+                    pager2.setCurrentItem(FragmentAdapter.Tabs.PREFF.getTabNum());
+                    tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.PREFF.getTabNum()));
+                    setPopWin(cont, "Note", "You must choose at list one series!", "Okay", (dialog, which) ->{
+                    }).show();
+                } else {
+                    pager2.setCurrentItem(tab.getPosition());
+                }
+            }
 
-            moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                    .get(series.getName())).getAvailableMoods()));
-            initPicker(moods, moodScroll);
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
 
-            });
+            }
 
-        this.seriesScroll.setOnScrollListener((picker, scrollState) -> {
-            preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
-            if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
-                preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
             }
         });
 
-        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> Vars.choice.y = Mood.getByValue(moods[newVal - 1]));
-        this.moodScroll.setOnScrollListener((picker, scrollState) -> {
-            preformVibration(2, VibrationEffect.DEFAULT_AMPLITUDE);
-            if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
-                preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
+        this.pager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-        restoreLatestPick();
-    }
-
-    private void initPicker(String[] arr, NumberPicker picker) {
-        picker.setDisplayedValues(null);
-        picker.setMinValue(1);
-        picker.setMaxValue(arr.length);
-        picker.setDisplayedValues(arr);
-        picker.setWrapSelectorWheel(true);
-        picker.setValue(1);
-    }
-
-    private String[] updateMoodsArr(String[] newMoods) {
-        String[] arr = new String[newMoods.length + 1];
-        arr[0] = Mood.ANYTHING.getName();
-        System.arraycopy(newMoods, 0, arr, 1, arr.length - 1);
-        return arr;
-    }
-
-    private void restoreLatestPick() {
-        // series
-        for (int i = 0; i < SeriesHolder.SeriesKind.getNames().length; i ++) {
-            if (SeriesHolder.SeriesKind.getNames()[i].equals(Vars.choice.x.getName())) {
-                this.seriesScroll.setValue(i + 1);
-            }
-        }
-
-        // mood
-        moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                .get(Vars.choice.x.getName())).getAvailableMoods()));
-        initPicker(moods, moodScroll);
-        for (int i = 0; i < moods.length; i ++) {
-            if (moods[i].equals(Vars.choice.y.getName())) {
-                this.moodScroll.setValue(i + 1);
-            }
-        }
-
-    }
-
-    public void clickGenerate(View view) {
-        preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
-        redirectActivity(this, RandomActivity.class);
     }
 
     @Override
     public void onBackPressed() {
-        exit();
+        switch (this.pager2.getCurrentItem()) {
+            case 0:
+            case 2:
+                pager2.setCurrentItem(FragmentAdapter.Tabs.HOME.getTabNum());
+                tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.HOME.getTabNum()));
+                break;
+            case 1:
+                exit();
+        }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        restoreLatestPick();
-    }
 }

@@ -1,6 +1,8 @@
 package com.horizon.randomplay.Activities;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -63,5 +65,26 @@ public class BaseActivity extends AppCompatActivity {
         if (isFinishing()) {
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }
+    }
+
+    /**
+     * builds a pop up dialog window.
+     * sets a default cancel btn.
+     * @param context - the context where it will show up.
+     * @param title - the title of the window.
+     * @param msg - the pop up window description
+     * @param positiveBtn - positive option string
+     * @param positiveListener - what will happen when pressing positive.
+     * @return the popup win object
+     */
+    protected AlertDialog.Builder setPopWin(Context context, String title, String msg, String positiveBtn,
+                                            DialogInterface.OnClickListener positiveListener) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setCancelable(true);
+        alert.setTitle(title);
+        alert.setMessage(msg);
+        alert.setNegativeButton("Okay but cooler", (dialog, which) -> dialog.cancel());
+        alert.setPositiveButton(positiveBtn, positiveListener);
+        return alert;
     }
 }

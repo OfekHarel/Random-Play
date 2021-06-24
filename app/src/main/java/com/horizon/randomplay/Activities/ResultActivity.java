@@ -15,11 +15,14 @@ import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
 import com.horizon.randomplay.components.Episode;
+import com.horizon.randomplay.components.HistoryComp;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
+import java.util.Calendar;
 import java.util.Objects;
 
 public class ResultActivity extends BaseActivity {
@@ -75,6 +78,9 @@ public class ResultActivity extends BaseActivity {
         epName.setText(episode.getName());
 
         preformVibration(7, VibrationEffect.DEFAULT_AMPLITUDE);
+
+
+        SharedData.getInstance().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
     }
 
     private void showLogo(SeriesHolder.SeriesKind dispKind) {

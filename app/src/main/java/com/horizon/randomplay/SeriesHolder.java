@@ -8,6 +8,7 @@ import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
 import com.horizon.randomplay.components.Season;
 import com.horizon.randomplay.components.Series;
+import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
 import java.io.BufferedReader;
@@ -17,6 +18,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SeriesHolder {
 
@@ -229,11 +231,30 @@ public class SeriesHolder {
     public static ArrayList<MoodsSeries> getSeriesBasedOnMood(Mood mood) {
         ArrayList<MoodsSeries> arrayList = new ArrayList<>();
 
-        for (SeriesKind sk: SeriesKind.values()) {
-            if (allSeries.get(sk.getName()).getAvailableMoods().contains(mood)) {
-                arrayList.add(allSeries.get(sk.getName()));
+        for (String s: SharedData.getInstance().getChosen()) {
+            if (allSeries.get(s).getAvailableMoods().contains(mood)) {
+                arrayList.add(allSeries.get(s));
             }
         }
+
+        ArrayList<String> sData = SharedData.getInstance().getChosen();
+        ArrayList<MoodsSeries> fromSData = new ArrayList<>();
+        for (int i = 0; i < sData.size(); i++) {
+            fromSData.add(allSeries.get(sData.get(i)));
+        }
+
+        arrayList.retainAll(fromSData);
         return arrayList;
+    }
+
+
+    public static ArrayList<Mood> getAviMoods() {
+        ArrayList<String> choose = SharedData.getInstance().getChosen();
+        ArrayList<Mood> ret = new ArrayList<>();
+
+        for (String s: choose) {
+            ret.addAll(allSeries.get(s).getAvailableMoods());
+        }
+        return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }
 }

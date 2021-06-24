@@ -54,4 +54,9 @@ public class MoodsSeries extends Series {
         return arrayList;
     }
 
+    public void removeMoods() {
+        for (Mood mood: Mood.values()) {
+            episodesMoods.get(mood).clear();
+        }
+    }
 }

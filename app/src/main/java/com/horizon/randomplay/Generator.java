@@ -4,8 +4,10 @@ import com.horizon.randomplay.components.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
 import com.horizon.randomplay.util.DynamicArray;
+import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Generator {
@@ -27,28 +29,33 @@ public class Generator {
 
     private MoodsSeries genRandSeries() {
         int seriesNum;
-        do {
-            seriesNum = this.randomGen.nextInt(SeriesHolder.SeriesKind.values().length - 1);
+        ArrayList<String> chosen = SharedData.getInstance().getChosen();
+            this.recentSeries.changeSize(chosen.size());
+            do {
+                seriesNum = this.randomGen.nextInt(chosen.size());
+                System.out.println(chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+            } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+            return SeriesHolder.getAllSeries().get(SharedData.getInstance().getChosen().get(seriesNum));
 
-        } while (SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING)
-                || this.recentSeries.isExist(SeriesHolder.SeriesKind.values()[seriesNum].getName()));
-        return SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.values()[seriesNum].getName());
     }
 
     private MoodsSeries genRandSeries(Mood mood) {
         int seriesNum;
+        ArrayList<MoodsSeries> moodsSeries = SeriesHolder.getSeriesBasedOnMood(mood);
+        if (moodsSeries.size() == 1) {
+            return moodsSeries.get(0);
+        }
         do {
-            seriesNum = this.randomGen.nextInt(SeriesHolder.getSeriesBasedOnMood(mood).size() - 1);
-
-        } while (SeriesHolder.SeriesKind.values()[seriesNum].equals(SeriesHolder.SeriesKind.ANYTHING));
-        return SeriesHolder.getAllSeries().get(SeriesHolder.getSeriesBasedOnMood(mood).get(seriesNum).getName());
+            seriesNum = this.randomGen.nextInt(moodsSeries.size());
+        } while (SeriesHolder.SeriesKind.getByValue(moodsSeries.get(seriesNum).getName()).equals(SeriesHolder.SeriesKind.ANYTHING));
+        return SeriesHolder.getAllSeries().get(moodsSeries.get(seriesNum).getName());
     }
 
     private Episode genRandEpisode(MoodsSeries series) {
         int seasonNum;
         int episodeNum;
         do {
-            seasonNum = this.randomGen.nextInt(series.getSeasons().size() - 1);
+            seasonNum = this.randomGen.nextInt(series.getSeasons().size());
             episodeNum = this.randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
 
         } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
@@ -59,7 +66,7 @@ public class Generator {
     private Episode genRandEpisode(MoodsSeries series, Mood mood) {
         int randNum;
         do {
-            randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size() - 1);
+            randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size());
         } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum).getName()));
 
         return series.getEpisodesByMoods(mood).get(randNum);

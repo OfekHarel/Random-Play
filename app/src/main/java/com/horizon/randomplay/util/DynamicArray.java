@@ -3,16 +3,16 @@ package com.horizon.randomplay.util;
 import java.util.ArrayList;
 
 public class DynamicArray<T> {
-    private final ArrayList<T> arr;
-    private final int SIZE;
+    private ArrayList<T> arr;
+    private int size;
 
     public DynamicArray(int size) {
-        this.SIZE = size;
+        this.size = size;
         this.arr = new ArrayList<>();
     }
 
     public void insert(T e) {
-        if (arr.size() >= SIZE) {
+        if (arr.size() >= size) {
             arr.remove(0);
         }
         arr.add(e);
@@ -25,5 +25,18 @@ public class DynamicArray<T> {
             }
         }
         return false;
+    }
+
+    public void changeSize(int size) {
+        ArrayList<T> arr = new ArrayList<>();
+        if (size < this.arr.size()) {
+            for (int i = 0; i < size; i++) {
+                arr.add(this.arr.get(i));
+            }
+            this.arr = arr;
+            this.size = size;
+        } else if (size > this.arr.size()) {
+            this.size = size;
+        }
     }
 }
