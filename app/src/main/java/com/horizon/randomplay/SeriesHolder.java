@@ -257,4 +257,17 @@ public class SeriesHolder {
         }
         return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }
+
+    public static ArrayList<String> getModesByEpisode(MoodsSeries ms, Episode e) {
+        ArrayList<String> moods = new ArrayList<>();
+
+        for (Mood mood: ms.getAvailableMoods()) {
+            for (Episode moodEpi: ms.getEpisodesByMoods(mood)) {
+                if (moodEpi.getName().equals(e.getName())) {
+                    moods.add(mood.getName());
+                }
+            }
+        }
+        return moods;
+    }
 }

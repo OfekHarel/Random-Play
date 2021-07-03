@@ -22,6 +22,7 @@ import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -54,6 +55,7 @@ public class ResultActivity extends BaseActivity {
         }
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
@@ -77,8 +79,19 @@ public class ResultActivity extends BaseActivity {
         TextView epName = findViewById(R.id.episode_name);
         epName.setText(episode.getName());
 
-        preformVibration(7, VibrationEffect.DEFAULT_AMPLITUDE);
+        TextView moodViewer = findViewById(R.id.episode_moods);
+        if (mood.equals(Mood.ANYTHING)) {
+            ArrayList<String> moodsViewArr = SeriesHolder.getModesByEpisode(series, episode);
+            String moodsText = String.join(", ", moodsViewArr);
+            if (moodsViewArr.size() >= 1) {
+                moodViewer.setText(String.format("Episode Mood: %s.", moodsText));
+                moodViewer.setVisibility(View.VISIBLE);
+            }
+        } else {
+            moodViewer.setVisibility(View.INVISIBLE);
+        }
 
+        preformVibration(7, VibrationEffect.DEFAULT_AMPLITUDE);
 
         SharedData.getInstance().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
     }
