@@ -31,73 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/friends_logo"
-                android:translationY="-130dp"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
-                android:visibility="visible"
-                android:id="@+id/friends_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/himym_logo"
-                android:translationY="-80dp"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:visibility="invisible"
-                android:id="@+id/himym_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bnn_logo"
-                android:translationY="-80dp"
-                android:scaleX="0.5"
-                android:scaleY="0.5"
-                android:visibility="invisible"
-                android:id="@+id/bnn_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/rick_and_morty__logo"
-                android:translationY="-10dp"
-                android:scaleX="0.7"
-                android:scaleY="0.7"
-                android:visibility="invisible"
-                android:id="@+id/rick_and_morty_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/modern_family_logo"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
-                android:visibility="invisible"
-                android:id="@+id/modern_family_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/the_office_logo"
-                android:scaleX="0.6"
-                android:scaleY="0.6"
-                android:visibility="invisible"
-                android:id="@+id/the_office_logo"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/tbbt_logo"
-                android:translationY="-222dp"
-                android:scaleX="0.4"
-                android:scaleY="0.4"
-                android:visibility="invisible"
-                android:id="@+id/tbbt_logo_logo"/>
+            <include layout="@layout/series_logos"
+                android:id="@+id/logos"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -106,8 +41,8 @@
                 android:textSize="28sp"
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
-                android:layout_alignBottom="@+id/friends_logo"
-                android:translationY="-185dp"
+                android:layout_alignBottom="@+id/logos"
+                android:translationY="-250dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/gen_info"/>
 
@@ -119,7 +54,7 @@
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
                 android:layout_alignBottom="@+id/gen_info"
-                android:translationY="-120dp"
+                android:translationY="-180dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/episode_name"/>
 
@@ -131,7 +66,7 @@
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
                 android:layout_alignBottom="@+id/gen_info"
-                android:translationY="-40dp"
+                android:translationY="-120dp"
                 android:layout_centerHorizontal="true"
                 android:visibility="invisible"
                 android:id="@+id/episode_moods"/>
@@ -146,7 +81,6 @@
                 android:layout_alignBottom="@+id/episode_name"
                 android:scaleY="0.9"
                 android:scaleX="0.9"
-                android:translationY="65dp"
                 android:onClick="clickRegenerate"/>
         </RelativeLayout>
 

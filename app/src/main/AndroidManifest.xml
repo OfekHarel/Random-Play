@@ -3,6 +3,7 @@
     package="com.horizon.randomplay">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:hapticFeedbackEnabled="true"
@@ -12,18 +13,17 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomPlay">
-
         <activity android:name=".Activities.LoaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Activities.ResultActivity" />
         <activity android:name=".Activities.RandomActivity" />
-        <activity android:name=".Activities.MainActivity"/>
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.HistoryComponActivity"/>
     </application>
 
 </manifest>

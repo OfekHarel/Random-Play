@@ -33,7 +33,6 @@ public class Generator {
             this.recentSeries.changeSize(chosen.size());
             do {
                 seriesNum = this.randomGen.nextInt(chosen.size());
-                System.out.println(chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
             } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
             return SeriesHolder.getAllSeries().get(SharedData.getInstance().getChosen().get(seriesNum));
 

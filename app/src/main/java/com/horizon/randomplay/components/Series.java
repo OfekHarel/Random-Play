@@ -41,4 +41,11 @@ public class Series {
         }
         return null;
     }
+
+    public Episode getEpisodeByString(String s, String e) {
+        int season = Integer.parseInt(s);
+        int episode = Integer.parseInt(e);
+
+        return this.seasons.get(season - 1).getEpisodes().get(episode - 1);
+    }
 }

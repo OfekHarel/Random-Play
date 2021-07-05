@@ -24,7 +24,6 @@ public class HomeFragment extends BaseFragment {
 
     private NumberPicker seriesScroll;
     private NumberPicker moodScroll;
-    private ImageButton genBtn;
 
     private String[] moods;
 
@@ -42,7 +41,7 @@ public class HomeFragment extends BaseFragment {
 
         this.seriesScroll = rootView.findViewById(R.id.series_scroll);
         this.moodScroll = rootView.findViewById(R.id.scroll_mood);
-        this.genBtn = rootView.findViewById(R.id.gen_btn);
+        ImageButton genBtn = rootView.findViewById(R.id.gen_btn);
 
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
                 .get(Vars.choice.x.getName())).getAvailableMoods()));
@@ -56,7 +55,6 @@ public class HomeFragment extends BaseFragment {
             SeriesHolder.SeriesKind series = SeriesHolder
                     .SeriesKind.getByValue(getChosenAsArr()[picker.getValue() - 1]);
             Vars.choice.x = series;
-            System.out.println(series.getName());
 
             moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
                     .get(series.getName())).getAvailableMoods()));
@@ -116,6 +114,7 @@ public class HomeFragment extends BaseFragment {
             String[] arr = new String[newMoods.length + 1];
             arr[0] = Mood.ANYTHING.getName();
             System.arraycopy(newMoods, 0, arr, 1, arr.length - 1);
+            
             return arr;
         }
     }
