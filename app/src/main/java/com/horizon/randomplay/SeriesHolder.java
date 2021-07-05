@@ -30,7 +30,8 @@ public class SeriesHolder {
         BROOKLYN_NINE_NINE("Brooklyn Nine Nine"),
         THE_OFFICE("The Office"),
         RICK_AND_MORTY("Rick And Morty"),
-        MODERN_FAMILY("Modern Family");
+        MODERN_FAMILY("Modern Family"),
+        GRAYS_ANATOMY("Grays Anatomy");
 
         private final String name;
         SeriesKind(String name) {
@@ -79,6 +80,7 @@ public class SeriesHolder {
             setTheOffice();
             setRickAndMorty();
             setModernFamily();
+            setGraysAnatomy();
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -222,6 +224,20 @@ public class SeriesHolder {
                 new Tuple<>(6, 24), new Tuple<>(1, 15), new Tuple<>(2, 16), new Tuple<>(2, 2), new Tuple<>(3, 24),
                 new Tuple<>(3, 16), new Tuple<>(3, 7), new Tuple<>(4, 6), new Tuple<>(4, 12), new Tuple<>(4, 2),
                 new Tuple<>(5, 24), new Tuple<>(6, 16), new Tuple<>(4, 2));
+    }
+
+    private static void setGraysAnatomy() {
+        allSeries.get(SeriesKind.GRAYS_ANATOMY.getName()).setMood(Mood.CRY, new Tuple<>(8, 24), new Tuple<>(11, 21), new Tuple<>(8, 10),
+                new Tuple<>(6, 24), new Tuple<>(14, 7), new Tuple<>(9, 1), new Tuple<>(12, 9), new Tuple<>(4, 17),
+                new Tuple<>(2, 27), new Tuple<>(5, 19), new Tuple<>(3, 16), new Tuple<>(6, 1), new Tuple<>(2, 6),
+                new Tuple<>(7, 20), new Tuple<>(2, 17), new Tuple<>(8, 19), new Tuple<>(11, 11), new Tuple<>(9, 7),
+                new Tuple<>(5, 18), new Tuple<>(7, 17), new Tuple<>(10, 12));
+
+        allSeries.get(SeriesKind.GRAYS_ANATOMY.getName()).setMood(Mood.LAUGH, new Tuple<>(1, 9), new Tuple<>(6, 21), new Tuple<>(8, 7),
+                new Tuple<>(8, 18));
+
+        allSeries.get(SeriesKind.GRAYS_ANATOMY.getName()).setMood(Mood.ROMANTIC, new Tuple<>(6, 8), new Tuple<>(6, 10), new Tuple<>(7, 20),
+                new Tuple<>(10, 12));
     }
 
     public static Map<String, MoodsSeries> getAllSeries() {

@@ -15,7 +15,8 @@ public class SeriesLogosManager {
         BROOKLYN_NINE_NINE(R.id.bnn_logo),
         THE_OFFICE(R.id.the_office_logo),
         RICK_AND_MORTY(R.id.rick_and_morty_logo),
-        MODERN_FAMILY(R.id.modern_family_logo);
+        MODERN_FAMILY(R.id.modern_family_logo),
+        GRAYS_ANATOMY(R.id.grays_anatomy_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -57,6 +58,9 @@ public class SeriesLogosManager {
                 break;
             case MODERN_FAMILY:
                 LogoSeries.MODERN_FAMILY.display(activity);
+                break;
+            case GRAYS_ANATOMY:
+                LogoSeries.GRAYS_ANATOMY.display(activity);
                 break;
         }
     }
