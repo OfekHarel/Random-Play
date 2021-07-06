@@ -31,7 +31,8 @@ public class SeriesHolder {
         THE_OFFICE("The Office"),
         RICK_AND_MORTY("Rick And Morty"),
         MODERN_FAMILY("Modern Family"),
-        GRAYS_ANATOMY("Grays Anatomy");
+        GRAYS_ANATOMY("Grays Anatomy"),
+        AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender");
 
         private final String name;
         SeriesKind(String name) {

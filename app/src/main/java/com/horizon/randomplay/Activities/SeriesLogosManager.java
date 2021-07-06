@@ -16,7 +16,8 @@ public class SeriesLogosManager {
         THE_OFFICE(R.id.the_office_logo),
         RICK_AND_MORTY(R.id.rick_and_morty_logo),
         MODERN_FAMILY(R.id.modern_family_logo),
-        GRAYS_ANATOMY(R.id.grays_anatomy_logo);
+        GRAYS_ANATOMY(R.id.grays_anatomy_logo),
+        ATLA(R.id.atla_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -61,6 +62,9 @@ public class SeriesLogosManager {
                 break;
             case GRAYS_ANATOMY:
                 LogoSeries.GRAYS_ANATOMY.display(activity);
+                break;
+            case AVATAR_THE_LAST_AIRBENDER:
+                LogoSeries.ATLA.display(activity);
                 break;
         }
     }

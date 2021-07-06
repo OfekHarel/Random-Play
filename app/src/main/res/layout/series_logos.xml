@@ -82,6 +82,16 @@
         android:translationY="-180dp"
         android:scaleX="0.7"
         android:scaleY="0.7"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/grays_anatomy_logo"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/atla_logo"
+        android:translationY="-180dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:visibility="visible"
+        android:id="@+id/atla_logo"/>
 </RelativeLayout>
