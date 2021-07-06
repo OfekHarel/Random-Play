@@ -3,7 +3,7 @@
 
 Random play is an Open-Source app for TV sitcom enthusiasts.
 In this app you can randomize series' episodes by modes.
-Currently there are **7** different series and **6** different moods:<p>
+Currently there are **11** different series and **6** different moods:<p>
 
 1. Friends 
     - Romantic Vibes
@@ -33,3 +33,10 @@ Currently there are **7** different series and **6** different moods:<p>
     - When Your Happy
 7. Modern Family
     - To Laugh
+8. Gray's Annatomy
+    - To Cry
+    - To Laugh
+    - Romantic Vibes
+9. The Last Air Bender
+10. The Legend of Korra
+11. Black Mirror

@@ -89,9 +89,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/atla_logo"
-        android:translationY="-180dp"
+        android:translationY="-150dp"
         android:scaleX="0.7"
         android:scaleY="0.7"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/atla_logo"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tlok_logo"
+        android:translationY="-20dp"
+        android:scaleX="1.1"
+        android:scaleY="1.1"
+        android:visibility="invisible"
+        android:id="@+id/tlog_logo"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/black_mirror_logo"
+        android:translationY="-20dp"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:visibility="visible"
+        android:id="@+id/black_mirror_logo"/>
 </RelativeLayout>
