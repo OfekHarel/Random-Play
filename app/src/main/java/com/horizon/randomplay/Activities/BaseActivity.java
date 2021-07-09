@@ -28,10 +28,11 @@ public class BaseActivity extends AppCompatActivity {
      * @param aClass   The dest activity .class
      */
     protected void redirectActivity(AppCompatActivity activity, Class aClass) {
-        Intent intent = new Intent(activity, aClass);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
-        activity.finish();
+        Intent launchNextActivity = new Intent(activity, aClass);
+        launchNextActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        launchNextActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        launchNextActivity.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(launchNextActivity);
     }
 
     /**
@@ -47,16 +48,16 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * preforms a vibration
      * @param view - the context
-     * @param type - which vibration type
+     *
      */
-    protected void preformVibration(View view, int type) {
+    protected void preformVibration(View view) {
         view.setHapticFeedbackEnabled(true);
-        view.performHapticFeedback(type);
+        view.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS);
     }
 
-    protected void preformVibration(int milli, int kind) {
+    protected void preformVibration(int milli) {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(VibrationEffect.createOneShot(milli, kind));
+        v.vibrate(VibrationEffect.createOneShot(milli, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
     @Override

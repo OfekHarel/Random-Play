@@ -1,6 +1,7 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
@@ -87,4 +88,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    public void clickInfo(View view) {
+    }
 }

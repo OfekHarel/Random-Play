@@ -1,5 +1,8 @@
 package com.horizon.randomplay;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+
 import com.horizon.randomplay.components.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.MoodsSeries;
@@ -11,31 +14,37 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Generator {
+    @SuppressLint("StaticFieldLeak")
     private static Generator instance = null;
 
     private final DynamicArray<String> recentEpisodes;
     private final DynamicArray<String> recentSeries;
     private final Random randomGen;
+    private final Context context;
 
-    public static Generator getInstance() {
-        return instance == null ? instance = new Generator() : instance;
+    public static Generator getInstance(Context context) {
+        return instance == null ? instance = new Generator(context) : instance;
     }
 
-    private Generator() {
+    private Generator(Context context) {
         this.randomGen = new Random();
         this.recentEpisodes = new DynamicArray<>(5);
         this.recentSeries = new DynamicArray<>((SeriesHolder.SeriesKind.values().length - 1) / 3);
+        this.context = context;
     }
 
     private MoodsSeries genRandSeries() {
         int seriesNum;
-        ArrayList<String> chosen = SharedData.getInstance().getChosen();
+        ArrayList<String> chosen = SharedData.getInstance(context).getChosen();
+        if (chosen != null) {
             this.recentSeries.changeSize(chosen.size());
             do {
                 seriesNum = this.randomGen.nextInt(chosen.size());
             } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
-            return SeriesHolder.getAllSeries().get(SharedData.getInstance().getChosen().get(seriesNum));
-
+            return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getChosen().get(seriesNum));
+        }
+        System.out.println("nulllllllllllllllllllll");
+        return null;
     }
 
     private MoodsSeries genRandSeries(Mood mood) {

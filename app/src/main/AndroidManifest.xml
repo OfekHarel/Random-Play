@@ -16,14 +16,14 @@
         <activity android:name=".Activities.LoaderActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activities.ResultActivity" />
         <activity android:name=".Activities.RandomActivity" />
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.HistoryComponActivity"/>
+        <activity android:name=".Activities.HistoryComponActivity" />
     </application>
 
 </manifest>

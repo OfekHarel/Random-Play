@@ -3,10 +3,7 @@ package com.horizon.randomplay.Activities;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.view.HapticFeedbackConstants;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -23,7 +20,6 @@ import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Objects;
 
 public class ResultActivity extends BaseActivity {
@@ -38,7 +34,7 @@ public class ResultActivity extends BaseActivity {
         SeriesHolder.init(this);
 
         Mood mood = Vars.choice.y;
-        Tuple<MoodsSeries, Episode> gen = Generator.getInstance().genEpisode(Vars.choice.x, mood);
+        Tuple<MoodsSeries, Episode> gen = Generator.getInstance(this).genEpisode(Vars.choice.x, mood);
         MoodsSeries series = gen.x;
         Episode episode = gen.y;
         int seasonNum = series.getSeason(episode).getNumber();
@@ -63,18 +59,19 @@ public class ResultActivity extends BaseActivity {
             moodViewer.setVisibility(View.INVISIBLE);
         }
 
-        preformVibration(7, VibrationEffect.DEFAULT_AMPLITUDE);
+        preformVibration(7);
 
         SharedData.getInstance().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
     }
 
     public void clickRegenerate(View view) {
         redirectActivity(this, RandomActivity.class);
-        preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
+        preformVibration(view);
     }
 
     @Override
     public void onBackPressed() {
         redirectActivity(this, MainActivity.class);
     }
+
 }
