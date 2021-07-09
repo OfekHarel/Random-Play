@@ -55,7 +55,7 @@ public class HistoryFragment extends BaseFragment {
                 View view = super.getView(position, convertView, parent);
                 TextView tv = (TextView) view.findViewById(android.R.id.text1);
                 tv.setTextColor(getResources().getColor(R.color.app_black));
-                tv.setTextSize(20);
+                tv.setTextSize(18);
                 tv.setPadding(0, 3,0 ,2 );
                 return view;
             }

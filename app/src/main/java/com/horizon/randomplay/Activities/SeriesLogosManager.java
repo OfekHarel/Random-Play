@@ -17,7 +17,9 @@ public class SeriesLogosManager {
         RICK_AND_MORTY(R.id.rick_and_morty_logo),
         MODERN_FAMILY(R.id.modern_family_logo),
         GRAYS_ANATOMY(R.id.grays_anatomy_logo),
-        ATLA(R.id.atla_logo);
+        ATLA(R.id.atla_logo),
+        TLOK(R.id.tlog_logo),
+        BLACK_MIRROR(R.id.black_mirror_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -65,6 +67,12 @@ public class SeriesLogosManager {
                 break;
             case AVATAR_THE_LAST_AIRBENDER:
                 LogoSeries.ATLA.display(activity);
+                break;
+            case THE_LEGEND_OF_KORRA:
+                LogoSeries.TLOK.display(activity);
+                break;
+            case BLACK_MIRROR:
+                LogoSeries.BLACK_MIRROR.display(activity);
                 break;
         }
     }

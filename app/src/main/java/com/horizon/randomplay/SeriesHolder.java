@@ -32,7 +32,9 @@ public class SeriesHolder {
         RICK_AND_MORTY("Rick And Morty"),
         MODERN_FAMILY("Modern Family"),
         GRAYS_ANATOMY("Grays Anatomy"),
-        AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender");
+        AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender"),
+        THE_LEGEND_OF_KORRA("The Legend Of Korra"),
+        BLACK_MIRROR("Black Mirror");
 
         private final String name;
         SeriesKind(String name) {
@@ -82,6 +84,7 @@ public class SeriesHolder {
             setRickAndMorty();
             setModernFamily();
             setGraysAnatomy();
+            setAtla();
         } catch (IOException e) {
             e.getStackTrace();
         }
@@ -239,6 +242,11 @@ public class SeriesHolder {
 
         allSeries.get(SeriesKind.GRAYS_ANATOMY.getName()).setMood(Mood.ROMANTIC, new Tuple<>(6, 8), new Tuple<>(6, 10), new Tuple<>(7, 20),
                 new Tuple<>(10, 12));
+    }
+
+    private static void setAtla() {
+        allSeries.get(SeriesKind.AVATAR_THE_LAST_AIRBENDER.getName()).setMood(Mood.HAPPY, new Tuple<>(1, 4), new Tuple<>(1, 5), new Tuple<>(2, 2),
+                new Tuple<>(2, 15), new Tuple<>(2, 19), new Tuple<>(3, 2), new Tuple<>(3, 4), new Tuple<>(3, 13), new Tuple<>(3, 17));
     }
 
     public static Map<String, MoodsSeries> getAllSeries() {
