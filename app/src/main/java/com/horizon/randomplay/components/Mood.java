@@ -6,7 +6,7 @@ public enum Mood {
     ANYTHING("Literally Anything"),
     CRY("To Cry"),
     LAUGH("To Laugh"),
-    HAPPY("When Your Happy"),
+    HAPPY("Feeling Good"),
     ROMANTIC("Romantic Vibes"),
     BEST("Premium Super Deluxe +"),
     SMART("High IQ WARNING!");

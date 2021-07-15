@@ -8,4 +8,5 @@ import com.horizon.randomplay.components.MoodsSeries;
 public class Vars {
     public static Tuple<SeriesHolder.SeriesKind, Mood> choice = new Tuple<>(SeriesHolder.SeriesKind.ANYTHING, Mood.ANYTHING);
     public static Tuple<MoodsSeries, Episode> historyCompon = new Tuple<>(null, null);
+    public static SeriesHolder.SeriesKind prefInfoChoice = null;
 }

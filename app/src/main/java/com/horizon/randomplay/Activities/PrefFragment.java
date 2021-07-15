@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Series;
 import com.horizon.randomplay.util.SharedData;
+import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,6 +67,12 @@ public class PrefFragment extends BaseFragment {
         this.listView.setOnItemClickListener((parent, view, position, id) -> {
             preformVibration(requireContext(), 2);
             updatedChecked();
+        });
+
+        this.listView.setOnItemLongClickListener((arg0, arg1, pos, id) -> {
+            Vars.prefInfoChoice = SeriesHolder.SeriesKind.getByValue(this.adapter.getItem(pos));
+            redirectActivity((AppCompatActivity) getActivity(), SeriesInfoActivity.class);
+            return true;
         });
 
         check();

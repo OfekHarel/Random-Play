@@ -48,4 +48,14 @@ public class Series {
 
         return this.seasons.get(season - 1).getEpisodes().get(episode - 1);
     }
+
+    public int countEpisodes() {
+        int count = 0;
+        for (Season s: this.getSeasons()) {
+            for (Episode e: s.getEpisodes()) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

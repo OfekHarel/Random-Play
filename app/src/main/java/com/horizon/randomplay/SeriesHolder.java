@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class SeriesHolder {
 
     public enum SeriesKind {
-        ANYTHING("IDK Bro"),
+        ANYTHING("Literally Anything"),
         FRIENDS("Friends"),
         THE_BIG_BANG_THEORY("The Big Bang Theory"),
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
