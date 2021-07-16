@@ -34,4 +34,9 @@ public class SeriesInfoActivity extends BaseActivity {
         String text_m = String.format(Locale.US, "Has %d Moods", s.getAvailableMoods().size());
         moods.setText(text_m);
     }
+
+    @Override
+    public void onBackPressed() {
+        redirectActivity(this, MainActivity.class);
+    }
 }
