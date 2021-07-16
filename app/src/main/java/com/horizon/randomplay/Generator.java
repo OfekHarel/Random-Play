@@ -3,9 +3,10 @@ package com.horizon.randomplay;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
-import com.horizon.randomplay.components.Episode;
+import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.components.series.MoodsSeries;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.DynamicArray;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
@@ -43,7 +44,6 @@ public class Generator {
             } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
             return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getChosen().get(seriesNum));
         }
-        System.out.println("nulllllllllllllllllllll");
         return null;
     }
 

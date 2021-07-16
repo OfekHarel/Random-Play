@@ -10,11 +10,11 @@ import androidx.annotation.RequiresApi;
 
 import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Episode;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.HistoryComp;
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;

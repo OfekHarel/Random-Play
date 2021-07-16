@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

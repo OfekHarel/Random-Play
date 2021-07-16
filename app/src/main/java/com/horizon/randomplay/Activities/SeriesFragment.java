@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Vars;
@@ -20,7 +20,7 @@ import com.shawnlin.numberpicker.NumberPicker;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class HomeFragment extends BaseFragment {
+public class SeriesFragment extends BaseFragment {
 
     private NumberPicker seriesScroll;
     private NumberPicker moodScroll;
@@ -28,7 +28,7 @@ public class HomeFragment extends BaseFragment {
     private String[] moods;
 
 
-    public HomeFragment() {
+    public SeriesFragment() {
     }
 
     @Override

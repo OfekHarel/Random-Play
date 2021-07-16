@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.SharedData;
 
 public class LoaderActivity extends BaseActivity {

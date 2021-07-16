@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 
 public class SeriesLogosManager {
 

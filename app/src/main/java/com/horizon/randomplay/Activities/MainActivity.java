@@ -8,9 +8,11 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
+
+import java.util.Objects;
 
 
 public class MainActivity extends BaseActivity {
@@ -37,18 +39,19 @@ public class MainActivity extends BaseActivity {
         this.pager2.setAdapter(this.fragmentAdapter);
 
         this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.HISTORY.getTabNum())));
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.HOME.getTabNum())));
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.PREFF.getTabNum())));
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SERIES.getTabNum())));
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.MOVIE.getTabNum())));
+        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())));
         this.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        this.pager2.setCurrentItem(FragmentAdapter.Tabs.HOME.getTabNum());
-        this.tabLayout.getTabAt(FragmentAdapter.Tabs.HOME.getTabNum()).select();
+        this.pager2.setCurrentItem(FragmentAdapter.Tabs.SERIES.getTabNum());
+        Objects.requireNonNull(this.tabLayout.getTabAt(FragmentAdapter.Tabs.SERIES.getTabNum())).select();
 
         this.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (SharedData.getInstance().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.PREFF.getTabNum())) {
-                    pager2.setCurrentItem(FragmentAdapter.Tabs.PREFF.getTabNum());
-                    tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.PREFF.getTabNum()));
+                if (SharedData.getInstance().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
+                    pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
+                    tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
                     setPopWin(cont, "Note", "You must choose at list one series!", "Okay", (dialog, which) ->{
                     }).show();
                 } else {
@@ -80,8 +83,8 @@ public class MainActivity extends BaseActivity {
         switch (this.pager2.getCurrentItem()) {
             case 0:
             case 2:
-                pager2.setCurrentItem(FragmentAdapter.Tabs.HOME.getTabNum());
-                tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.HOME.getTabNum()));
+                pager2.setCurrentItem(FragmentAdapter.Tabs.SERIES.getTabNum());
+                tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SERIES.getTabNum()));
                 break;
             case 1:
                 exit();

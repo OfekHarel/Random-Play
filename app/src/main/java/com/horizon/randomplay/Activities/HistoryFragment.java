@@ -3,31 +3,24 @@ package com.horizon.randomplay.Activities;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Episode;
-import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.MoodsSeries;
-import com.horizon.randomplay.components.Series;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.Episode;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class HistoryFragment extends BaseFragment {
 

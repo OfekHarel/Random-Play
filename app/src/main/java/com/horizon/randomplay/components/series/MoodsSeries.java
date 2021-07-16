@@ -1,5 +1,6 @@
-package com.horizon.randomplay.components;
+package com.horizon.randomplay.components.series;
 
+import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ public class MoodsSeries extends Series {
         for (int i = 0; i < Mood.values().length; i++) {
             this.episodesMoods.put(Mood.values()[i], new ArrayList<>());
         }
-
     }
 
     public MoodsSeries(Series series) {

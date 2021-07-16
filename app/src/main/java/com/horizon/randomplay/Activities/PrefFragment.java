@@ -14,7 +14,7 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Vars;
 

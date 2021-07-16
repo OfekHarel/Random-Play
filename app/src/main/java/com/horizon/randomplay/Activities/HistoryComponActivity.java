@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Episode;
-import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.Episode;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
