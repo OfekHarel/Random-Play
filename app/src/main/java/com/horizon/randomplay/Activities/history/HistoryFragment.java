@@ -1,33 +1,27 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.history;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Episode;
-import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.MoodsSeries;
-import com.horizon.randomplay.components.Series;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.Episode;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class HistoryFragment extends BaseFragment {
 
@@ -46,10 +40,10 @@ public class HistoryFragment extends BaseFragment {
         final View rootView = inflater.inflate(R.layout.fragment_history, container, false);
 
         this.historyList = rootView.findViewById(R.id.hist_list);
-        this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getHistory());
+        this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
 
         this.adapter = new ArrayAdapter<String>
-                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getHistory()){
+                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory()){
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 View view = super.getView(position, convertView, parent);
@@ -70,7 +64,7 @@ public class HistoryFragment extends BaseFragment {
             assert series != null;
             Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
 
-            Vars.historyCompon = new Tuple<>(series, episode);
+            Vars.s_historyCompon = new Tuple<>(series, episode);
             redirectActivity((AppCompatActivity) getActivity(), HistoryComponActivity.class);
         });
 
@@ -79,7 +73,7 @@ public class HistoryFragment extends BaseFragment {
         this.clear.setOnClickListener(v -> {
             preformVibration(requireContext(), 2);
             this.adapter.clear();
-            SharedData.getInstance().setHistory(new ArrayList<>());
+            SharedData.getInstance().getSeriesHandler().setHistory(new ArrayList<>());
             whenVoid();
         });
 

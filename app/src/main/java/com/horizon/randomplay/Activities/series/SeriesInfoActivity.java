@@ -1,11 +1,13 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.series;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.base.BaseActivity;
+import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.Locale;

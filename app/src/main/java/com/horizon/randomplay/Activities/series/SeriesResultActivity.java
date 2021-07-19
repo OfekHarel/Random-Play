@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.series;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
@@ -8,13 +8,16 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.horizon.randomplay.Activities.base.BaseActivity;
+import com.horizon.randomplay.Activities.MainActivity;
+import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
-import com.horizon.randomplay.components.Episode;
+import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.HistoryComp;
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.MoodsSeries;
+import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
@@ -22,19 +25,19 @@ import com.horizon.randomplay.util.Vars;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ResultActivity extends BaseActivity {
+public class SeriesResultActivity extends BaseActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(R.layout.activity_series_result);
 
         SeriesHolder.init(this);
 
-        Mood mood = Vars.choice.y;
-        Tuple<MoodsSeries, Episode> gen = Generator.getInstance(this).genEpisode(Vars.choice.x, mood);
+        Mood mood = Vars.series_choice.y;
+        Tuple<MoodsSeries, Episode> gen = Generator.getInstance(this).getSeriesHandler().generate(Vars.series_choice.x, mood);
         MoodsSeries series = gen.x;
         Episode episode = gen.y;
         int seasonNum = series.getSeason(episode).getNumber();
@@ -52,7 +55,7 @@ public class ResultActivity extends BaseActivity {
             ArrayList<String> moodsViewArr = SeriesHolder.getModesByEpisode(series, episode);
             String moodsText = String.join(", ", moodsViewArr);
             if (moodsViewArr.size() >= 1) {
-                moodViewer.setText(String.format("Episode Mood: %s.", moodsText));
+                moodViewer.setText(String.format("Episode Moods: %s.", moodsText));
                 moodViewer.setVisibility(View.VISIBLE);
             }
         } else {
@@ -61,10 +64,11 @@ public class ResultActivity extends BaseActivity {
 
         preformVibration(7);
 
-        SharedData.getInstance().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
+        SharedData.getInstance().getSeriesHandler().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
     }
 
     public void clickRegenerate(View view) {
+        Vars.isSeries = true;
         redirectActivity(this, RandomActivity.class);
         preformVibration(view);
     }

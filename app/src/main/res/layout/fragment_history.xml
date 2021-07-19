@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.HistoryFragment"
+    tools:context=".Activities.history.HistoryFragment"
     android:paddingHorizontal="20dp"
     android:translationY="10dp">
 
@@ -36,5 +36,7 @@
         android:layout_marginVertical="60dp"
         android:src="@drawable/clear_btn"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ripple" />
+        android:background="@drawable/ripple"
+        android:visibility="invisible"
+        android:contentDescription="TODO" />
 </RelativeLayout>

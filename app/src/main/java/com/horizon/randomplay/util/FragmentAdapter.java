@@ -6,19 +6,21 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.horizon.randomplay.Activities.HistoryFragment;
-import com.horizon.randomplay.Activities.HomeFragment;
-import com.horizon.randomplay.Activities.PrefFragment;
+import com.horizon.randomplay.Activities.history.HistoryFragment;
+import com.horizon.randomplay.Activities.movies.MovieFragment;
+import com.horizon.randomplay.Activities.series.SeriesFragment;
+import com.horizon.randomplay.Activities.preff.PrefFragment;
 
 public class FragmentAdapter extends FragmentStateAdapter {
 
     public enum Tabs {
         HISTORY(0),
-        HOME(1),
-        PREFF(2);
+        SERIES(1),
+        MOVIE(2),
+        SETTINGS(3);
 
         private final int tabNum;
-        private Tabs(final int tabNum) {
+        Tabs(final int tabNum) {
             this.tabNum = tabNum;
         }
 
@@ -38,8 +40,10 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case 0:
                 return new HistoryFragment();
             case 1:
-                return new HomeFragment();
+                return new SeriesFragment();
             case 2:
+                return new MovieFragment();
+            case 3:
                 return new PrefFragment();
         }
         return null;
@@ -47,7 +51,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return Tabs.values().length;
     }
 
     public String getPageTitle(int position) {
@@ -55,9 +59,11 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case 0:
                 return "History";
             case 1:
-                return "Home";
+                return "Series";
             case 2:
-                return "Preferences";
+                return "Movies";
+            case 3:
+                return "Settings";
         }
         return null;
     }

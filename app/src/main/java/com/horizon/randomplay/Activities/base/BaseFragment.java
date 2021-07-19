@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.base;
 
 import android.app.AlertDialog;
 import android.content.Context;

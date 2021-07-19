@@ -23,7 +23,8 @@
         android:layout_gravity="center_horizontal"
         android:scaleX="0.5"
         android:scaleY="0.5"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"
+        android:contentDescription="TODO" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -35,6 +36,7 @@
         app:tabIndicatorColor="@color/app_grey"
         app:tabSelectedTextColor="@color/app_black"
         android:background="@color/transparent"
+        android:translationY="-20dp"
         app:tabMode="fixed"/>
 
     <androidx.viewpager2.widget.ViewPager2

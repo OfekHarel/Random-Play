@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.series;
 
 import android.os.Bundle;
 
@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.horizon.randomplay.Activities.base.BaseFragment;
+import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Vars;
@@ -20,42 +22,41 @@ import com.shawnlin.numberpicker.NumberPicker;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class HomeFragment extends BaseFragment {
+public class SeriesFragment extends BaseFragment {
 
     private NumberPicker seriesScroll;
     private NumberPicker moodScroll;
 
     private String[] moods;
 
-
-    public HomeFragment() {
+    public SeriesFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_series, container, false);
 
         SharedData.getInstance(getContext());
         SeriesHolder.init(getContext());
 
         this.seriesScroll = rootView.findViewById(R.id.series_scroll);
-        this.moodScroll = rootView.findViewById(R.id.scroll_mood);
-        ImageButton genBtn = rootView.findViewById(R.id.gen_btn);
+        this.moodScroll = rootView.findViewById(R.id.series_scroll_mood);
+        ImageButton genBtn = rootView.findViewById(R.id.series_gen_btn);
 
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                .get(Vars.choice.x.getName())).getAvailableMoods()));
+                .get(Vars.series_choice.x.getName())).getAvailableMoods()));
 
         initPicker(getChosenAsArr(), this.seriesScroll);
         initPicker(moods, this.moodScroll);
-
 
         this.seriesScroll.setOnValueChangedListener((picker, oldVal, newVal) -> {
 
             SeriesHolder.SeriesKind series = SeriesHolder
                     .SeriesKind.getByValue(getChosenAsArr()[picker.getValue() - 1]);
-            Vars.choice.x = series;
+            Vars.series_choice.x = series;
 
+            assert series != null;
             moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
                     .get(series.getName())).getAvailableMoods()));
             initPicker(moods, moodScroll);
@@ -63,13 +64,13 @@ public class HomeFragment extends BaseFragment {
         });
 
         this.seriesScroll.setOnScrollListener((picker, scrollState) -> {
-            preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
+            preformVibration(requireContext(), 2);
             if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
                 preformVibration(picker, HapticFeedbackConstants.CLOCK_TICK);
             }
         });
 
-        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> Vars.choice.y = Mood.getByValue(moods[newVal - 1]));
+        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> Vars.series_choice.y = Mood.getByValue(moods[newVal - 1]));
         this.moodScroll.setOnScrollListener((picker, scrollState) -> {
             preformVibration(requireContext(), 2);
             if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
@@ -97,9 +98,9 @@ public class HomeFragment extends BaseFragment {
 
     private String[] updateMoodsArr(String[] newMoods) {
 
-        if (Vars.choice.x.equals(SeriesHolder.SeriesKind.ANYTHING)) {
-            ArrayList<Mood> moods = SeriesHolder.getAviMoods();
-            SeriesHolder.getAllSeries().get(Vars.choice.x.getName()).removeMoods();
+        if (Vars.series_choice.x.equals(SeriesHolder.SeriesKind.ANYTHING)) {
+            ArrayList<Mood> moods = SeriesHolder.getAllAvailableMoods();
+            Objects.requireNonNull(SeriesHolder.getAllSeries().get(Vars.series_choice.x.getName())).removeMoods();
 
             String[] arr = new String[moods.size() + 1];
             arr[0] = Mood.ANYTHING.getName();
@@ -122,17 +123,17 @@ public class HomeFragment extends BaseFragment {
     private void restoreLatestPick() {
         // series
         for (int i = 0; i < SeriesHolder.SeriesKind.getNames().length; i ++) {
-            if (SeriesHolder.SeriesKind.getNames()[i].equals(Vars.choice.x.getName())) {
+            if (SeriesHolder.SeriesKind.getNames()[i].equals(Vars.series_choice.x.getName())) {
                 this.seriesScroll.setValue(i + 1);
             }
         }
 
         // mood
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                .get(Vars.choice.x.getName())).getAvailableMoods()));
+                .get(Vars.series_choice.x.getName())).getAvailableMoods()));
         initPicker(moods, moodScroll);
         for (int i = 0; i < moods.length; i ++) {
-            if (moods[i].equals(Vars.choice.y.getName())) {
+            if (moods[i].equals(Vars.series_choice.y.getName())) {
                 this.moodScroll.setValue(i + 1);
             }
         }
@@ -141,6 +142,7 @@ public class HomeFragment extends BaseFragment {
 
     private void clickGenerate(View view) {
         preformVibration(view, HapticFeedbackConstants.LONG_PRESS);
+        Vars.isSeries = true;
         redirectActivity((AppCompatActivity) getActivity(), RandomActivity.class);
     }
 
@@ -148,7 +150,7 @@ public class HomeFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
-                .get(Vars.choice.x.getName())).getAvailableMoods()));
+                .get(Vars.series_choice.x.getName())).getAvailableMoods()));
 
         initPicker(getChosenAsArr(), this.seriesScroll);
         initPicker(moods, this.moodScroll);
@@ -158,7 +160,7 @@ public class HomeFragment extends BaseFragment {
 
     private String[] getChosenAsArr() {
         ArrayList<String> arrayList = new ArrayList<>();
-        ArrayList<String> sharedArr = SharedData.getInstance().getChosen();
+        ArrayList<String> sharedArr = SharedData.getInstance().getSeriesHandler().getChosen();
         if (sharedArr.size() > 1) {
             arrayList.add(SeriesHolder.SeriesKind.ANYTHING.getName());
         }

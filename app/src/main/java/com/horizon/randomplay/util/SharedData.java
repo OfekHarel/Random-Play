@@ -6,7 +6,8 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.horizon.randomplay.SeriesHolder;
+import com.horizon.randomplay.movies.MoviesHolder;
+import com.horizon.randomplay.series.SeriesHolder;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -16,10 +17,15 @@ public class SharedData {
     private static SharedData instance = null;
 
     private final String HISTORY = "HISTORY";
-    private final String CHOSEN = "CHOSEN";
+    private final String S_CHOOSE = "S_CHOOSE";
+    private final String M_CHOOSE = "M_CHOOSE";
     private final SharedPreferences sharedPreferences;
     private final SharedPreferences.Editor editor;
     private final Gson gson;
+
+    private final SeriesHandler seriesHandler = new SeriesHandler();
+    private final MovieHandler movieHandler = new MovieHandler();
+
 
     /**
      * Open the shared memory and its entries.
@@ -31,18 +37,19 @@ public class SharedData {
         /*
          * Entry names
          */
-        final String NAME = "mem";
+        final String NAME = "RP_MEM";
         this.sharedPreferences = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
         this.editor = this.sharedPreferences.edit();
         this.gson = new Gson();
 
-        final String FIRST_TIME = "firstTime";
+        final String FIRST_TIME = "FIRST_TIME";
         final boolean isFirstTime = this.sharedPreferences.getBoolean(FIRST_TIME, true);
 
         if (isFirstTime) {
             this.editor.putBoolean(FIRST_TIME, false);
             this.editor.putString(this.HISTORY, null);
-            this.editor.putString(this.CHOSEN, null);
+            this.editor.putString(this.S_CHOOSE, null);
+            this.editor.putString(this.M_CHOOSE, null);
             this.editor.apply();
         }
     }
@@ -62,49 +69,128 @@ public class SharedData {
         return instance;
     }
 
-    private ArrayList<String> initChosen() {
-        ArrayList<String> arr = new ArrayList<>(Arrays.asList(SeriesHolder.SeriesKind.getNames()));
-        arr.remove(SeriesHolder.SeriesKind.ANYTHING.getName());
-        return arr;
+    public SeriesHandler getSeriesHandler() {
+        return seriesHandler;
     }
 
-    public void setChosen(ArrayList<String> arrayList) {
-        String json = this.gson.toJson(arrayList);
-        this.editor.putString(this.CHOSEN, json);
-        this.editor.apply();
+    public MovieHandler getMovieHandler() {
+        return movieHandler;
     }
 
-    public ArrayList<String> getChosen() {
-        String json = this.sharedPreferences.getString(this.CHOSEN, null);
-        Type type = new TypeToken<ArrayList<String>>() {
-        }.getType();
-        ArrayList<String> arr = this.gson.fromJson(json, type);
-        if (arr == null) {
-            arr = initChosen();
+    private interface SharedMem {
+        ArrayList<String> initChosen();
+        void setChosen(ArrayList<String> arrayList);
+        ArrayList<String> getChosen();
+        void setHistory(ArrayList<String> arrayList);
+        ArrayList<String> getHistory();
+        void addHistory(String history);
+    }
+
+    public class MovieHandler implements SharedMem {
+        @Override
+        public ArrayList<String> initChosen() {
+            ArrayList<String> arr = new ArrayList<>(Arrays.asList(MoviesHolder.MovieKind.getNames()));
+            arr.remove(MoviesHolder.MovieKind.ANYTHING.getName());
+            return arr;
         }
-        return arr;
-    }
 
-    public void setHistory(ArrayList<String> arrayList) {
-        String json = this.gson.toJson(arrayList);
-        this.editor.putString(this.HISTORY, json);
-        this.editor.apply();
-    }
-
-    public ArrayList<String> getHistory() {
-        String json = this.sharedPreferences.getString(this.HISTORY, null);
-        Type type = new TypeToken<ArrayList<String>>() {
-        }.getType();
-        ArrayList<String> arr = this.gson.fromJson(json, type);
-        if (arr == null) {
-            arr = new ArrayList<>();
+        @Override
+        public void setChosen(ArrayList<String> arrayList) {
+            String json = gson.toJson(arrayList);
+            editor.putString(M_CHOOSE, json);
+            editor.apply();
         }
-        return arr;
+
+        @Override
+        public ArrayList<String> getChosen() {
+            String json = sharedPreferences.getString(M_CHOOSE, null);
+            Type type = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> arr = gson.fromJson(json, type);
+            if (arr == null) {
+                arr = initChosen();
+            }
+            return arr;
+        }
+
+        @Override
+        public void setHistory(ArrayList<String> arrayList) {
+            String json = gson.toJson(arrayList);
+            editor.putString(HISTORY, json);
+            editor.apply();
+        }
+
+        @Override
+        public ArrayList<String> getHistory() {
+            String json = sharedPreferences.getString(HISTORY, null);
+            Type type = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> arr = gson.fromJson(json, type);
+            if (arr == null) {
+                arr = new ArrayList<>();
+            }
+            return arr;
+        }
+
+        @Override
+        public void addHistory(String history) {
+            ArrayList<String> arrayList = getHistory();
+            arrayList.add(history);
+            setHistory(arrayList);
+        }
     }
 
-    public void addHistory(String history) {
-        ArrayList<String> arrayList = getHistory();
-        arrayList.add(history);
-        setHistory(arrayList);
+    public class SeriesHandler implements SharedMem {
+        @Override
+        public ArrayList<String> initChosen() {
+            ArrayList<String> arr = new ArrayList<>(Arrays.asList(SeriesHolder.SeriesKind.getNames()));
+            arr.remove(SeriesHolder.SeriesKind.ANYTHING.getName());
+            return arr;
+        }
+
+        @Override
+        public void setChosen(ArrayList<String> arrayList) {
+            String json = gson.toJson(arrayList);
+            editor.putString(S_CHOOSE, json);
+            editor.apply();
+        }
+
+        @Override
+        public ArrayList<String> getChosen() {
+            String json = sharedPreferences.getString(S_CHOOSE, null);
+            Type type = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> arr = gson.fromJson(json, type);
+            if (arr == null) {
+                arr = initChosen();
+            }
+            return arr;
+        }
+
+        @Override
+        public void setHistory(ArrayList<String> arrayList) {
+            String json = gson.toJson(arrayList);
+            editor.putString(HISTORY, json);
+            editor.apply();
+        }
+
+        @Override
+        public ArrayList<String> getHistory() {
+            String json = sharedPreferences.getString(HISTORY, null);
+            Type type = new TypeToken<ArrayList<String>>() {
+            }.getType();
+            ArrayList<String> arr = gson.fromJson(json, type);
+            if (arr == null) {
+                arr = new ArrayList<>();
+            }
+            return arr;
+        }
+
+        @Override
+        public void addHistory(String history) {
+            ArrayList<String> arrayList = getHistory();
+            arrayList.add(history);
+            setHistory(arrayList);
+        }
     }
 }

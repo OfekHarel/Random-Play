@@ -12,8 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RandomPlay">
-        <activity android:name=".Activities.SeriesInfoActivity"></activity>
+        android:theme="@style/Theme.RandomPlay"
+        android:fullBackupContent="@xml/backup_descriptor">
+        <activity
+            android:name=".Activities.preff.PopUpPrefActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.RandomPlay.popWindow">
+        </activity>
+        <activity
+            android:name=".Activities.movies.MovieLogosManager"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.movies.MovieResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.series.SeriesInfoActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Activities.LoaderActivity"
             android:screenOrientation="portrait">
@@ -24,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.ResultActivity"
+            android:name=".Activities.series.SeriesResultActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.RandomActivity"
@@ -33,7 +47,7 @@
             android:name=".Activities.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.HistoryComponActivity"
+            android:name=".Activities.history.HistoryComponActivity"
             android:screenOrientation="portrait" />
     </application>
 

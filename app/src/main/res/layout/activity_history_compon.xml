@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.HistoryComponActivity"
+    tools:context=".Activities.history.HistoryComponActivity"
     android:background="@drawable/grad_background">
 
     <LinearLayout
@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/logo_only"
             android:paddingVertical="25dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="TODO" />
 
         <View
             android:layout_width="match_parent"
@@ -31,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/series_logos"
+            <include layout="@layout/activity_series_logos"
                 android:id="@+id/logos"/>
 
             <TextView
