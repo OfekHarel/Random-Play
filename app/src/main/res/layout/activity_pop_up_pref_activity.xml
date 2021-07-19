@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".Activities.preff.PopUpPrefActivity"
     android:paddingHorizontal="20dp"
-    android:translationY="10dp">
+    android:background="@drawable/circleback"
+    android:id="@+id/pop_container">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +19,7 @@
         android:textSize="25sp"
         android:paddingVertical="20dp"
         android:textStyle="bold"
-        android:id="@+id/series_pref_title"/>
+        android:id="@+id/pref_title"/>
 
     <ListView
         android:id="@+id/pref_list_set"
@@ -29,7 +30,7 @@
         android:layout_gravity="center_vertical"
         android:divider="@android:color/transparent"
         android:dividerHeight="1dp"
-        android:layout_below="@+id/series_pref_title"
+        android:layout_below="@+id/pref_title"
         android:scrollbars="none" />
 
     <ListView

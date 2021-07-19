@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.history;
 
 import android.os.Bundle;
 

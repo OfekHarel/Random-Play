@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.history;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.series.SeriesLogosManager;
 import com.horizon.randomplay.R;
@@ -31,15 +32,6 @@ public class HistoryComponActivity extends BaseActivity {
 
         MoodsSeries series = Vars.s_historyCompon.x;
         Episode episode = Vars.s_historyCompon.y;
-        int seasonNum = series.getSeason(episode).getNumber();
-
-        SeriesLogosManager.showLogo(this, Objects.requireNonNull(SeriesHolder.SeriesKind.getByValue(series.getName())));
-
-        TextView genInfo = findViewById(R.id.h_info);
-        genInfo.setText(String.format("Season %d Episode %d", seasonNum, episode.getNumber()));
-
-        TextView epName = findViewById(R.id.h_episode_name);
-        epName.setText(episode.getName());
 
         TextView moodViewer = findViewById(R.id.h_e_moods);
         ArrayList<String> moodsViewArr = SeriesHolder.getModesByEpisode(series, episode);
@@ -50,6 +42,15 @@ public class HistoryComponActivity extends BaseActivity {
         } else {
             moodViewer.setVisibility(View.INVISIBLE);
         }
+
+        SeriesLogosManager.showLogo(this, Objects.requireNonNull(SeriesHolder.SeriesKind.getByValue(series.getName())));
+
+        int seasonNum = series.getSeason(episode).getNumber();
+        TextView genInfo = findViewById(R.id.h_info);
+        genInfo.setText(String.format("Season %d Episode %d", seasonNum, episode.getNumber()));
+
+        TextView epName = findViewById(R.id.h_episode_name);
+        epName.setText(episode.getName());
     }
 
     @Override

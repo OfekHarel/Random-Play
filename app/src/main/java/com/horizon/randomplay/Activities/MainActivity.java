@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
                 if (SharedData.getInstance().getSeriesHandler().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
                     pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
                     tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
-                    setPopWin(cont, "Note", "You must choose at list one series!", "Okay", (dialog, which) ->{
+                    setPopWin(cont, "Note", "You must choose at list one series or a movie!", "Okay", (dialog, which) ->{
                     }).show();
                 } else {
                     pager2.setCurrentItem(tab.getPosition());

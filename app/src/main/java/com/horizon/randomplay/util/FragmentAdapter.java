@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.horizon.randomplay.Activities.HistoryFragment;
+import com.horizon.randomplay.Activities.history.HistoryFragment;
 import com.horizon.randomplay.Activities.movies.MovieFragment;
 import com.horizon.randomplay.Activities.series.SeriesFragment;
 import com.horizon.randomplay.Activities.preff.PrefFragment;
