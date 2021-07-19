@@ -4,7 +4,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.base.BaseActivity;
+import com.horizon.randomplay.Activities.movies.MovieResultActivity;
+import com.horizon.randomplay.Activities.series.SeriesResultActivity;
 import com.horizon.randomplay.R;
+import com.horizon.randomplay.util.Vars;
 
 import id.co.ionsoft.randomnumberanimationlibrary.RandomNumberAnimation;
 
@@ -34,7 +38,7 @@ public class RandomActivity extends BaseActivity {
         }, delay);
 
         handler.postDelayed(()-> {
-            redirectActivity(this, ResultActivity.class);
+            redirectActivity(this, SeriesResultActivity.class);
             leftNumGen.stop(true);
             rightNumGen.stop(true);
         }, delay);
@@ -45,7 +49,11 @@ public class RandomActivity extends BaseActivity {
         super.onPause();
         this.rightNumGen.stop(true);
         this.leftNumGen.stop(true);
-        redirectActivity(this, ResultActivity.class);
+        if (Vars.isSeries) {
+            redirectActivity(this, SeriesResultActivity.class);
+        } else {
+            redirectActivity(this, MovieResultActivity.class);
+        }
     }
 
     @Override

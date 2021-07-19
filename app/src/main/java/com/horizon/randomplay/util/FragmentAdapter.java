@@ -7,9 +7,9 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.horizon.randomplay.Activities.HistoryFragment;
-import com.horizon.randomplay.Activities.MovieFragment;
-import com.horizon.randomplay.Activities.SeriesFragment;
-import com.horizon.randomplay.Activities.PrefFragment;
+import com.horizon.randomplay.Activities.movies.MovieFragment;
+import com.horizon.randomplay.Activities.series.SeriesFragment;
+import com.horizon.randomplay.Activities.preff.PrefFragment;
 
 public class FragmentAdapter extends FragmentStateAdapter {
 

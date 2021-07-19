@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities;
+package com.horizon.randomplay.Activities.preff;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.horizon.randomplay.Activities.base.BaseFragment;
+import com.horizon.randomplay.Activities.series.SeriesInfoActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.SharedData;
@@ -41,7 +43,7 @@ public class PrefFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_pref, container, false);
 
-        this.settingsListView = rootView.findViewById(R.id.pref_list_set);
+        this.settingsListView = rootView.findViewById(R.id._series_pref_list_set);
         ArrayList<String> arr = new ArrayList<>();
         arr.add(ALL);
         this.settingAdapter = new ArrayAdapter<>(getContext(), R.layout.list_black_text_choose, arr);
@@ -56,7 +58,7 @@ public class PrefFragment extends BaseFragment {
         });
         this.settingsListView.setOnTouchListener((v, event) -> (event.getAction() == MotionEvent.ACTION_MOVE));
 
-        this.listView = rootView.findViewById(R.id.pref_list);
+        this.listView = rootView.findViewById(R.id.series_pref_list);
         ArrayList<String> series = new ArrayList<>();
         Collections.addAll(series, SeriesHolder.SeriesKind.getNames());
         series.remove(SeriesHolder.SeriesKind.ANYTHING.getName());
@@ -80,7 +82,7 @@ public class PrefFragment extends BaseFragment {
     }
 
     private void check() {
-        for (String s: SharedData.getInstance().getChosen()) {
+        for (String s: SharedData.getInstance().getSeriesHandler().getChosen()) {
             this.listView.setItemChecked(this.adapter.getPosition(s), true);
         }
         updatedChecked();
@@ -102,7 +104,7 @@ public class PrefFragment extends BaseFragment {
                 toAdd.add(this.adapter.getItem(i));
             }
         }
-        SharedData.getInstance().setChosen(toAdd);
+        SharedData.getInstance().getSeriesHandler().setChosen(toAdd);
     }
 
     @Override
@@ -113,7 +115,7 @@ public class PrefFragment extends BaseFragment {
     @Override
     public void onStop() {
         super.onStop();
-        if (SharedData.getInstance().getChosen().size() <= 0 ) {
+        if (SharedData.getInstance().getSeriesHandler().getChosen().size() <= 0 ) {
             checkAll(true);
             updatedChecked();
         }

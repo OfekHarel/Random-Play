@@ -7,10 +7,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
+import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
+import com.horizon.randomplay.util.Vars;
 
 import java.util.Objects;
 
@@ -43,13 +45,15 @@ public class MainActivity extends BaseActivity {
         this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.MOVIE.getTabNum())));
         this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())));
         this.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        this.pager2.setCurrentItem(FragmentAdapter.Tabs.SERIES.getTabNum());
-        Objects.requireNonNull(this.tabLayout.getTabAt(FragmentAdapter.Tabs.SERIES.getTabNum())).select();
+
+        FragmentAdapter.Tabs selectedTab = Vars.isSeries? FragmentAdapter.Tabs.SERIES: FragmentAdapter.Tabs.MOVIE;
+        this.pager2.setCurrentItem(selectedTab.getTabNum());
+        Objects.requireNonNull(this.tabLayout.getTabAt(selectedTab.getTabNum())).select();
 
         this.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (SharedData.getInstance().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
+                if (SharedData.getInstance().getSeriesHandler().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
                     pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
                     tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
                     setPopWin(cont, "Note", "You must choose at list one series!", "Okay", (dialog, which) ->{

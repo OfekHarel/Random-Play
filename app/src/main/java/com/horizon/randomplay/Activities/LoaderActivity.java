@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.SharedData;

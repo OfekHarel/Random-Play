@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.SeriesFragment"
+    tools:context=".Activities.series.SeriesFragment"
     android:paddingHorizontal="20dp"
     android:translationY="10dp">
 
@@ -35,12 +35,12 @@
         app:np_textSize="19sp"/>
 
     <TextView
-        android:id="@+id/mood_title"
+        android:id="@+id/series_mood_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
-        android:text="Mood"
+        android:text="Vibe"
         android:textColor="@color/app_black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -50,7 +50,7 @@
 
 
     <com.shawnlin.numberpicker.NumberPicker
-        android:id="@+id/scroll_mood"
+        android:id="@+id/series_scroll_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -62,7 +62,7 @@
         app:np_textColor="@color/app_grey"
         app:np_textSize="19sp"
         android:translationY="75dp"
-        android:layout_alignTop="@id/mood_title"/>
+        android:layout_alignTop="@id/series_mood_title"/>
 
     <ImageButton
         android:layout_width="243dp"
@@ -75,10 +75,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:gravity="center_horizontal"
-        android:layout_alignBottom="@+id/scroll_mood"
+        android:layout_alignBottom="@+id/series_scroll_mood"
         android:layout_alignParentBottom="true"
         android:translationY="10dp"
-        android:id="@+id/gen_btn"/>
+        android:id="@+id/series_gen_btn"/>
 
 
 </RelativeLayout>

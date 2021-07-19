@@ -30,17 +30,13 @@ public class MoodMovieCollection extends MovieCollection {
     public final void setMood(Mood mood, int... movies) {
         ArrayList<Movie> es = new ArrayList<>();
         for (int movie : movies) {
-            es.add(fromIndexToMovie(movie));
+            es.add(this.getMovies().get(movie - 1));
         }
         Objects.requireNonNull(this.moviesMoods.get(mood)).addAll(es);
     }
 
     public void addMood(Mood mood) {
         Objects.requireNonNull(this.moviesMoods.get(mood)).add(new Movie( "0"));
-    }
-
-    private Movie fromIndexToMovie(int movie) {
-        return this.getMovies().get(movie);
     }
 
     public ArrayList<Movie> getMovieByMoods(Mood mood) {
@@ -50,7 +46,7 @@ public class MoodMovieCollection extends MovieCollection {
     public ArrayList<Mood> getAvailableMoods() {
         ArrayList<Mood> arrayList = new ArrayList<>();
         for (int i = 0; i < Mood.values().length; i++) {
-            if (this.moviesMoods.get(Mood.values()[i]).size() > 0) {
+            if (Objects.requireNonNull(this.moviesMoods.get(Mood.values()[i])).size() > 0) {
                 arrayList.add(Mood.values()[i]);
             }
         }

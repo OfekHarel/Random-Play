@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.horizon.randomplay.Activities.base.BaseActivity;
+import com.horizon.randomplay.Activities.series.SeriesLogosManager;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.series.Episode;
@@ -27,8 +29,8 @@ public class HistoryComponActivity extends BaseActivity {
         setContentView(R.layout.activity_history_compon);
         SeriesHolder.init(this);
 
-        MoodsSeries series = Vars.historyCompon.x;
-        Episode episode = Vars.historyCompon.y;
+        MoodsSeries series = Vars.s_historyCompon.x;
+        Episode episode = Vars.s_historyCompon.y;
         int seasonNum = series.getSeason(episode).getNumber();
 
         SeriesLogosManager.showLogo(this, Objects.requireNonNull(SeriesHolder.SeriesKind.getByValue(series.getName())));

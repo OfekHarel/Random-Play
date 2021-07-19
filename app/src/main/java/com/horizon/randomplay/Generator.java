@@ -3,15 +3,19 @@ package com.horizon.randomplay;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import com.horizon.randomplay.components.movies.MoodMovieCollection;
+import com.horizon.randomplay.components.movies.Movie;
 import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.series.MoodsSeries;
+import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.DynamicArray;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class Generator {
@@ -20,8 +24,13 @@ public class Generator {
 
     private final DynamicArray<String> recentEpisodes;
     private final DynamicArray<String> recentSeries;
+    private final DynamicArray<String> recentMovies;
+    private final DynamicArray<String> recentMovieCollections;
     private final Random randomGen;
     private final Context context;
+
+    private final SeriesHandler seriesHandler = new SeriesHandler();
+    private final MovieHandler movieHandler = new MovieHandler();
 
     public static Generator getInstance(Context context) {
         return instance == null ? instance = new Generator(context) : instance;
@@ -30,66 +39,149 @@ public class Generator {
     private Generator(Context context) {
         this.randomGen = new Random();
         this.recentEpisodes = new DynamicArray<>(5);
-        this.recentSeries = new DynamicArray<>((SeriesHolder.SeriesKind.values().length - 1) / 3);
+        this.recentSeries = new DynamicArray<>(DynamicArray.getIdealSize(SeriesHolder.SeriesKind.values().length));
+        this.recentMovies = new DynamicArray<>(5);
+        this.recentMovieCollections  = new DynamicArray<>(DynamicArray.getIdealSize(MoviesHolder.MovieKind.values().length));
         this.context = context;
     }
 
-    private MoodsSeries genRandSeries() {
-        int seriesNum;
-        ArrayList<String> chosen = SharedData.getInstance(context).getChosen();
-        if (chosen != null) {
-            this.recentSeries.changeSize(chosen.size());
+    public SeriesHandler getSeriesHandler() {
+        return seriesHandler;
+    }
+
+    public MovieHandler getMovieHandler() {
+        return movieHandler;
+    }
+
+    public class MovieHandler {
+        private MoodMovieCollection genRandMovieCollection() {
+            int movieNum;
+            ArrayList<String> chosen = SharedData.getInstance(context).getMovieHandler().getChosen();
+            if (chosen != null) {
+                recentMovieCollections.changeSize(chosen.size());
+                do {
+                    movieNum = randomGen.nextInt(chosen.size());
+                } while (chosen.get(movieNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                return MoviesHolder.getAllMovies().get(chosen.get(movieNum));
+            }
+            return null;
+        }
+
+        private MoodMovieCollection genRandMovieCollection(Mood mood) {
+            int movieNum;
+            ArrayList<MoodMovieCollection> moodsMovieCollection = MoviesHolder.getSeriesBasedOnMood(mood);
+            if (moodsMovieCollection.size() == 1) {
+                return moodsMovieCollection.get(0);
+            }
             do {
-                seriesNum = this.randomGen.nextInt(chosen.size());
-            } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
-            return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getChosen().get(seriesNum));
-        }
-        return null;
-    }
-
-    private MoodsSeries genRandSeries(Mood mood) {
-        int seriesNum;
-        ArrayList<MoodsSeries> moodsSeries = SeriesHolder.getSeriesBasedOnMood(mood);
-        if (moodsSeries.size() == 1) {
-            return moodsSeries.get(0);
-        }
-        do {
-            seriesNum = this.randomGen.nextInt(moodsSeries.size());
-        } while (SeriesHolder.SeriesKind.getByValue(moodsSeries.get(seriesNum).getName()).equals(SeriesHolder.SeriesKind.ANYTHING));
-        return SeriesHolder.getAllSeries().get(moodsSeries.get(seriesNum).getName());
-    }
-
-    private Episode genRandEpisode(MoodsSeries series) {
-        int seasonNum;
-        int episodeNum;
-        do {
-            seasonNum = this.randomGen.nextInt(series.getSeasons().size());
-            episodeNum = this.randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
-
-        } while (this.recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
-
-        return series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
-    }
-
-    private Episode genRandEpisode(MoodsSeries series, Mood mood) {
-        int randNum;
-        do {
-            randNum = this.randomGen.nextInt(series.getEpisodesByMoods(mood).size());
-        } while (this.recentEpisodes.isExist(series.getEpisodesByMoods(mood).get(randNum).getName()));
-
-        return series.getEpisodesByMoods(mood).get(randNum);
-    }
-
-    public Tuple<MoodsSeries, Episode> genEpisode(SeriesHolder.SeriesKind seriesKind, Mood mood) {
-        MoodsSeries series = SeriesHolder.getAllSeries().get(seriesKind.getName());
-        Episode episode;
-        if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
-            series = mood.equals(Mood.ANYTHING)? genRandSeries(): genRandSeries(mood);
-            this.recentSeries.insert(series.getName());
+                movieNum = randomGen.nextInt(moodsMovieCollection.size());
+            } while (Objects.equals(MoviesHolder.MovieKind.getByValue(moodsMovieCollection.get(movieNum).getName()), MoviesHolder.MovieKind.ANYTHING));
+            return MoviesHolder.getAllMovies().get(moodsMovieCollection.get(movieNum).getName());
         }
 
-        episode = mood.equals(Mood.ANYTHING)? genRandEpisode(series): genRandEpisode(series, mood);
-        this.recentEpisodes.insert(episode.getName());
-        return new Tuple<>(series, episode);
+        private Movie genRandMovie(MoodMovieCollection collection) {
+            int movieNum;
+            do {
+                movieNum = randomGen.nextInt(collection.getMovies().size());
+            } while (recentMovies.isExist(collection.getMovies().get(movieNum).getName()));
+
+            return collection.getMovies().get(movieNum);
+        }
+
+        private Movie genRandMovie(MoodMovieCollection collection, Mood mood) {
+            int movieNum;
+            ArrayList<Movie> moods = collection.getMovieByMoods(mood);
+            do {
+                movieNum = randomGen.nextInt(moods.size());
+            } while (recentMovies.isExist(moods.get(movieNum).getName()));
+            return moods.get(movieNum);
+        }
+
+        public Tuple<MoodMovieCollection, Movie> generate(MoviesHolder.MovieKind movieKind, Mood mood) {
+            MoodMovieCollection collection = MoviesHolder.getAllMovies().get(movieKind.getName());
+            Movie movie;
+            if (movieKind.equals(MoviesHolder.MovieKind.ANYTHING)) {
+                collection = mood.equals(Mood.ANYTHING)? genRandMovieCollection(): genRandMovieCollection(mood);
+                assert collection != null;
+                recentSeries.insert(collection.getName());
+            }
+
+            assert collection != null;
+            if (mood.equals(Mood.ANYTHING)) {
+                movie = genRandMovie(collection);
+            } else {
+                movie = genRandMovie(collection, mood);
+            }
+            recentEpisodes.insert(movie.getName());
+            return new Tuple<>(collection, movie);
+        }
+    }
+
+    public class SeriesHandler {
+        private MoodsSeries genRandSeries() {
+            int seriesNum;
+            ArrayList<String> chosen = SharedData.getInstance(context).getSeriesHandler().getChosen();
+            if (chosen != null) {
+                recentSeries.changeSize(chosen.size());
+                do {
+                    seriesNum = randomGen.nextInt(chosen.size());
+                } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getSeriesHandler().getChosen().get(seriesNum));
+            }
+            return null;
+        }
+
+        private MoodsSeries genRandSeries(Mood mood) {
+            int seriesNum;
+            ArrayList<MoodsSeries> moodsSeries = SeriesHolder.getSeriesBasedOnMood(mood);
+            if (moodsSeries.size() == 1) {
+                return moodsSeries.get(0);
+            }
+            do {
+                seriesNum = randomGen.nextInt(moodsSeries.size());
+            } while (Objects.equals(SeriesHolder.SeriesKind.getByValue(moodsSeries.get(seriesNum).getName()), SeriesHolder.SeriesKind.ANYTHING));
+            return SeriesHolder.getAllSeries().get(moodsSeries.get(seriesNum).getName());
+        }
+
+        private Episode genRandEpisode(MoodsSeries series) {
+            int seasonNum;
+            int episodeNum;
+            do {
+                seasonNum = randomGen.nextInt(series.getSeasons().size());
+                episodeNum = randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
+
+            } while (recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
+
+            return series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum);
+        }
+
+        private Episode genRandEpisode(MoodsSeries series, Mood mood) {
+            int randNum;
+            ArrayList<Episode> moods = series.getEpisodesByMoods(mood);
+            do {
+                randNum = randomGen.nextInt(moods.size());
+            } while (recentEpisodes.isExist(moods.get(randNum).getName()));
+
+            return moods.get(randNum);
+        }
+
+        public Tuple<MoodsSeries, Episode> generate(SeriesHolder.SeriesKind seriesKind, Mood mood) {
+            MoodsSeries series = SeriesHolder.getAllSeries().get(seriesKind.getName());
+            Episode episode;
+            if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
+                series = mood.equals(Mood.ANYTHING)? genRandSeries(): genRandSeries(mood);
+                assert series != null;
+                recentSeries.insert(series.getName());
+            }
+
+            assert series != null;
+            if (mood.equals(Mood.ANYTHING)) {
+                episode = genRandEpisode(series);
+            } else {
+                episode = genRandEpisode(series, mood);
+            }
+            recentEpisodes.insert(episode.getName());
+            return new Tuple<>(series, episode);
+        }
     }
 }

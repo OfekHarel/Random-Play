@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.series.Episode;
@@ -39,10 +40,10 @@ public class HistoryFragment extends BaseFragment {
         final View rootView = inflater.inflate(R.layout.fragment_history, container, false);
 
         this.historyList = rootView.findViewById(R.id.hist_list);
-        this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getHistory());
+        this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
 
         this.adapter = new ArrayAdapter<String>
-                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getHistory()){
+                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory()){
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 View view = super.getView(position, convertView, parent);
@@ -63,7 +64,7 @@ public class HistoryFragment extends BaseFragment {
             assert series != null;
             Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
 
-            Vars.historyCompon = new Tuple<>(series, episode);
+            Vars.s_historyCompon = new Tuple<>(series, episode);
             redirectActivity((AppCompatActivity) getActivity(), HistoryComponActivity.class);
         });
 
@@ -72,7 +73,7 @@ public class HistoryFragment extends BaseFragment {
         this.clear.setOnClickListener(v -> {
             preformVibration(requireContext(), 2);
             this.adapter.clear();
-            SharedData.getInstance().setHistory(new ArrayList<>());
+            SharedData.getInstance().getSeriesHandler().setHistory(new ArrayList<>());
             whenVoid();
         });
 

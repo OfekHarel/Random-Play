@@ -12,7 +12,7 @@ public class MovieCollection {
     }
 
     public MovieCollection(String name) {
-        this(name, null);
+        this(name, new ArrayList<>());
     }
 
     public String getName() {

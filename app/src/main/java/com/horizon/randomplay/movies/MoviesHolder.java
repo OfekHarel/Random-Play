@@ -6,19 +6,23 @@ import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.movies.MoodMovieCollection;
 import com.horizon.randomplay.components.movies.Movie;
 import com.horizon.randomplay.components.movies.MovieCollection;
+import com.horizon.randomplay.util.SharedData;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class MoviesHolder {
     public enum MovieKind {
         ANYTHING("Literally Anything"),
-        MARVEL("Marvel");
+        MARVEL("Marvel"),
+        DISNEY_ANIM("Animated Disney");
 
         private final String name;
         MovieKind(String name) {
@@ -100,5 +104,47 @@ public class MoviesHolder {
 
     public static Map<String, MoodMovieCollection> getAllMovies() {
         return allMovies;
+    }
+
+    public static ArrayList<Mood> getAllAvailableMoods() {
+        ArrayList<String> choose = SharedData.getInstance().getMovieHandler().getChosen();
+        ArrayList<Mood> ret = new ArrayList<>();
+
+        for (String s: choose) {
+            ret.addAll(Objects.requireNonNull(allMovies.get(s)).getAvailableMoods());
+        }
+        return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
+    }
+
+    public static ArrayList<MoodMovieCollection> getSeriesBasedOnMood(Mood mood) {
+        ArrayList<MoodMovieCollection> arrayList = new ArrayList<>();
+
+        for (String s: SharedData.getInstance().getMovieHandler().getChosen()) {
+            if (Objects.requireNonNull(allMovies.get(s)).getAvailableMoods().contains(mood)) {
+                arrayList.add(allMovies.get(s));
+            }
+        }
+
+        ArrayList<String> sData = SharedData.getInstance().getMovieHandler().getChosen();
+        ArrayList<MoodMovieCollection> fromSData = new ArrayList<>();
+        for (int i = 0; i < sData.size(); i++) {
+            fromSData.add(allMovies.get(sData.get(i)));
+        }
+
+        arrayList.retainAll(fromSData);
+        return arrayList;
+    }
+
+    public static ArrayList<String> getModesByMovie(MoodMovieCollection collection, Movie m) {
+        ArrayList<String> moods = new ArrayList<>();
+
+        for (Mood mood: collection.getAvailableMoods()) {
+            for (Movie moodMov: collection.getMovieByMoods(mood)) {
+                if (moodMov.getName().equals(m.getName())) {
+                    moods.add(mood.getName());
+                }
+            }
+        }
+        return moods;
     }
 }

@@ -18,6 +18,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class SeriesHolder {
@@ -125,7 +126,7 @@ public class SeriesHolder {
 
         for (Mood mood: Mood.values()) {
             if (!mood.equals(Mood.ANYTHING)) {
-                allSeries.get(SeriesKind.ANYTHING.getName()).addMood(mood);
+                Objects.requireNonNull(allSeries.get(SeriesKind.ANYTHING.getName())).addMood(mood);
             }
        }
     }
@@ -137,13 +138,13 @@ public class SeriesHolder {
     public static ArrayList<MoodsSeries> getSeriesBasedOnMood(Mood mood) {
         ArrayList<MoodsSeries> arrayList = new ArrayList<>();
 
-        for (String s: SharedData.getInstance().getChosen()) {
-            if (allSeries.get(s).getAvailableMoods().contains(mood)) {
+        for (String s: SharedData.getInstance().getSeriesHandler().getChosen()) {
+            if (Objects.requireNonNull(allSeries.get(s)).getAvailableMoods().contains(mood)) {
                 arrayList.add(allSeries.get(s));
             }
         }
 
-        ArrayList<String> sData = SharedData.getInstance().getChosen();
+        ArrayList<String> sData = SharedData.getInstance().getSeriesHandler().getChosen();
         ArrayList<MoodsSeries> fromSData = new ArrayList<>();
         for (int i = 0; i < sData.size(); i++) {
             fromSData.add(allSeries.get(sData.get(i)));
@@ -154,8 +155,8 @@ public class SeriesHolder {
     }
 
 
-    public static ArrayList<Mood> getAviMoods() {
-        ArrayList<String> choose = SharedData.getInstance().getChosen();
+    public static ArrayList<Mood> getAllAvailableMoods() {
+        ArrayList<String> choose = SharedData.getInstance().getSeriesHandler().getChosen();
         ArrayList<Mood> ret = new ArrayList<>();
 
         for (String s: choose) {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ResultActivity"
+    tools:context=".Activities.series.SeriesResultActivity"
     android:background="@drawable/grad_background">
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <include layout="@layout/series_logos"
+            <include layout="@layout/activity_series_logos"
                 android:id="@+id/logos"/>
 
             <TextView
