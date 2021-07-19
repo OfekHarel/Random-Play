@@ -78,7 +78,8 @@
         android:layout_alignBottom="@+id/series_scroll_mood"
         android:layout_alignParentBottom="true"
         android:translationY="10dp"
-        android:id="@+id/series_gen_btn"/>
+        android:id="@+id/series_gen_btn"
+        android:contentDescription="TODO" />
 
 
 </RelativeLayout>

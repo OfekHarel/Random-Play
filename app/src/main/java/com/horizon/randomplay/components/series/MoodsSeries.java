@@ -5,6 +5,7 @@ import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Objects;
 
 public class MoodsSeries extends Series {
 
@@ -29,11 +30,11 @@ public class MoodsSeries extends Series {
         for (Tuple<Integer, Integer> episode : episodes) {
             es.add(fromSetToEpisode(episode));
         }
-        this.episodesMoods.get(mood).addAll(es);
+        Objects.requireNonNull(this.episodesMoods.get(mood)).addAll(es);
     }
 
     public void addMood(Mood mood) {
-        this.episodesMoods.get(mood).add(new Episode(0, "0"));
+        Objects.requireNonNull(this.episodesMoods.get(mood)).add(new Episode(0, "0"));
     }
 
     private Episode fromSetToEpisode(Tuple<Integer, Integer> tuple) {
@@ -47,7 +48,7 @@ public class MoodsSeries extends Series {
     public ArrayList<Mood> getAvailableMoods() {
         ArrayList<Mood> arrayList = new ArrayList<>();
         for (int i = 0; i < Mood.values().length; i++) {
-            if (this.episodesMoods.get(Mood.values()[i]).size() > 0) {
+            if (Objects.requireNonNull(this.episodesMoods.get(Mood.values()[i])).size() > 0) {
                 arrayList.add(Mood.values()[i]);
             }
         }
@@ -56,7 +57,7 @@ public class MoodsSeries extends Series {
 
     public void removeMoods() {
         for (Mood mood: Mood.values()) {
-            episodesMoods.get(mood).clear();
+            Objects.requireNonNull(episodesMoods.get(mood)).clear();
         }
     }
 }

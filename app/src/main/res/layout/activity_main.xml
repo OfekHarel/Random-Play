@@ -23,7 +23,8 @@
         android:layout_gravity="center_horizontal"
         android:scaleX="0.5"
         android:scaleY="0.5"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"
+        android:contentDescription="TODO" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout

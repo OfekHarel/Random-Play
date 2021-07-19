@@ -22,7 +22,9 @@ public class MoviesHolder {
     public enum MovieKind {
         ANYTHING("Literally Anything"),
         MARVEL("Marvel"),
-        DISNEY_ANIM("Animated Disney");
+        DISNEY_ANIM("Animated Disney"),
+        LORD_OF_THE_RINGS("Lord of the Rings World"),
+        HARRY_POTTER("Harry Potter");
 
         private final String name;
         MovieKind(String name) {
@@ -77,7 +79,7 @@ public class MoviesHolder {
 
         MovieCollection collection = new MovieCollection(name);
 
-        String data = "";
+        String data;
         do {
             data = reader.readLine();
             if (data == null) {

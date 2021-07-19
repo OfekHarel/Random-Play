@@ -7,11 +7,13 @@ import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 
-public class MovieLogosManager {
+public class MovieLogosManager extends BaseActivity{
 
     public enum LogoSeries {
         MARVEL(R.id.marvel_logo),
-        DISNEY_ANIM(R.id.disney_logo);
+        DISNEY_ANIM(R.id.disney_logo),
+        LORD_OF_THE_RINGS(R.id.lotr_logo),
+        HARRY_POTTER(R.id.hp_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -38,6 +40,12 @@ public class MovieLogosManager {
                 break;
             case DISNEY_ANIM:
                 LogoSeries.DISNEY_ANIM.display(activity);
+                break;
+            case LORD_OF_THE_RINGS:
+                LogoSeries.LORD_OF_THE_RINGS.display(activity);
+                break;
+            case HARRY_POTTER:
+                LogoSeries.HARRY_POTTER.display(activity);
                 break;
         }
     }

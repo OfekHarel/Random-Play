@@ -9,7 +9,7 @@ public class Tuple<X, Y> {
 		this.y = y;
 	}
 
-	@Override
+    @Override
 	public String toString() {
 		return x + ", " + y;
 	}

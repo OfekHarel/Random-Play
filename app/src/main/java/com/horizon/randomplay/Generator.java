@@ -15,6 +15,7 @@ import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
@@ -60,8 +61,9 @@ public class Generator {
             if (chosen != null) {
                 recentMovieCollections.changeSize(chosen.size());
                 do {
-                    movieNum = randomGen.nextInt(chosen.size());
-                } while (chosen.get(movieNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                    movieNum = numGen(chosen.size());
+                } while (chosen.get(movieNum).equals(MoviesHolder.MovieKind.ANYTHING.getName()) ||
+                        recentMovieCollections.isExist(MoviesHolder.MovieKind.ANYTHING.getName()));
                 return MoviesHolder.getAllMovies().get(chosen.get(movieNum));
             }
             return null;
@@ -74,7 +76,7 @@ public class Generator {
                 return moodsMovieCollection.get(0);
             }
             do {
-                movieNum = randomGen.nextInt(moodsMovieCollection.size());
+                movieNum = numGen(moodsMovieCollection.size());
             } while (Objects.equals(MoviesHolder.MovieKind.getByValue(moodsMovieCollection.get(movieNum).getName()), MoviesHolder.MovieKind.ANYTHING));
             return MoviesHolder.getAllMovies().get(moodsMovieCollection.get(movieNum).getName());
         }
@@ -82,7 +84,7 @@ public class Generator {
         private Movie genRandMovie(MoodMovieCollection collection) {
             int movieNum;
             do {
-                movieNum = randomGen.nextInt(collection.getMovies().size());
+                movieNum = numGen(collection.getMovies().size());
             } while (recentMovies.isExist(collection.getMovies().get(movieNum).getName()));
 
             return collection.getMovies().get(movieNum);
@@ -91,8 +93,9 @@ public class Generator {
         private Movie genRandMovie(MoodMovieCollection collection, Mood mood) {
             int movieNum;
             ArrayList<Movie> moods = collection.getMovieByMoods(mood);
+            System.out.println(moods.toString());
             do {
-                movieNum = randomGen.nextInt(moods.size());
+                movieNum = numGen(moods.size());
             } while (recentMovies.isExist(moods.get(movieNum).getName()));
             return moods.get(movieNum);
         }
@@ -124,8 +127,9 @@ public class Generator {
             if (chosen != null) {
                 recentSeries.changeSize(chosen.size());
                 do {
-                    seriesNum = randomGen.nextInt(chosen.size());
-                } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                    seriesNum = numGen(chosen.size());
+                } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()) ||
+                            recentSeries.isExist(SeriesHolder.SeriesKind.ANYTHING.getName()));
                 return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getSeriesHandler().getChosen().get(seriesNum));
             }
             return null;
@@ -138,7 +142,7 @@ public class Generator {
                 return moodsSeries.get(0);
             }
             do {
-                seriesNum = randomGen.nextInt(moodsSeries.size());
+                seriesNum = numGen(moodsSeries.size());
             } while (Objects.equals(SeriesHolder.SeriesKind.getByValue(moodsSeries.get(seriesNum).getName()), SeriesHolder.SeriesKind.ANYTHING));
             return SeriesHolder.getAllSeries().get(moodsSeries.get(seriesNum).getName());
         }
@@ -147,8 +151,8 @@ public class Generator {
             int seasonNum;
             int episodeNum;
             do {
-                seasonNum = randomGen.nextInt(series.getSeasons().size());
-                episodeNum = randomGen.nextInt(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
+                seasonNum = numGen(series.getSeasons().size());
+                episodeNum = numGen(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
 
             } while (recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
 
@@ -159,7 +163,7 @@ public class Generator {
             int randNum;
             ArrayList<Episode> moods = series.getEpisodesByMoods(mood);
             do {
-                randNum = randomGen.nextInt(moods.size());
+                randNum = numGen(moods.size());
             } while (recentEpisodes.isExist(moods.get(randNum).getName()));
 
             return moods.get(randNum);
@@ -183,5 +187,8 @@ public class Generator {
             recentEpisodes.insert(episode.getName());
             return new Tuple<>(series, episode);
         }
+    }
+    private int numGen(int threshold) {
+        return threshold <= 0? 1 : randomGen.nextInt(threshold);
     }
 }

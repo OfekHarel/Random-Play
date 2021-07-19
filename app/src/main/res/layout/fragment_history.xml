@@ -37,5 +37,6 @@
         android:src="@drawable/clear_btn"
         android:layout_centerHorizontal="true"
         android:background="@drawable/ripple"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="TODO" />
 </RelativeLayout>

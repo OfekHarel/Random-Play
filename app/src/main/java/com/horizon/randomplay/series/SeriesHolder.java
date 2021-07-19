@@ -94,7 +94,7 @@ public class SeriesHolder {
         Series series = new Series(name);
         Season season = new Season(seasonIndex);
 
-        String data = "";
+        String data;
         do {
             data = reader.readLine();
             if (data == null) {
@@ -160,7 +160,7 @@ public class SeriesHolder {
         ArrayList<Mood> ret = new ArrayList<>();
 
         for (String s: choose) {
-            ret.addAll(allSeries.get(s).getAvailableMoods());
+            ret.addAll(Objects.requireNonNull(allSeries.get(s)).getAvailableMoods());
         }
         return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }

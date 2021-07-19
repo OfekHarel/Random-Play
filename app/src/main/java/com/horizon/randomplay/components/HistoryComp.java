@@ -8,7 +8,7 @@ public class HistoryComp {
     private String series;
     private String movieCol;
     private String movieName;
-    private boolean isSeries;
+    private final boolean isSeries;
 
     public HistoryComp(String series, int season, int episode) {
         this.series = series;

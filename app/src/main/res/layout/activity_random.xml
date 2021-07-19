@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/logo_only"
         android:paddingVertical="25dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="TODO" />
 
         <View
             android:layout_width="match_parent"

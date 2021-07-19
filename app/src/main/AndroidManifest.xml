@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RandomPlay">
+        android:theme="@style/Theme.RandomPlay"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".Activities.preff.PopUpPrefActivity"
             android:screenOrientation="portrait"
