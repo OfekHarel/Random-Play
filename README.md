@@ -1,6 +1,9 @@
 ![](/app/src/main/res/drawable/logo.png)
 
 
+**On Google Play!**
+https://play.google.com/store/apps/details?id=com.horizon.randomplay
+
 Random play is an Open-Source app for TV sitcom enthusiasts.
 In this app you can randomize series' episodes by modes.
 Currently there are **11** different series and **6** different moods:<p>
