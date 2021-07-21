@@ -57,15 +57,17 @@ public class HistoryFragment extends BaseFragment {
 
         this.historyList.setAdapter(adapter);
         this.historyList.setOnItemClickListener((parent, view, position, id) -> {
-            preformVibration(requireContext(), 2);
-            String[] txt = adapter.getItem(position).replace(":", "-").split("-");
-            MoodsSeries series = SeriesHolder.getAllSeries().get(txt[1].substring(1));
-            txt = txt[2].split(" ");
-            assert series != null;
-            Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
+            if (adapter.getItem(position).contains("E.") && adapter.getItem(position).contains("S.")) {
+                String[] txt = adapter.getItem(position).replace(":", "-").split("-");
+                preformVibration(requireContext(), 2);
+                MoodsSeries series = SeriesHolder.getAllSeries().get(txt[1].substring(1));
+                txt = txt[2].split(" ");
+                assert series != null;
+                Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
 
-            Vars.s_historyCompon = new Tuple<>(series, episode);
-            redirectActivity((AppCompatActivity) getActivity(), HistoryComponActivity.class);
+                Vars.s_historyCompon = new Tuple<>(series, episode);
+                redirectActivity((AppCompatActivity) getActivity(), HistoryComponActivity.class);
+            }
         });
 
 
