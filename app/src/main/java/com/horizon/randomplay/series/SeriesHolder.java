@@ -9,7 +9,6 @@ import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.components.series.Season;
 import com.horizon.randomplay.components.series.Series;
 import com.horizon.randomplay.util.SharedData;
-import com.horizon.randomplay.util.Tuple;
 
 import java.io.BufferedReader;
 import java.io.IOException;

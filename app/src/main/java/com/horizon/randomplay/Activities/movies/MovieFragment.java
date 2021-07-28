@@ -172,5 +172,4 @@ public class MovieFragment extends BaseFragment {
         }
         return temp;
     }
-
 }

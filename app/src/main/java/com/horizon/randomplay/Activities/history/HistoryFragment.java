@@ -38,6 +38,7 @@ public class HistoryFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_history, container, false);
+        Vars.s_historyCompon = new Tuple<>(null, null);
 
         this.historyList = rootView.findViewById(R.id.hist_list);
         this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
@@ -80,7 +81,6 @@ public class HistoryFragment extends BaseFragment {
         });
 
         this.txt = rootView.findViewById(R.id.hist_txt);
-
 
         return rootView;
     }
