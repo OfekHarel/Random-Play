@@ -54,6 +54,8 @@ public class MoviesHolder {
     }
 
     private static final Map<String, MoodMovieCollection> allMovies = new HashMap<>();
+    private static final String ID_SEP = "?";
+
     public static void init(Context context) {
         try {
             for (int i = 0; i < MovieKind.values().length; i++) {
@@ -86,10 +88,10 @@ public class MoviesHolder {
                 continue;
             }
             if (!data.isEmpty()) {
-                if (data.contains("//?")) {
-                    int sepIndex = data.indexOf("//?");
+                if (data.contains(ID_SEP)) {
+                    int sepIndex = data.indexOf(ID_SEP);
                     String movieName = data.substring(0, sepIndex - 1);
-                    Long id = Long.parseLong(data.substring(sepIndex + 1));
+                    Long id = Long.parseLong(data.substring(sepIndex + 1).replace(" ", ""));
 
                     Movie m = new Movie(movieName);
                     m.setMovieID(id);

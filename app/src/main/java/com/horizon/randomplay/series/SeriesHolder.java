@@ -66,6 +66,8 @@ public class SeriesHolder {
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
+    private static final String ID_SEP = "?";
+
     public static void init(Context context) {
         try {
             for (int i = 0; i < SeriesKind.values().length; i++) {
@@ -110,8 +112,8 @@ public class SeriesHolder {
                     episodeIndex = 0;
                 }
 
-                if (data.contains("?")) {
-                    String rawId = data.substring(data.indexOf("?") + 1).replace(" ", "");
+                if (data.contains(ID_SEP)) {
+                    String rawId = data.substring(data.indexOf(ID_SEP) + 1).replace(" ", "");
                     id = Long.parseLong(rawId);
                     id--;
                 }
