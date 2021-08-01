@@ -1,4 +1,4 @@
-Season 1
+Season 1 ?70241872
 Pilot
 The Bicycle Thief
 Come Fly with Me
@@ -24,7 +24,7 @@ Airport 2010
 Hawaii
 Family Portrait
 
-Season 2
+Season 2 ?70241896
 The Old Wagon
 The Kiss
 Earthquake
@@ -50,7 +50,7 @@ Good Cop Bad Dog
 See You Next Fall
 The One That Got Away
 
-Season 3
+Season 3 ?70241920
 Dude Ranch
 When Good Kids Go Bad
 Phil on Wire
@@ -102,7 +102,7 @@ My Hero
 Games People Play
 Goodnight Gracie
 
-Season 5
+Season 5 ?80018808
 Suddenly, Last Summer
 First Days
 Larry's Wife

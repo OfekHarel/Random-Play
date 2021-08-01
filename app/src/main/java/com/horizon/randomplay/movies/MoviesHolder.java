@@ -86,7 +86,16 @@ public class MoviesHolder {
                 continue;
             }
             if (!data.isEmpty()) {
-               collection.addMovie(new Movie(data));
+                if (data.contains("//?")) {
+                    int sepIndex = data.indexOf("//?");
+                    String movieName = data.substring(0, sepIndex - 1);
+                    Long id = Long.parseLong(data.substring(sepIndex + 1));
+
+                    Movie m = new Movie(movieName);
+                    m.setMovieID(id);
+                } else {
+                    collection.addMovie(new Movie(data));
+                }
             }
         } while (data != null);
 

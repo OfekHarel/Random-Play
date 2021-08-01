@@ -1,4 +1,4 @@
-Season 1
+Season 1 ?80002472
 Pilot
 The Big Bran Hypothesis
 The Fuzzy Boots Corollary
@@ -17,7 +17,7 @@ The Pork Chop Indeterminacy
 The Peanut Reaction
 The Tangerine Factor
  
-Season 2
+Season 2 ?70295783
 The Bad Fish Paradigm
 The Codpiece Topology
 The Barbarian Sublimation
@@ -42,7 +42,7 @@ The Vegas Renormalization
 The Classified Materials Turbulence
 The Monopolar Expedition
  
-Season 3
+Season 3 ?70295806
 The Electric Can Opener Fluctuation
 The Jiminy Conjecture
 The Gothowitz Deviation
@@ -67,7 +67,7 @@ The Plimpton Stimulation
 The Staircase Implementation
 The Lunar Excitation
  
-Season 4
+Season 4 ?70295829
 The Robotic Manipulation
 The Cruciferous Vegetable Amplification
 The Zazzy Substitution
@@ -145,7 +145,7 @@ The Proton Resurgence
 The Love Spell Potential
 The Bon Voyage Reaction
  
-Season 7
+Season 7 ?80006976
 The Hofstadter Insufficiency
 The Deception Verification
 The Scavenger Vortex
