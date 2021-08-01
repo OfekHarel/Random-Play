@@ -93,7 +93,6 @@ public class Generator {
         private Movie genRandMovie(MoodMovieCollection collection, Mood mood) {
             int movieNum;
             ArrayList<Movie> moods = collection.getMovieByMoods(mood);
-            System.out.println(moods.toString());
             do {
                 movieNum = numGen(moods.size());
             } while (recentMovies.isExist(moods.get(movieNum).getName()));
@@ -106,7 +105,7 @@ public class Generator {
             if (movieKind.equals(MoviesHolder.MovieKind.ANYTHING)) {
                 collection = mood.equals(Mood.ANYTHING)? genRandMovieCollection(): genRandMovieCollection(mood);
                 assert collection != null;
-                recentSeries.insert(collection.getName());
+                recentMovieCollections.insert(collection.getName());
             }
 
             assert collection != null;
@@ -115,7 +114,7 @@ public class Generator {
             } else {
                 movie = genRandMovie(collection, mood);
             }
-            recentEpisodes.insert(movie.getName());
+            recentMovies.insert(movie.getName());
             return new Tuple<>(collection, movie);
         }
     }

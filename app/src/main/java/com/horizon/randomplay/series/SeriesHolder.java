@@ -114,8 +114,14 @@ public class SeriesHolder {
 
                 if (data.contains(ID_SEP)) {
                     String rawId = data.substring(data.indexOf(ID_SEP) + 1).replace(" ", "");
-                    id = Long.parseLong(rawId);
-                    id--;
+
+                    try {
+                        id = Long.parseLong(rawId);
+                        id--;
+                    }
+                    catch (Exception ignored) {
+
+                    }
                 }
 
             } else if (!data.replace(" ", "").isEmpty()) {

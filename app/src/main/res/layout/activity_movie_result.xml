@@ -30,7 +30,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <include layout="@layout/activity_movie_logos"
                 android:id="@+id/logos"/>
@@ -59,18 +59,35 @@
                 android:visibility="invisible"
                 android:id="@+id/movie_moods"/>
 
-            <ImageButton
+            <Button
+                android:id="@+id/m_regen_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/genrate_again"
+                android:text="Regenerate"
+                android:textColor="@color/app_black"
                 android:background="@drawable/ripple"
-                android:gravity="center_horizontal"
+                android:gravity="center"
+                android:translationY="-25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignBottom="@+id/movie_gen_info"
-                android:scaleY="0.9"
-                android:scaleX="0.9"
                 android:onClick="clickRegenerate"
-                android:contentDescription="TODO" />
+                android:outlineSpotShadowColor="@color/black"
+                android:outlineProvider="bounds"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watch now"
+                android:textColor="@color/app_black"
+                android:background="@drawable/ripple"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_alignBottom="@+id/m_regen_btn"
+                android:translationY="50dp"
+                android:onClick="clickWatchNow"
+                android:outlineSpotShadowColor="@color/black"
+                android:id="@+id/movies_watch_now"
+                android:outlineProvider="bounds"/>
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

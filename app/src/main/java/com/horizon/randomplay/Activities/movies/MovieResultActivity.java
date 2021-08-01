@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -16,6 +17,8 @@ import com.horizon.randomplay.R;
 import com.horizon.randomplay.components.HistoryComp;
 import com.horizon.randomplay.components.movies.MoodMovieCollection;
 import com.horizon.randomplay.components.movies.Movie;
+import com.horizon.randomplay.components.stream.StreamHelper;
+import com.horizon.randomplay.components.stream.StreamingServices;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.SharedData;
@@ -27,6 +30,7 @@ import java.util.Objects;
 
 public class MovieResultActivity extends BaseActivity {
 
+    private Movie movie;
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
@@ -39,7 +43,7 @@ public class MovieResultActivity extends BaseActivity {
         Mood mood = Vars.movie_choice.y;
         Tuple<MoodMovieCollection, Movie> gen = Generator.getInstance(this).getMovieHandler().generate(Vars.movie_choice.x, mood);
         MoodMovieCollection movieCollection= gen.x;
-        Movie movie = gen.y;
+        this.movie = gen.y;
 
         MovieLogosManager.showLogo(this, Objects.requireNonNull(MoviesHolder.MovieKind.getByValue(movieCollection.getName())));
 
@@ -58,6 +62,13 @@ public class MovieResultActivity extends BaseActivity {
             moodViewer.setVisibility(View.INVISIBLE);
         }
 
+        Button watchNowBtn = findViewById(R.id.movies_watch_now);
+        if (movie.getMovieID() != null) {
+            watchNowBtn.setVisibility(View.VISIBLE);
+        } else {
+            watchNowBtn.setVisibility(View.INVISIBLE);
+        }
+
         preformVibration(7);
 
         SharedData.getInstance().getMovieHandler().addHistory(new HistoryComp(movieCollection.getName(), movie.getName()).toString());
@@ -72,5 +83,9 @@ public class MovieResultActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         redirectActivity(this, MainActivity.class);
+    }
+
+    public void clickWatchNow(View view) {
+        StreamHelper.open(StreamingServices.NETFLIX, this.movie.getMovieID(), this);
     }
 }

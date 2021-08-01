@@ -91,10 +91,15 @@ public class MoviesHolder {
                 if (data.contains(ID_SEP)) {
                     int sepIndex = data.indexOf(ID_SEP);
                     String movieName = data.substring(0, sepIndex - 1);
-                    Long id = Long.parseLong(data.substring(sepIndex + 1).replace(" ", ""));
+                    try {
+                        Long id = Long.parseLong(data.substring(sepIndex + 1).replace(" ", ""));
+                        Movie m = new Movie(movieName);
+                        m.setMovieID(id);
+                        collection.addMovie(m);
+                    }
+                    catch (Exception ignored) {
 
-                    Movie m = new Movie(movieName);
-                    m.setMovieID(id);
+                    }
                 } else {
                     collection.addMovie(new Movie(data));
                 }
