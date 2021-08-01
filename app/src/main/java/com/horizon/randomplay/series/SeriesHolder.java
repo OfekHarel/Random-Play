@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -92,6 +93,7 @@ public class SeriesHolder {
         int episodeIndex = 0;
         Series series = new Series(name);
         Season season = new Season(seasonIndex);
+        Long id = null;
 
         String data;
         do {
@@ -108,9 +110,20 @@ public class SeriesHolder {
                     episodeIndex = 0;
                 }
 
+                if (data.contains("?")) {
+                    String rawId = data.substring(data.indexOf("?") + 1).replace(" ", "");
+                    id = Long.parseLong(rawId);
+                    id--;
+                }
+
             } else if (!data.replace(" ", "").isEmpty()) {
                 episodeIndex++;
-                season.addEpisode(new Episode(episodeIndex, data));
+                Episode e = new Episode(episodeIndex, data);
+                if (id != null) {
+                    id++;
+                    e.setId(id);
+                }
+                season.addEpisode(e);
             }
         } while (data != null);
         series.addSeason(season);

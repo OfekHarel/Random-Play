@@ -4,6 +4,7 @@ public class Episode {
     
     private final int number;
     private final String name;
+    private Long id = null;
 
     public Episode(int number, String name) {
         this.number = number;
@@ -16,5 +17,13 @@ public class Episode {
 
     public int getNumber() {
         return number;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

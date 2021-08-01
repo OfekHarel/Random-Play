@@ -4,15 +4,19 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.R;
+import com.horizon.randomplay.components.stream.StreamHelper;
+import com.horizon.randomplay.components.stream.StreamingServices;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.HistoryComp;
@@ -27,6 +31,7 @@ import java.util.Objects;
 
 public class SeriesResultActivity extends BaseActivity {
 
+    private Episode episode;
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
@@ -39,7 +44,7 @@ public class SeriesResultActivity extends BaseActivity {
         Mood mood = Vars.series_choice.y;
         Tuple<MoodsSeries, Episode> gen = Generator.getInstance(this).getSeriesHandler().generate(Vars.series_choice.x, mood);
         MoodsSeries series = gen.x;
-        Episode episode = gen.y;
+        this.episode = gen.y;
         int seasonNum = series.getSeason(episode).getNumber();
 
         SeriesLogosManager.showLogo(this, Objects.requireNonNull(SeriesHolder.SeriesKind.getByValue(series.getName())));
@@ -62,6 +67,13 @@ public class SeriesResultActivity extends BaseActivity {
             moodViewer.setVisibility(View.INVISIBLE);
         }
 
+        Button watchNowBtn = findViewById(R.id.series_watch_now);
+        if (episode.getId() != null) {
+            watchNowBtn.setVisibility(View.VISIBLE);
+        } else {
+            watchNowBtn.setVisibility(View.INVISIBLE);
+        }
+
         preformVibration(7);
 
         SharedData.getInstance().getSeriesHandler().addHistory(new HistoryComp(series.getName(), seasonNum, episode.getNumber()).toString());
@@ -78,4 +90,7 @@ public class SeriesResultActivity extends BaseActivity {
         redirectActivity(this, MainActivity.class);
     }
 
+    public void clickWatchNow(View view) {
+        StreamHelper.open(StreamingServices.NETFLIX, this.episode.getId(), this);
+    }
 }

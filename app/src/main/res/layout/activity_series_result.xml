@@ -30,10 +30,11 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <include layout="@layout/activity_series_logos"
-                android:id="@+id/logos"/>
+            <include
+                layout="@layout/activity_series_logos"
+                android:id="@+id/logos" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -67,23 +68,41 @@
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
                 android:layout_alignBottom="@+id/gen_info"
-                android:translationY="-120dp"
+                android:translationY="-125dp"
                 android:layout_centerHorizontal="true"
                 android:visibility="invisible"
                 android:id="@+id/episode_moods"/>
 
-            <ImageButton
+            <Button
+                android:id="@+id/s_regen_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/genrate_again"
+                android:text="Regenerate"
+                android:textColor="@color/app_black"
                 android:background="@drawable/ripple"
-                android:gravity="center_horizontal"
+                android:gravity="center"
+                android:translationY="-25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignBottom="@+id/episode_name"
-                android:scaleY="0.9"
-                android:scaleX="0.9"
                 android:onClick="clickRegenerate"
-                android:contentDescription="TODO" />
+                android:outlineSpotShadowColor="@color/black"
+                android:outlineProvider="bounds"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watch now"
+                android:textColor="@color/app_black"
+                android:background="@drawable/ripple"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_alignBottom="@+id/s_regen_btn"
+                android:translationY="50dp"
+                android:onClick="clickWatchNow"
+                android:outlineSpotShadowColor="@color/black"
+                android:id="@+id/series_watch_now"
+                android:outlineProvider="bounds"/>
+
         </RelativeLayout>
 
 
