@@ -1,0 +1,6 @@
+
+"title": "seasons"
+"href": "http://api.netflix.com/catalog/titles/series/id/seasons"
+
+"title": "episodes"
+"href": "http://api.netflix.com/catalog/titles/series/id/episodes"
