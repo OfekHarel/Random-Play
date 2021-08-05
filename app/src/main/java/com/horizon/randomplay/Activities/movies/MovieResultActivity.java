@@ -62,7 +62,7 @@ public class MovieResultActivity extends BaseActivity {
             moodViewer.setVisibility(View.INVISIBLE);
         }
 
-        Button watchNowBtn = findViewById(R.id.movies_watch_now);
+        Button watchNowBtn = findViewById(R.id.watch_now);
         if (movie.getMovieID() != null) {
             watchNowBtn.setVisibility(View.VISIBLE);
         } else {

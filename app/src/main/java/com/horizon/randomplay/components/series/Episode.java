@@ -3,13 +3,21 @@ package com.horizon.randomplay.components.series;
 public class Episode {
     
     private final int number;
-    private final String name;
+    private String name;
     private Long id = null;
 
-    public Episode(int number, String name) {
+
+    public Episode(int number, String name, Long id) {
         this.number = number;
         this.name = name;
+        this.id = id;
     }
+
+    public Episode(int number, String name) {
+        this(number, name, null);
+    }
+
+
 
     public String getName() {
         return name;
@@ -25,5 +33,9 @@ public class Episode {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

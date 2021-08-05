@@ -13,7 +13,8 @@ public class MovieLogosManager extends BaseActivity{
         MARVEL(R.id.marvel_logo),
         DISNEY_ANIM(R.id.disney_logo),
         LORD_OF_THE_RINGS(R.id.lotr_logo),
-        HARRY_POTTER(R.id.hp_logo);
+        HARRY_POTTER(R.id.hp_logo),
+        DREAM_WORKS(R.id.dreamworks_logo);
 
         private final int logoId;
         LogoSeries(int id) {
@@ -46,6 +47,9 @@ public class MovieLogosManager extends BaseActivity{
                 break;
             case HARRY_POTTER:
                 LogoSeries.HARRY_POTTER.display(activity);
+                break;
+            case DREAM_WORKS:
+                LogoSeries.DREAM_WORKS.display(activity);
                 break;
         }
     }

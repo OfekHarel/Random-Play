@@ -3,7 +3,7 @@ from xml.etree import ElementTree
 import xmltodict
 import os
 
-IN_OUT_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\res\raw\m_animated_disney.txt'
+IN_OUT_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\res\raw\m_my_animated_childhood.txt'
 DATABASE_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\python\netflix_helper\out\NetflixMovieData.txt'
 
 with open(IN_OUT_DIR, 'r+') as in_movies:

@@ -95,7 +95,6 @@ public class SeriesHolder {
         int episodeIndex = 0;
         Series series = new Series(name);
         Season season = new Season(seasonIndex);
-        Long id = null;
 
         String data;
         do {
@@ -112,25 +111,23 @@ public class SeriesHolder {
                     episodeIndex = 0;
                 }
 
+            } else if (!data.replace(" ", "").isEmpty()) {
+                episodeIndex++;
+
+                Long id = null;
+                String episodeName = data;
+
                 if (data.contains(ID_SEP)) {
                     String rawId = data.substring(data.indexOf(ID_SEP) + 1).replace(" ", "");
 
                     try {
                         id = Long.parseLong(rawId);
-                        id--;
+                        episodeName = data.substring(0, data.indexOf(ID_SEP) - 1);
                     }
                     catch (Exception ignored) {
-
                     }
                 }
-
-            } else if (!data.replace(" ", "").isEmpty()) {
-                episodeIndex++;
-                Episode e = new Episode(episodeIndex, data);
-                if (id != null) {
-                    id++;
-                    e.setId(id);
-                }
+                Episode e = new Episode(episodeIndex, episodeName, id);
                 season.addEpisode(e);
             }
         } while (data != null);

@@ -67,7 +67,7 @@ public class SeriesResultActivity extends BaseActivity {
             moodViewer.setVisibility(View.INVISIBLE);
         }
 
-        Button watchNowBtn = findViewById(R.id.series_watch_now);
+        Button watchNowBtn = findViewById(R.id.watch_now);
         if (episode.getId() != null) {
             watchNowBtn.setVisibility(View.VISIBLE);
         } else {

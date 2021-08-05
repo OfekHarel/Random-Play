@@ -24,7 +24,8 @@ public class MoviesHolder {
         MARVEL("Marvel"),
         DISNEY_ANIM("Animated Disney"),
         LORD_OF_THE_RINGS("Lord of the Rings World"),
-        HARRY_POTTER("Harry Potter");
+        HARRY_POTTER("Harry Potter"),
+        DREAM_WORKS("Animated DreamWorks");
 
         private final String name;
         MovieKind(String name) {
@@ -101,6 +102,7 @@ public class MoviesHolder {
 
                     }
                 } else {
+                    System.out.println(data);
                     collection.addMovie(new Movie(data));
                 }
             }
