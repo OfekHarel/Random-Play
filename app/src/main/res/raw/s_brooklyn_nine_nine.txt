@@ -1,156 +1,156 @@
 Season 1
-Pilot ?80004161
-The Tagger ?80004162
-The Slump ?80004163
-M.E. Time ?80004164
-The Vulture ?80004165
-Halloween ?80004166
-48 Hours ?80004167
-Old School ?80004168
-Sal's Pizza ?80004169
-Thanksgiving ?80004170
-Christmas ?80004171
-Pontiac Bandit ?80004172
-The Bet ?80004173
-The Ebony Falcon ?80004174
-Operation: Broken Feather ?80004175
-The Party ?80004176
-Full Boyle ?80004177
-The Apartment ?80004178
-Tactical Village ?80004179
-Fancy Brudgom ?80004180
-Unsolvable ?80004181
-Charges and Specs ?80004182
+Pilot |80004161
+The Tagger |80004162
+The Slump |80004163
+M.E. Time |80004164
+The Vulture |80004165
+Halloween |80004166
+48 Hours |80004167
+Old School |80004168
+Sal's Pizza |80004169
+Thanksgiving |80004170
+Christmas |80004171
+Pontiac Bandit |80004172
+The Bet |80004173
+The Ebony Falcon |80004174
+Operation: Broken Feather |80004175
+The Party |80004176
+Full Boyle |80004177
+The Apartment |80004178
+Tactical Village |80004179
+Fancy Brudgom |80004180
+Unsolvable |80004181
+Charges and Specs |80004182
 
 Season 2
-Undercover ?80011382
-Chocolate Milk ?80011383
-The Jimmy Jab Games ?80011384
-Halloween II ?80011385
-The Mole ?80011386
-Jake and Sophia ?80011387
-Lockdown ?80011389
-USPIS ?80011388
-The Road Trip ?80011390
-The Pontiac Bandit Returns ?80011391
-Stakeout ?80011392
-Beach House ?80011393
-Payback ?80011394
-The Defense Rests ?80011395
-Windbreaker City ?80011396
-The Wednesday Incident ?80011397
-Boyle-Linetti Wedding ?80011398
-Captain Peralta ?80011399
-Sabotage ?80011600
-AC/DC ?80011603
-Det. Dave Majors ?80011601
-The Chopper ?80011602
-Johnny and Dora ?80045627
+Undercover |80011382
+Chocolate Milk |80011383
+The Jimmy Jab Games |80011384
+Halloween II |80011385
+The Mole |80011386
+Jake and Sophia |80011387
+Lockdown |80011389
+USPIS |80011388
+The Road Trip |80011390
+The Pontiac Bandit Returns |80011391
+Stakeout |80011392
+Beach House |80011393
+Payback |80011394
+The Defense Rests |80011395
+Windbreaker City |80011396
+The Wednesday Incident |80011397
+Boyle-Linetti Wedding |80011398
+Captain Peralta |80011399
+Sabotage |80011600
+AC/DC |80011603
+Det. Dave Majors |80011601
+The Chopper |80011602
+Johnny and Dora |80045627
 
 Season 3
-New Captain ?80028062
-The Funeral ?80028063
-Boyle's Hunch ?80028065
-The Oolong Slayer ?80028064
-Halloween Part III ?80028066
-Into the Woods ?80028067
-The Mattress ?80028068
-Ava ?80028069
-The Swedes ?80028070
-Yippie Kayak ?80028071
-Hostage Situation ?80028073
-9 Days ?80028072
-The Cruise ?80028074
-Karen Peralta ?80028075
-The 9-8 ?80028076
-House Mouses ?80028077
-Adrian Pimento ?80028078
-Cheddar ?80028079
-Terry Kitties ?80028080
-Paranoia ?80028081
-Maximum Security ?80028082
-The Bureau ?80028083
-Greg and Larry ?80094430
+New Captain |80028062
+The Funeral |80028063
+Boyle's Hunch |80028065
+The Oolong Slayer |80028064
+Halloween Part III |80028066
+Into the Woods |80028067
+The Mattress |80028068
+Ava |80028069
+The Swedes |80028070
+Yippie Kayak |80028071
+Hostage Situation |80028073
+9 Days |80028072
+The Cruise |80028074
+Karen Peralta |80028075
+The 9-8 |80028076
+House Mouses |80028077
+Adrian Pimento |80028078
+Cheddar |80028079
+Terry Kitties |80028080
+Paranoia |80028081
+Maximum Security |80028082
+The Bureau |80028083
+Greg and Larry |80094430
 
 Season 4
-Coral Palms: Part 1 ?80045639
-Coral Palms: Part 2 ?80045640
-Coral Palms: Part 3 ?80045641
-The Night Shift ?80045642
-Halloween IV ?80045643
-Monster in the Closet ?80045644
-Mr. Santiago ?80045645
-Skyfire Cycle ?80045646
-The Overmining ?80045647
-Captain Latvia ?80045648
-The Fugitive: Part 1 ?80045649
-The Fugitive: Part 2 ?80045650
-The Audit ?80045651
-Serve & Protect ?80045652
-The Last Ride ?80045653
-Moo Moo ?80045654
-Cop-Con ?80045655
-Chasing Amy ?80045656
-Your Honor ?80045657
-The Slaughterhouse ?80045658
-The Bank Job ?80045659
-Crime & Punishment ?80045660
+Coral Palms: Part 1 |80045639
+Coral Palms: Part 2 |80045640
+Coral Palms: Part 3 |80045641
+The Night Shift |80045642
+Halloween IV |80045643
+Monster in the Closet |80045644
+Mr. Santiago |80045645
+Skyfire Cycle |80045646
+The Overmining |80045647
+Captain Latvia |80045648
+The Fugitive: Part 1 |80045649
+The Fugitive: Part 2 |80045650
+The Audit |80045651
+Serve & Protect |80045652
+The Last Ride |80045653
+Moo Moo |80045654
+Cop-Con |80045655
+Chasing Amy |80045656
+Your Honor |80045657
+The Slaughterhouse |80045658
+The Bank Job |80045659
+Crime & Punishment |80045660
 
 Season 5
-The Big House, Pt. 1 ?80217708
-The Big House, Pt. 2 ?80217709
-Kicks ?80217710
-HalloVeen ?80217711
-Bad Beat ?80217712
-The Venue ?80217713
-Two Turkeys ?80217714
-Return to Skyfire ?80217715
-99 ?80217716
-Game Night ?80217717
-The Favor ?80217718
-Safe House ?80217719
-The Negotiation ?80217720
-The Box ?80217721
-The Puzzle Master ?80217722
-NutriBoom ?80217723
-DFW ?80217724
-Gray Star Mutual ?80217725
-Bachelor/ette Party ?80217726
-Show Me Going ?80217727
-White Whale ?80217728
-Jake & Amy ?80217729
+The Big House, Pt. 1 |80217708
+The Big House, Pt. 2 |80217709
+Kicks |80217710
+HalloVeen |80217711
+Bad Beat |80217712
+The Venue |80217713
+Two Turkeys |80217714
+Return to Skyfire |80217715
+99 |80217716
+Game Night |80217717
+The Favor |80217718
+Safe House |80217719
+The Negotiation |80217720
+The Box |80217721
+The Puzzle Master |80217722
+NutriBoom |80217723
+DFW |80217724
+Gray Star Mutual |80217725
+Bachelor/ette Party |80217726
+Show Me Going |80217727
+White Whale |80217728
+Jake & Amy |80217729
 
 Season 6
-Honeymoon ?81085942
-Hitchcock & Scully ?81085943
-The Tattler ?81085944
-Four Movements ?81085945
-A Tale of Two Bandits ?81085946
-The Crime Scene ?81085947
-The Honeypot ?81085948
-He Said, She Said ?81085949
-The Golden Child ?81085950
-Gintars ?81085951
-The Therapist ?81085952
-Casecation ?81085953
-The Bimbo ?81085954
-Ticking Clocks ?81085955
-Return of the King ?81085956
-Cinco de Mayo ?81085957
-Sicko ?81085958
-The Suicide Squad ?81085959
+Honeymoon |81085942
+Hitchcock & Scully |81085943
+The Tattler |81085944
+Four Movements |81085945
+A Tale of Two Bandits |81085946
+The Crime Scene |81085947
+The Honeypot |81085948
+He Said, She Said |81085949
+The Golden Child |81085950
+Gintars |81085951
+The Therapist |81085952
+Casecation |81085953
+The Bimbo |81085954
+Ticking Clocks |81085955
+Return of the King |81085956
+Cinco de Mayo |81085957
+Sicko |81085958
+The Suicide Squad |81085959
 
 Season 7
-Manhunter ?81249373
-Captain Kim ?81249374
-Pimemento ?81249375
-The Jimmy Jab Games II ?81249376
-Debbie ?81249377
-Trying ?81249378
-Ding Dong ?81249379
-The Takeback ?81249380
-Dillman ?81249381
-Admiral Peralta ?81249382
-Valloweaster ?81249383
-Ransom ?81249384
-Lights Out ?81249385
+Manhunter |81249373
+Captain Kim |81249374
+Pimemento |81249375
+The Jimmy Jab Games II |81249376
+Debbie |81249377
+Trying |81249378
+Ding Dong |81249379
+The Takeback |81249380
+Dillman |81249381
+Admiral Peralta |81249382
+Valloweaster |81249383
+Ransom |81249384
+Lights Out |81249385

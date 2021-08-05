@@ -66,7 +66,7 @@ public class SeriesHolder {
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
-    private static final String ID_SEP = "?";
+    private static final String ID_SEP = "|";
 
     public static void init(Context context) {
         try {

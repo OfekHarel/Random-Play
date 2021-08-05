@@ -55,7 +55,7 @@ public class MoviesHolder {
     }
 
     private static final Map<String, MoodMovieCollection> allMovies = new HashMap<>();
-    private static final String ID_SEP = "?";
+    private static final String ID_SEP = "|";
 
     public static void init(Context context) {
         try {

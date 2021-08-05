@@ -51,7 +51,7 @@ def export_data_file(series_id):
                 episode_id = str(e['id']).split("/")
                 episode_id = int(episode_id[len(episode_id) - 1])
 
-                out.write(episode_name + " ?" + str(episode_id) + "\n")
+                out.write(episode_name + " |" + str(episode_id) + "\n")
 
 
 if __name__ == "__main__":

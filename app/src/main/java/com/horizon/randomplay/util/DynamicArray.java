@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 public class DynamicArray<T> {
     private ArrayList<T> arr;
+    private final int SIZE;
     private int size;
 
     public DynamicArray(int size) {
+        this.SIZE = size;
         this.size = size;
         this.arr = new ArrayList<>();
     }
@@ -45,5 +47,9 @@ public class DynamicArray<T> {
 
     public static int getIdealSize(int size) {
         return (size- 1) / 3;
+    }
+
+    public void retrieveDefSize() {
+        changeSize(SIZE);
     }
 }

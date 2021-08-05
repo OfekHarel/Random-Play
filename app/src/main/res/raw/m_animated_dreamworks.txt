@@ -1,12 +1,12 @@
 Shrek
-Shrek 2 ?60034572
-Shrek The Third ?70047102
-Shrek Forever ?70117295
-Kung Fu Panda ?70075480
-Kung Fu Panda 2 ?70126574
+Shrek 2 |60034572
+Shrek The Third |70047102
+Shrek Forever |70117295
+Kung Fu Panda |70075480
+Kung Fu Panda 2 |70126574
 Kung Fu Panda 3
-How To Train Your Dragon ?70109893
+How To Train Your Dragon |70109893
 Madagascar 1
-Madagascar: Escape 2 Africa ?70099116
-Madagascar 3: Europe'S Most Wanted ?70216224
+Madagascar: Escape 2 Africa |70099116
+Madagascar 3: Europe'S Most Wanted |70216224
 Cloudy with a chance of Meat Balls

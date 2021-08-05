@@ -3,7 +3,7 @@ from xml.etree import ElementTree
 import xmltodict
 import os
 
-IN_OUT_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\res\raw\m_my_animated_childhood.txt'
+IN_OUT_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\res\raw\m_animated_dreamworks.txt'
 DATABASE_DIR = r'A:\Software Dev\Projects\RandomPlay\Random-Play\app\src\main\python\netflix_helper\out\NetflixMovieData.txt'
 
 with open(IN_OUT_DIR, 'r+') as in_movies:
@@ -25,7 +25,7 @@ with open(IN_OUT_DIR, 'r+') as in_movies:
         for movie in movies:
             name = movie.lower().strip().replace("\n", "")
             if name in database_movies:
-                movies[index] = (name.title() + " ?" + database_ids[name] + '\n')
+                movies[index] = (name.title() + " |" + database_ids[name] + '\n')
                 print(movies[index])
             index += 1
         
