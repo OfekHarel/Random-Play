@@ -4,3 +4,8 @@
 
 "title": "episodes"
 "href": "http://api.netflix.com/catalog/titles/series/id/episodes"
+
+"title": "movies"
+"id": "http://api.netflix.com/catalog/titles/movies/70105100"
+
+https://stevesie.com/apps/netflix-api

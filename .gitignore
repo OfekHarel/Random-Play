@@ -13,5 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-app/src/main/python/netflix_helper/dataset_2019
 app/src/main/python/netflix_helper/m_marvel.txt

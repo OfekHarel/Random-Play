@@ -1,152 +1,59 @@
-Outer Banks | Id: 80236318
-Sex/Life | Id: 80991848
-Lucifer | Id: 80057918
-Money Heist | Id: 80192098
-Top Secret UFO Projects: Declassified | Id: 81018709
-Cobra Kai | Id: 81002370
-Never Have I Ever | Id: 80179190
-Lupin | Id: 80994082
 Teen Wolf | Id: 70219484
 The 100 | Id: 70283264
-Stranger Things | Id: 80057281
-Shadowhunters: The Mortal Instruments | Id: 80084447
-The Originals | Id: 70283261
-Supergirl | Id: 80065386
-Merlin | Id: 70142436
-Sweet Tooth | Id: 81221380
-The Blacklist | Id: 70281312
-Brooklyn Nine-Nine | Id: 70281562
-Lupin | Id: 80994082
-Breaking Bad | Id: 70143836
-Peaky Blinders | Id: 80002479
-Narcos | Id: 80025172
-Elite | Id: 80200942
-Queen of the South | Id: 80107369
 Trollhunters: Tales of Arcadia | Id: 80075820
 Free Rein | Id: 80134695
 Heartland | Id: 70171946
-Anne with an E | Id: 80136311
 Fuller House | Id: 80051137
 Dragons: Race to the Edge | Id: 80039394
-She-Ra and the Princesses of Power | Id: 80179762
-The Boss Baby: Back in Business | Id: 80178943
-How I Met Your Mother | Id: 70143824
 Modern Family | Id: 70143858
 The Big Bang Theory | Id: 70143830
 The Queen's Gambit | Id: 80234304
-The Crown | Id: 80025678
-Family Guy | Id: 70153382
-Jane The Virgin | Id: 80027158
-How to Get Away With Murder | Id: 80024057
-Gilmore Girls | Id: 70155618
 My Hero Academia | Id: 80135674
-Elite | Id: 80200942
-Never Have I Ever | Id: 80179190
-Ginny & Georgia | Id: 81025696
-Atypical | Id: 80117540
-Shadowhunters: The Mortal Instruments | Id: 80084447
-Riverdale | Id: 80133311
-Virgin River | Id: 80240027
 Fauda | Id: 80113612
-Vikings | Id: 70301870
-Jane The Virgin | Id: 80027158
-Spartacus | Id: 70136152
-How to Get Away With Murder | Id: 80024057
-The Last Kingdom | Id: 80074249
-Marvel's Iron Fist | Id: 80002612
 Suits | Id: 70195800
-The Bold Type | Id: 80176085
 Grizzy and the Lemmings | Id: 81154166
 Pup Academy | Id: 81040639
 The InBESTigators | Id: 80243216
-L.A.’s Finest | Id: 80241180
-New Girl | Id: 70196145
-The Amazing World of Gumball | Id: 70243420
-Too Hot to Handle | Id: 80241027
-Love Is Blind | Id: 80996601
-RuPaul's Drag Race | Id: 70187741
-Glow Up | Id: 81075536
-2025 | Id: 81201956
-The Circle | Id: 81044551
+L.A.'s Finest | Id: 80241180
 Next in Fashion | Id: 81026300
-Sugar Rush | Id: 80201328
 The Worst Witch | Id: 80130521
 Mako Mermaids: An H2O Adventure | Id: 70281343
 Fast & Furious Spy Racers | Id: 80225085
-She-Ra and the Princesses of Power | Id: 80179762
 Greenhouse Academy | Id: 80095435
 Spirit Riding Free | Id: 80115432
-ALVINNN!!! And the Chipmunks | Id: 80097036
-The Boss Baby: Back in Business | Id: 80178943
 Arrow | Id: 70242081
-Queen of the South | Id: 80107369
-The Last Kingdom | Id: 80074249
-Marvel's Iron Fist | Id: 80002612
-El Dragón: Return of a Warrior | Id: 81098497
+El Drag'n: Return of a Warrior | Id: 81098497
 Shooter | Id: 80109194
-Merlin | Id: 70142436
-Sweet Tooth | Id: 81221380
 The Seven Deadly Sins | Id: 80050063
 The Cook of Castamar | Id: 81354529
-Bridgerton | Id: 80232398
-Riverdale | Id: 80133311
 Gabby's Dollhouse | Id: 81009946
 Jurassic World Camp Cretaceous | Id: 81009646
-Top Secret UFO Projects: Declassified | Id: 81018709
-44 Cats | Id: 81081459
 Locked Up | Id: 80059465
 Designated Survivor | Id: 80113647
 La Reina del Sur | Id: 70205672
 Ozark | Id: 80117552
-Marvel's The Punisher | Id: 80117498
 El Chapo | Id: 80133042
-Kakegurui | Id: 80175351
-The Inmate | Id: 81025403
-Formula 1: Drive to Survive | Id: 80204890
-The Last Dance | Id: 80203144
-Greatest Events of WWII in Colour | Id: 80989924
-How to Become a Tyrant | Id: 80989772
-Our Planet | Id: 80049832
-Inside the World’s Toughest Prisons | Id: 80116922
+Inside the World's Toughest Prisons | Id: 80116922
 Roman Empire | Id: 80096545
-ALVINNN!!! And the Chipmunks | Id: 80097036
 The Dragon Prince | Id: 80212245
 3Below: Tales of Arcadia | Id: 80179784
-44 Cats | Id: 81081459
 Chesapeake Shores | Id: 80111373
-The Amazing World of Gumball | Id: 70243420
 CoComelon | Id: 81273085
 The Epic Tales of Captain Underpants | Id: 80179782
-New Girl | Id: 70196145
-Glee | Id: 70143843
 My Unorthodox Life | Id: 81175724
 Family Reunion | Id: 80234451
 Car Masters: Rust to Riches | Id: 80194704
 Call My Agent! | Id: 80133335
-Our Planet | Id: 80049832
-Glow Up | Id: 81075536
-Sweet Tooth | Id: 81221380
 Emily in Paris | Id: 81037371
 Sky Rojo | Id: 81012637
-The Kominsky Method | Id: 80201680
-Ragnarok | Id: 80232926
-Shadow and Bone | Id: 80236319
-The Inmate | Id: 81025403
 Hashoter Hatov | Id: 80240277
 Johnny Test | Id: 81193032
 Power Rangers Beast Morphers | Id: 81192594
 Barbie Life in the Dreamhouse | Id: 70294800
 Zig & Sharko | Id: 70286809
 Clarence | Id: 81186527
-Cobra Kai | Id: 81002370
-Atypical | Id: 80117540
-Pablo Escobar, el patrón del mal | Id: 80035684
+Pablo Escobar, el patr'n del mal | Id: 80035684
 Shtisel | Id: 81004164
-Merlin | Id: 70142436
-On My Block | Id: 80117809
-Gotham | Id: 80020542
-StartUp | Id: 80154285
-Orange Is the New Black | Id: 70242311
 Al Hayba | Id: 81003648
 Tattoo Redo | Id: 81196469
 Below Deck Mediterranean | Id: 81470227
@@ -154,30 +61,205 @@ Centaurworld | Id: 80992673
 The Disastrous Life of Saiki K. | Id: 80117781
 Kuroko's Basketball | Id: 80063153
 One-Punch Man | Id: 80117291
-Kakegurui | Id: 80175351
 BAKI | Id: 80204451
 Blue Exorcist | Id: 70304252
-Castlevania | Id: 80095241
 Record of Ragnarok | Id: 81281579
 When Calls the Heart | Id: 80036407
-Cable Girls | Id: 80100929
 Marco Polo | Id: 70305883
-Kingdom | Id: 80180171
 Versailles | Id: 80099753
 The Bonfire of Destiny | Id: 80213020
-DC's Legends of Tomorrow | Id: 80066080
 Good Witch | Id: 80036416
-Outlander | Id: 70285581
-Van Helsing | Id: 80121349
-The Witcher | Id: 80189685
 The Umbrella Academy | Id: 80186863
 The New Legends of Monkey | Id: 80184682
-Shadow and Bone | Id: 80236319
-South Park | Id: 70136107
 The Good Place | Id: 80113701
-Orange Is the New Black | Id: 70242311
-Better Call Saul | Id: 80021955
-Insatiable | Id: 80179905
-13 Reasons Why | Id: 80117470
-The Kominsky Method | Id: 80201680
 Community | Id: 70155589
+Brooklyn Nine-Nine | Id: 70281562
+How to Get Away With Murder | Id: 80024057
+She-Ra and the Princesses of Power | Id: 80179762
+The Boss Baby: Back in Business | Id: 80178943
+Marvel's Iron Fist | Id: 80002612
+ALVINNN!!! And the Chipmunks | Id: 80097036
+44 Cats | Id: 81081459
+The Amazing World of Gumball | Id: 70243420
+Our Planet | Id: 80049832
+The Inmate | Id: 81025403
+Cobra Kai | Id: 81002370
+Atypical | Id: 80117540
+Kakegurui | Id: 80175351
+The Kominsky Method | Id: 80201680
+Brooklyn Nine-Nine | Id: 70281562
+How I Met Your Mother | Id: 70143824
+The Flash | Id: 80027042
+How to Sell Drugs Online (Fast) | Id: 80218448
+Never Have I Ever | Id: 80179190
+Control Z | Id: 81021245
+Outer Banks | Id: 80236318
+The Good Doctor | Id: 80176893
+Rick and Morty | Id: 80014749
+Sex/Life | Id: 80991848
+Too Hot to Handle: Brazil | Id: 81249156
+Breaking Bad | Id: 70143836
+Lupin | Id: 80994082
+The Blacklist | Id: 70281312
+Community | Id: 70155589
+Formula 1: Drive to Survive | Id: 80204890
+Top Secret UFO Projects: Declassified | Id: 81018709
+Family Guy | Id: 70153382
+BoJack Horseman | Id: 70300800
+Disenchantment | Id: 80095697
+Final Space | Id: 80174479
+Archer | Id: 70171942
+Super Drags | Id: 80218634
+Shadow and Bone | Id: 80236319
+The Last Kingdom | Id: 80074249
+Ginny & Georgia | Id: 81025696
+Pok'mon Journeys: The Series | Id: 81193140
+Elite | Id: 80200942
+Supergirl | Id: 80065386
+Money Heist | Id: 80192098
+You | Id: 80211991
+Narcos | Id: 80025172
+The Order | Id: 80238357
+Dark | Id: 80100172
+The Spy | Id: 80178151
+Good Girls | Id: 80177342
+Riverdale | Id: 80133311
+13 Reasons Why | Id: 80117470
+The End of the F***ing World | Id: 80175722
+The Rain | Id: 80154610
+Insatiable | Id: 80179905
+I Am Not Okay With This | Id: 80244781
+Between | Id: 80022632
+Quicksand | Id: 80211703
+The Originals | Id: 70283261
+Gotham | Id: 80020542
+The Last Dance | Id: 80203144
+Ragnarok | Id: 80232926
+Gilmore Girls | Id: 70155618
+Better Call Saul | Id: 80021955
+The Crown | Id: 80025678
+House of Cards | Id: 70178217
+MINDHUNTER | Id: 80114855
+Jane The Virgin | Id: 80027158
+Merlin | Id: 70142436
+South Park | Id: 70136107
+Champions | Id: 80192577
+Brews Brothers | Id: 81019632
+The IT Crowd | Id: 70140450
+American Vandal | Id: 80117545
+Real Rob | Id: 80074503
+Derry Girls | Id: 80238565
+Sick Note | Id: 80998905
+Great News | Id: 80158516
+Stranger Things | Id: 80057281
+Orange Is the New Black | Id: 70242311
+Glee | Id: 70143843
+Van Helsing | Id: 80121349
+Sex Education | Id: 80197526
+Sherlock | Id: 70202589
+The A List | Id: 80196382
+Greatest Events of WWII in Colour | Id: 80989924
+Top Boy | Id: 80217669
+Glow Up | Id: 81075536
+The Serpent | Id: 80206099
+Peppa Pig | Id: 80025494
+Biohackers | Id: 81011660
+Young Royals | Id: 81210762
+Sweet Tooth | Id: 81221380
+Black Space | Id: 81423620
+The Bold Type | Id: 80176085
+The Witcher | Id: 80189685
+Sense8 | Id: 80025744
+Star Trek | Id: 70136140
+Warrior Nun | Id: 80242724
+The Shannara Chronicles | Id: 80084164
+Too Hot to Handle | Id: 80241027
+Impractical Jokers | Id: 70251818
+Love Is Blind | Id: 80996601
+RuPaul's Drag Race | Id: 70187741
+The Circle | Id: 81044551
+Sugar Rush | Id: 80201328
+2025 | Id: 81201956
+Sexy Beasts | Id: 81298845
+Close Enough | Id: 80241499
+The Midnight Gospel | Id: 80987903
+F is for Family | Id: 80028732
+Happy! | Id: 80177346
+Hoops | Id: 81008138
+Paradise PD | Id: 80191522
+Marvel's Daredevil | Id: 80018294
+Altered Carbon | Id: 80097140
+Marvel's Jessica Jones | Id: 80002311
+Don't F**k with Cats: Hunting an Internet Killer | Id: 81031373
+Fargo | Id: 70285785
+Narcos: Mexico | Id: 80997085
+Marvel's Luke Cage | Id: 80002537
+Unbelievable | Id: 80153467
+Anne with an E | Id: 80136311
+Vikings | Id: 70301870
+The Alienist | Id: 80149395
+Cable Girls | Id: 80100929
+Alias Grace | Id: 80119411
+Mr. Sunshine | Id: 80991107
+DC's Legends of Tomorrow | Id: 80066080
+Titans | Id: 80218200
+iZombie | Id: 80027159
+Young Justice | Id: 70185194
+Black Lightning | Id: 80178687
+Lucifer | Id: 80057918
+Spartacus | Id: 70136152
+Barbarians | Id: 81024039
+Queen of the South | Id: 80107369
+Katla | Id: 81133094
+Resurrection: Ertugrul | Id: 80127001
+The Liberator | Id: 81019775
+Kingdom | Id: 80180171
+Peaky Blinders | Id: 80002479
+Knightfall | Id: 80161728
+Thieves of the Wood | Id: 81054827
+Brotherhood | Id: 80221210
+La R'volution | Id: 80992775
+The Nokdu Flower | Id: 81343898
+Space Force | Id: 81021929
+Workin' Moms | Id: 80198991
+Toon | Id: 81064730
+Kim's Convenience | Id: 80199128
+Still Game | Id: 80073432
+The Crew | Id: 81047664
+New Girl | Id: 70196145
+Why Are You Like This | Id: 81047751
+Shadowhunters: The Mortal Instruments | Id: 80084447
+Daybreak | Id: 80197462
+Chilling Adventures of Sabrina | Id: 80223989
+Castlevania | Id: 80095241
+Love, Death & Robots | Id: 80174608
+Scream | Id: 80053653
+The Haunting of Hill House | Id: 80189221
+The Haunting of Bly Manor | Id: 81237854
+StartUp | Id: 80154285
+Virgin River | Id: 80240027
+Salvation | Id: 80171099
+Snowpiercer | Id: 80177458
+L.A.'s Finest | Id: 80241180
+On My Block | Id: 80117809
+Locke & Key | Id: 80241239
+Bridgerton | Id: 80232398
+Marvel's The Punisher | Id: 80117498
+Mossad 101 | Id: 80118092
+How to Become a Tyrant | Id: 80989772
+Outlander | Id: 70285581
+Borgen | Id: 70302482
+Colony | Id: 80077417
+When Heroes Fly | Id: 81021294
+3% | Id: 80074220
+Daniel Sloss: Live Shows | Id: 80223685
+Travelers | Id: 80105699
+Timeless | Id: 80113627
+Dirk Gently's Holistic Detective Agency | Id: 80119426
+Sisyphus | Id: 81397558
+Always a Witch | Id: 80205595
+Alice | Id: 81404896
+Rooftop Prince | Id: 70278876
+KO One Return | Id: 81072919
+Friends | Id: 70153404
+Black Mirror | Id: 70264888
