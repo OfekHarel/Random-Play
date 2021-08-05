@@ -4,42 +4,7 @@
 **On Google Play!**
 https://play.google.com/store/apps/details?id=com.horizon.randomplay
 
-Random play is an Open-Source app for TV sitcom enthusiasts.
-In this app you can randomize series' episodes by modes.
-Currently there are **11** different series and **6** different moods:<p>
-
-1. Friends 
-    - Romantic Vibes
-    - To Laugh
-    - To Cry
-    - When Your Happy
-    - Premium Super Deluxe +
-2. How I Met Your Mother
-    - To Laugh
-    - To Cry
-    - When Your Happy
-    - Premium Super Deluxe +
-3. The Big Bang Theory
-    - To Laugh
-    - To Cry
-    - High IQ Warning!
-    - Premium Super Deluxe +
-4. Rick And Morty
-    - High IQ Warning!
-5. Brooklyn Nine-Nine
-    - To Laugh
-    - When Your Happy
-    - Premium Super Deluxe +
-6. The Office
-    - To Laugh
-    - To Cry
-    - When Your Happy
-7. Modern Family
-    - To Laugh
-8. Gray's Annatomy
-    - To Cry
-    - To Laugh
-    - Romantic Vibes
-9. The Last Air Bender
-10. The Legend of Korra
-11. Black Mirror
+## About:
+This app chooses TV series and movies according to your current vibe.
+if you're feeling sad, happy, or just want to laugh - it will choose a movie or a show from a large variety of popular items.
+For those rare times, you don't know what to watch and you or your partner can't decide - TAKE A BRAKE FROM THIS CRAZY TIMES AND CHILL!
