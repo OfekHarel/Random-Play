@@ -24,7 +24,8 @@ public class MoviesHolder {
         MARVEL("Marvel"),
         DISNEY_ANIM("Animated Disney"),
         LORD_OF_THE_RINGS("Lord of the Rings World"),
-        HARRY_POTTER("Harry Potter");
+        HARRY_POTTER("Harry Potter"),
+        DREAM_WORKS("Animated DreamWorks");
 
         private final String name;
         MovieKind(String name) {
@@ -54,6 +55,8 @@ public class MoviesHolder {
     }
 
     private static final Map<String, MoodMovieCollection> allMovies = new HashMap<>();
+    private static final String ID_SEP = "?";
+
     public static void init(Context context) {
         try {
             for (int i = 0; i < MovieKind.values().length; i++) {
@@ -86,7 +89,22 @@ public class MoviesHolder {
                 continue;
             }
             if (!data.isEmpty()) {
-               collection.addMovie(new Movie(data));
+                if (data.contains(ID_SEP)) {
+                    int sepIndex = data.indexOf(ID_SEP);
+                    String movieName = data.substring(0, sepIndex - 1);
+                    try {
+                        Long id = Long.parseLong(data.substring(sepIndex + 1).replace(" ", ""));
+                        Movie m = new Movie(movieName);
+                        m.setMovieID(id);
+                        collection.addMovie(m);
+                    }
+                    catch (Exception ignored) {
+
+                    }
+                } else {
+                    System.out.println(data);
+                    collection.addMovie(new Movie(data));
+                }
             }
         } while (data != null);
 

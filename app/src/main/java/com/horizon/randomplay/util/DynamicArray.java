@@ -31,6 +31,7 @@ public class DynamicArray<T> {
 
     public void changeSize(int size) {
         ArrayList<T> arr = new ArrayList<>();
+        size -= 2;
         if (size < this.arr.size()) {
             for (int i = 0; i < size; i++) {
                 arr.add(this.arr.get(i));

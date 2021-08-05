@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class HistoryFragment extends BaseFragment {
     private ListView historyList;
     private ArrayAdapter<String> adapter;
 
-    private ImageButton clear;
+    private Button clear;
     private TextView txt;
 
     public HistoryFragment() {

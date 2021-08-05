@@ -8,7 +8,7 @@ public class MovieMoodsHolder {
 
     private static void marvel() {
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
-                setMood(Mood.CRY, 22);
+                setMood(Mood.CRY, 22, 19);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
                 setMood(Mood.LAUGH, 17, 15, 10);

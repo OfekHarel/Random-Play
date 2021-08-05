@@ -57,4 +57,5 @@ public class HistoryComponActivity extends BaseActivity {
     public void onBackPressed() {
         redirectActivity(this, MainActivity.class);
     }
+
 }

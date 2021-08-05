@@ -9,7 +9,8 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
-/captures
+/captures 
 .externalNativeBuild
 .cxx
 local.properties
+app/src/main/python/netflix_helper/m_marvel.txt

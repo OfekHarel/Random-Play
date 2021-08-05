@@ -14,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,6 +66,8 @@ public class SeriesHolder {
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
+    private static final String ID_SEP = "?";
+
     public static void init(Context context) {
         try {
             for (int i = 0; i < SeriesKind.values().length; i++) {
@@ -110,7 +113,22 @@ public class SeriesHolder {
 
             } else if (!data.replace(" ", "").isEmpty()) {
                 episodeIndex++;
-                season.addEpisode(new Episode(episodeIndex, data));
+
+                Long id = null;
+                String episodeName = data;
+
+                if (data.contains(ID_SEP)) {
+                    String rawId = data.substring(data.indexOf(ID_SEP) + 1).replace(" ", "");
+
+                    try {
+                        id = Long.parseLong(rawId);
+                        episodeName = data.substring(0, data.indexOf(ID_SEP) - 1);
+                    }
+                    catch (Exception ignored) {
+                    }
+                }
+                Episode e = new Episode(episodeIndex, episodeName, id);
+                season.addEpisode(e);
             }
         } while (data != null);
         series.addSeason(season);
