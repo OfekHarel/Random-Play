@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.history.HistorySeriesComponActivity"
+    android:background="@drawable/grad_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        tools:layout_editor_absoluteX="-33dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:translationY="30dp">
+
+            <include layout="@layout/activity_series_logos"
+                android:id="@+id/logos"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Season 12 Episode 9"
+                android:textSize="32sp"
+                android:textColor="@color/app_black"
+                android:gravity="center_horizontal"
+                android:layout_alignBottom="@+id/logos"
+                android:translationY="-250dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/h_info"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The One With Horizon"
+                android:textSize="25sp"
+                android:textColor="@color/app_black"
+                android:gravity="center_horizontal"
+                android:layout_alignBottom="@+id/h_info"
+                android:translationY="-180dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/h_episode_name"/>
+
+            <TextView
+                android:id="@+id/h_e_moods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In Moods: "
+                android:textSize="18sp"
+                android:textColor="@color/app_black"
+                android:gravity="center_horizontal"
+                android:layout_alignBottom="@+id/h_info"
+                android:translationY="-80dp"
+                android:layout_centerHorizontal="true"
+                android:visibility="invisible" />
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Watch now"
+                android:textColor="@color/app_black"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:onClick="clickWatchNow"
+                android:translationY="80dp"
+                android:id="@+id/watch_now"
+                android:layout_alignBottom="@+id/h_e_moods"
+                android:outlineProvider="bounds"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

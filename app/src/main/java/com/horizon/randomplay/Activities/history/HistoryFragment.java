@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.R;
+import com.horizon.randomplay.components.movies.MoodMovieCollection;
+import com.horizon.randomplay.components.movies.Movie;
+import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.series.MoodsSeries;
@@ -23,6 +25,7 @@ import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HistoryFragment extends BaseFragment {
 
@@ -40,6 +43,10 @@ public class HistoryFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_history, container, false);
         Vars.s_historyCompon = new Tuple<>(null, null);
+        Vars.m_historyCompon = new Tuple<>(null, null);
+
+        MoviesHolder.init(getContext());
+        SeriesHolder.init(getContext());
 
         this.historyList = rootView.findViewById(R.id.hist_list);
         this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
@@ -59,16 +66,26 @@ public class HistoryFragment extends BaseFragment {
 
         this.historyList.setAdapter(adapter);
         this.historyList.setOnItemClickListener((parent, view, position, id) -> {
+            String[] txt = adapter.getItem(position).replace(":", "-").split("-");
+            preformVibration(requireContext(), 2);
+
             if (adapter.getItem(position).contains("E.") && adapter.getItem(position).contains("S.")) {
-                String[] txt = adapter.getItem(position).replace(":", "-").split("-");
-                preformVibration(requireContext(), 2);
-                MoodsSeries series = SeriesHolder.getAllSeries().get(txt[1].substring(1));
+                MoodsSeries series = SeriesHolder.getAllSeries().get(txt[1].trim());
                 txt = txt[2].split(" ");
                 assert series != null;
                 Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
 
                 Vars.s_historyCompon = new Tuple<>(series, episode);
-                redirectActivity((AppCompatActivity) getActivity(), HistoryComponActivity.class);
+                redirectActivity((AppCompatActivity) getActivity(), HistorySeriesComponActivity.class);
+            } else {
+                MoodMovieCollection movieCollection = MoviesHolder.getAllMovies().get(txt[1].trim());
+                assert movieCollection != null;
+                Movie movie = movieCollection.getMovieByString(txt[2].trim());
+
+                System.out.println(movie.getName());
+
+                Vars.m_historyCompon = new Tuple<>(movieCollection, movie);
+                redirectActivity((AppCompatActivity) getActivity(), HistoryMovieComponActivity.class);
             }
         });
 

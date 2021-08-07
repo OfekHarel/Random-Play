@@ -25,7 +25,8 @@ public class MoviesHolder {
         DISNEY_ANIM("Animated Disney"),
         LORD_OF_THE_RINGS("Lord of the Rings World"),
         HARRY_POTTER("Harry Potter"),
-        DREAM_WORKS("Animated DreamWorks");
+        DREAM_WORKS("Animated DreamWorks"),
+        MY_GOLDENS("My Goldens");
 
         private final String name;
         MovieKind(String name) {
@@ -102,7 +103,6 @@ public class MoviesHolder {
 
                     }
                 } else {
-                    System.out.println(data);
                     collection.addMovie(new Movie(data));
                 }
             }
@@ -136,7 +136,7 @@ public class MoviesHolder {
         return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }
 
-    public static ArrayList<MoodMovieCollection> getSeriesBasedOnMood(Mood mood) {
+    public static ArrayList<MoodMovieCollection> getMoviesBasedOnMood(Mood mood) {
         ArrayList<MoodMovieCollection> arrayList = new ArrayList<>();
 
         for (String s: SharedData.getInstance().getMovieHandler().getChosen()) {

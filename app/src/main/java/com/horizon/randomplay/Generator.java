@@ -15,7 +15,6 @@ import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 
@@ -71,7 +70,7 @@ public class Generator {
 
         private MoodMovieCollection genRandMovieCollection(Mood mood) {
             int movieNum;
-            ArrayList<MoodMovieCollection> moodsMovieCollection = MoviesHolder.getSeriesBasedOnMood(mood);
+            ArrayList<MoodMovieCollection> moodsMovieCollection = MoviesHolder.getMoviesBasedOnMood(mood);
             if (moodsMovieCollection.size() == 1) {
                 return moodsMovieCollection.get(0);
             }
