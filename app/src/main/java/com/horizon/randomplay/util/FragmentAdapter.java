@@ -20,6 +20,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
         SETTINGS(3);
 
         private final int tabNum;
+
         Tabs(final int tabNum) {
             this.tabNum = tabNum;
         }

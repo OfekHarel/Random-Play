@@ -47,8 +47,8 @@ public class BaseActivity extends AppCompatActivity {
 
     /**
      * preforms a vibration
-     * @param view - the context
      *
+     * @param view - the context
      */
     protected void preformVibration(View view) {
         view.setHapticFeedbackEnabled(true);
@@ -71,10 +71,11 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * builds a pop up dialog window.
      * sets a default cancel btn.
-     * @param context - the context where it will show up.
-     * @param title - the title of the window.
-     * @param msg - the pop up window description
-     * @param positiveBtn - positive option string
+     *
+     * @param context          - the context where it will show up.
+     * @param title            - the title of the window.
+     * @param msg              - the pop up window description
+     * @param positiveBtn      - positive option string
      * @param positiveListener - what will happen when pressing positive.
      * @return the popup win object
      */

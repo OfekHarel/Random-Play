@@ -1,7 +1,6 @@
 package com.horizon.randomplay.components.movies;
 
 import com.horizon.randomplay.components.Mood;
-import com.horizon.randomplay.components.series.Episode;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -20,10 +19,6 @@ public class MoodMovieCollection extends MovieCollection {
         }
     }
 
-    public MoodMovieCollection(String name) {
-        this(name, null);
-    }
-
     public MoodMovieCollection(MovieCollection collection) {
         this(collection.getName(), collection.getMovies());
     }
@@ -37,7 +32,7 @@ public class MoodMovieCollection extends MovieCollection {
     }
 
     public void addMood(Mood mood) {
-        Objects.requireNonNull(this.moviesMoods.get(mood)).add(new Movie( "0"));
+        Objects.requireNonNull(this.moviesMoods.get(mood)).add(new Movie("0"));
     }
 
     public ArrayList<Movie> getMovieByMoods(Mood mood) {
@@ -55,13 +50,13 @@ public class MoodMovieCollection extends MovieCollection {
     }
 
     public void removeMoods() {
-        for (Mood mood: Mood.values()) {
+        for (Mood mood : Mood.values()) {
             Objects.requireNonNull(moviesMoods.get(mood)).clear();
         }
     }
 
     public Movie getMovieByString(String m) {
-        for (Movie movie: getMovies()) {
+        for (Movie movie : getMovies()) {
             if (movie.getName().equals(m)) {
                 return movie;
             }

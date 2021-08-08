@@ -56,7 +56,7 @@ public class MoodsSeries extends Series {
     }
 
     public void removeMoods() {
-        for (Mood mood: Mood.values()) {
+        for (Mood mood : Mood.values()) {
             Objects.requireNonNull(episodesMoods.get(mood)).clear();
         }
     }

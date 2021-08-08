@@ -1,7 +1,5 @@
 package com.horizon.randomplay.util;
 
-import com.horizon.randomplay.series.SeriesHolder;
-
 import java.util.ArrayList;
 
 public class DynamicArray<T> {
@@ -23,7 +21,7 @@ public class DynamicArray<T> {
     }
 
     public boolean isExist(T e) {
-        for (T t: arr) {
+        for (T t : arr) {
             if (t.equals(e)) {
                 return true;
             }
@@ -46,7 +44,7 @@ public class DynamicArray<T> {
     }
 
     public static int getIdealSize(int size) {
-        return (size- 1) / 3;
+        return (size - 1) / 3;
     }
 
     public void retrieveDefSize() {

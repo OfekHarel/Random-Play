@@ -1,7 +1,5 @@
 package com.horizon.randomplay.components.movies;
 
-import java.util.Set;
-
 public class Movie {
 
     private final String name;

@@ -62,7 +62,7 @@ public class SeriesMoodHolder {
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.HOW_I_MET_YOUR_MOTHER.getName())).setMood(
-            Mood.BEST,
+                Mood.BEST,
                 new Tuple<>(1, 22), new Tuple<>(2, 9), new Tuple<>(3, 13),
                 new Tuple<>(4, 2), new Tuple<>(4, 4), new Tuple<>(4, 13), new Tuple<>(4, 14), new Tuple<>(5, 8),
                 new Tuple<>(5, 12), new Tuple<>(6, 13)
@@ -115,10 +115,10 @@ public class SeriesMoodHolder {
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.BROOKLYN_NINE_NINE.getName())).setMood(
                 Mood.BEST,
-                        new Tuple<>(1, 10), new Tuple<>(1, 13), new Tuple<>(2, 3),
+                new Tuple<>(1, 10), new Tuple<>(1, 13), new Tuple<>(2, 3),
                 new Tuple<>(2, 12), new Tuple<>(3, 5), new Tuple<>(3, 10), new Tuple<>(4, 1), new Tuple<>(4, 2),
                 new Tuple<>(4, 3), new Tuple<>(5, 4), new Tuple<>(5, 9), new Tuple<>(5, 10)
-            );
+        );
     }
 
     private static void theOffice() {

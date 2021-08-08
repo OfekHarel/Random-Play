@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -128,7 +129,6 @@ public class PopUpPrefActivity extends BaseActivity {
             SharedData.getInstance().getMovieHandler().setChosen(toAdd);
         }
     }
-
 
     @Override
     public void onStop() {

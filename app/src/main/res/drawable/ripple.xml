@@ -2,9 +2,9 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/app_black">
 
-    <Item android:drawable="@drawable/ripple_back"
+    <Item
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </Item>
+        android:layout_height="wrap_content"
+        android:drawable="@drawable/ripple_back" />
 
 </ripple>

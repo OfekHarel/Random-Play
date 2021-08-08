@@ -31,8 +31,8 @@ public class HistoryComp {
     @Override
     public String toString() {
         String out = getDateString() + " - ";
-        out += isSeries?
-                 series + ": S." + season + " E." + episode : movieCol + " : " + movieName;
+        out += isSeries ?
+                series + ": S." + season + " E." + episode : movieCol + " : " + movieName;
         return out;
     }
 }

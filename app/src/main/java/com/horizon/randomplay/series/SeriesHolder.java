@@ -38,6 +38,7 @@ public class SeriesHolder {
         BLACK_MIRROR("Black Mirror");
 
         private final String name;
+
         SeriesKind(String name) {
             this.name = name;
         }
@@ -62,7 +63,6 @@ public class SeriesHolder {
             }
             return null;
         }
-
     }
 
     private static final Map<String, MoodsSeries> allSeries = new HashMap<>();
@@ -123,8 +123,7 @@ public class SeriesHolder {
                     try {
                         id = Long.parseLong(rawId);
                         episodeName = data.substring(0, data.indexOf(ID_SEP) - 1);
-                    }
-                    catch (Exception ignored) {
+                    } catch (Exception ignored) {
                     }
                 }
                 Episode e = new Episode(episodeIndex, episodeName, id);
@@ -141,11 +140,11 @@ public class SeriesHolder {
         allSeries.put(SeriesKind.ANYTHING.getName(),
                 new MoodsSeries(new Series(SeriesKind.ANYTHING.getName())));
 
-        for (Mood mood: Mood.values()) {
+        for (Mood mood : Mood.values()) {
             if (!mood.equals(Mood.ANYTHING)) {
                 Objects.requireNonNull(allSeries.get(SeriesKind.ANYTHING.getName())).addMood(mood);
             }
-       }
+        }
     }
 
     public static Map<String, MoodsSeries> getAllSeries() {
@@ -155,7 +154,7 @@ public class SeriesHolder {
     public static ArrayList<MoodsSeries> getSeriesBasedOnMood(Mood mood) {
         ArrayList<MoodsSeries> arrayList = new ArrayList<>();
 
-        for (String s: SharedData.getInstance().getSeriesHandler().getChosen()) {
+        for (String s : SharedData.getInstance().getSeriesHandler().getChosen()) {
             if (Objects.requireNonNull(allSeries.get(s)).getAvailableMoods().contains(mood)) {
                 arrayList.add(allSeries.get(s));
             }
@@ -176,17 +175,17 @@ public class SeriesHolder {
         ArrayList<String> choose = SharedData.getInstance().getSeriesHandler().getChosen();
         ArrayList<Mood> ret = new ArrayList<>();
 
-        for (String s: choose) {
+        for (String s : choose) {
             ret.addAll(Objects.requireNonNull(allSeries.get(s)).getAvailableMoods());
         }
-        return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
+        return (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }
 
     public static ArrayList<String> getModesByEpisode(MoodsSeries ms, Episode e) {
         ArrayList<String> moods = new ArrayList<>();
 
-        for (Mood mood: ms.getAvailableMoods()) {
-            for (Episode moodEpi: ms.getEpisodesByMoods(mood)) {
+        for (Mood mood : ms.getAvailableMoods()) {
+            for (Episode moodEpi : ms.getEpisodesByMoods(mood)) {
                 if (moodEpi.getName().equals(e.getName())) {
                     moods.add(mood.getName());
                 }

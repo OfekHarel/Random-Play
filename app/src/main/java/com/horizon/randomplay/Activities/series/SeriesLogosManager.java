@@ -23,12 +23,13 @@ public class SeriesLogosManager {
         BLACK_MIRROR(R.id.black_mirror_logo);
 
         private final int logoId;
+
         LogoSeries(int id) {
             this.logoId = id;
         }
 
         public void display(BaseActivity activity) {
-            for (LogoSeries s: LogoSeries.values()) {
+            for (LogoSeries s : LogoSeries.values()) {
                 activity.findViewById(s.getLogoId()).setVisibility(View.INVISIBLE);
             }
             ImageView imageView = activity.findViewById(this.logoId);

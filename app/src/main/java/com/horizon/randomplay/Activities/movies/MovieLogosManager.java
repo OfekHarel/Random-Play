@@ -7,7 +7,7 @@ import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 
-public class MovieLogosManager extends BaseActivity{
+public class MovieLogosManager extends BaseActivity {
 
     public enum LogoSeries {
         MARVEL(R.id.marvel_logo),
@@ -18,12 +18,13 @@ public class MovieLogosManager extends BaseActivity{
         MY_GOLDENS(R.id.my_goldens_logo);
 
         private final int logoId;
+
         LogoSeries(int id) {
             this.logoId = id;
         }
 
         public void display(BaseActivity activity) {
-            for (LogoSeries s: LogoSeries.values()) {
+            for (LogoSeries s : LogoSeries.values()) {
                 activity.findViewById(s.getLogoId()).setVisibility(View.INVISIBLE);
             }
             ImageView imageView = activity.findViewById(this.logoId);

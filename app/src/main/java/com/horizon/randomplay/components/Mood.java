@@ -12,6 +12,7 @@ public enum Mood {
     SMART("High IQ WARNING!");
 
     private final String name;
+
     Mood(String name) {
         this.name = name;
     }

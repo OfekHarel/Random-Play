@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.MainActivity;
@@ -32,6 +31,7 @@ import java.util.Objects;
 public class SeriesResultActivity extends BaseActivity {
 
     private Episode episode;
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override

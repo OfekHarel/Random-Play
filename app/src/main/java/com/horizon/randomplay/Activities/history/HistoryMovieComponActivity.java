@@ -12,16 +12,12 @@ import androidx.annotation.RequiresApi;
 import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.movies.MovieLogosManager;
-import com.horizon.randomplay.Activities.series.SeriesLogosManager;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.components.movies.MoodMovieCollection;
 import com.horizon.randomplay.components.movies.Movie;
-import com.horizon.randomplay.components.series.Episode;
-import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.components.stream.StreamHelper;
 import com.horizon.randomplay.components.stream.StreamingServices;
 import com.horizon.randomplay.movies.MoviesHolder;
-import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
@@ -30,6 +26,7 @@ import java.util.Objects;
 public class HistoryMovieComponActivity extends BaseActivity {
 
     private Movie movie;
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override

@@ -79,10 +79,15 @@ public class SharedData {
 
     private interface SharedMem {
         ArrayList<String> initChosen();
+
         void setChosen(ArrayList<String> arrayList);
+
         ArrayList<String> getChosen();
+
         void setHistory(ArrayList<String> arrayList);
+
         ArrayList<String> getHistory();
+
         void addHistory(String history);
     }
 

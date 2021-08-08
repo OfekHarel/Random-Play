@@ -13,8 +13,6 @@ import android.widget.ImageButton;
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.R;
-import com.horizon.randomplay.components.stream.StreamHelper;
-import com.horizon.randomplay.components.stream.StreamingServices;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.SharedData;
@@ -107,7 +105,7 @@ public class SeriesFragment extends BaseFragment {
             String[] arr = new String[moods.size() + 1];
             arr[0] = Mood.ANYTHING.getName();
 
-            for (int i = 0; i < moods.size() ;i++) {
+            for (int i = 0; i < moods.size(); i++) {
                 arr[i + 1] = moods.get(i).getName();
             }
 
@@ -117,14 +115,14 @@ public class SeriesFragment extends BaseFragment {
             String[] arr = new String[newMoods.length + 1];
             arr[0] = Mood.ANYTHING.getName();
             System.arraycopy(newMoods, 0, arr, 1, arr.length - 1);
-            
+
             return arr;
         }
     }
 
     private void restoreLatestPick() {
         // series
-        for (int i = 0; i < SeriesHolder.SeriesKind.getNames().length; i ++) {
+        for (int i = 0; i < SeriesHolder.SeriesKind.getNames().length; i++) {
             if (SeriesHolder.SeriesKind.getNames()[i].equals(Vars.series_choice.x.getName())) {
                 this.seriesScroll.setValue(i + 1);
             }
@@ -134,7 +132,7 @@ public class SeriesFragment extends BaseFragment {
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
                 .get(Vars.series_choice.x.getName())).getAvailableMoods()));
         initPicker(moods, moodScroll);
-        for (int i = 0; i < moods.length; i ++) {
+        for (int i = 0; i < moods.length; i++) {
             if (moods[i].equals(Vars.series_choice.y.getName())) {
                 this.moodScroll.setValue(i + 1);
             }

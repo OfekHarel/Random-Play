@@ -25,7 +25,6 @@ import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HistoryFragment extends BaseFragment {
 
@@ -52,14 +51,14 @@ public class HistoryFragment extends BaseFragment {
         this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
 
         this.adapter = new ArrayAdapter<String>
-                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory()){
+                (getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory()) {
             @Override
-            public View getView(int position, View convertView, ViewGroup parent){
+            public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView tv = (TextView) view.findViewById(android.R.id.text1);
                 tv.setTextColor(getResources().getColor(R.color.app_black));
                 tv.setTextSize(18);
-                tv.setPadding(0, 3,0 ,2 );
+                tv.setPadding(0, 3, 0, 2);
                 return view;
             }
         };

@@ -1,8 +1,6 @@
 package com.horizon.randomplay.Activities.base;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -27,6 +25,7 @@ public class BaseFragment extends Fragment {
 
     /**
      * preforms a vibration
+     *
      * @param view - the context
      * @param type - which vibration type
      */

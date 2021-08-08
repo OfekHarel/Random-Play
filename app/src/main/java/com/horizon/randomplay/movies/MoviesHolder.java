@@ -29,6 +29,7 @@ public class MoviesHolder {
         MY_GOLDENS("My Goldens");
 
         private final String name;
+
         MovieKind(String name) {
             this.name = name;
         }
@@ -98,8 +99,7 @@ public class MoviesHolder {
                         Movie m = new Movie(movieName);
                         m.setMovieID(id);
                         collection.addMovie(m);
-                    }
-                    catch (Exception ignored) {
+                    } catch (Exception ignored) {
 
                     }
                 } else {
@@ -115,7 +115,7 @@ public class MoviesHolder {
         allMovies.put(MovieKind.ANYTHING.getName(),
                 new MoodMovieCollection(new MovieCollection(MovieKind.ANYTHING.getName())));
 
-        for (Mood mood: Mood.values()) {
+        for (Mood mood : Mood.values()) {
             if (!mood.equals(Mood.ANYTHING)) {
                 Objects.requireNonNull(allMovies.get(MovieKind.ANYTHING.getName())).addMood(mood);
             }
@@ -130,16 +130,16 @@ public class MoviesHolder {
         ArrayList<String> choose = SharedData.getInstance().getMovieHandler().getChosen();
         ArrayList<Mood> ret = new ArrayList<>();
 
-        for (String s: choose) {
+        for (String s : choose) {
             ret.addAll(Objects.requireNonNull(allMovies.get(s)).getAvailableMoods());
         }
-        return  (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
+        return (ArrayList<Mood>) ret.stream().distinct().collect(Collectors.toList());
     }
 
     public static ArrayList<MoodMovieCollection> getMoviesBasedOnMood(Mood mood) {
         ArrayList<MoodMovieCollection> arrayList = new ArrayList<>();
 
-        for (String s: SharedData.getInstance().getMovieHandler().getChosen()) {
+        for (String s : SharedData.getInstance().getMovieHandler().getChosen()) {
             if (Objects.requireNonNull(allMovies.get(s)).getAvailableMoods().contains(mood)) {
                 arrayList.add(allMovies.get(s));
             }
@@ -158,8 +158,8 @@ public class MoviesHolder {
     public static ArrayList<String> getModesByMovie(MoodMovieCollection collection, Movie m) {
         ArrayList<String> moods = new ArrayList<>();
 
-        for (Mood mood: collection.getAvailableMoods()) {
-            for (Movie moodMov: collection.getMovieByMoods(mood)) {
+        for (Mood mood : collection.getAvailableMoods()) {
+            for (Movie moodMov : collection.getMovieByMoods(mood)) {
                 if (moodMov.getName().equals(m.getName())) {
                     moods.add(mood.getName());
                 }

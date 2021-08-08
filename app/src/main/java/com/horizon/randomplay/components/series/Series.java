@@ -34,7 +34,7 @@ public class Series {
     }
 
     public Season getSeason(Episode episode) {
-        for (Season season: this.seasons) {
+        for (Season season : this.seasons) {
             if (season.getEpisodes().contains(episode)) {
                 return season;
             }
@@ -51,8 +51,8 @@ public class Series {
 
     public int countEpisodes() {
         int count = 0;
-        for (Season s: this.getSeasons()) {
-            for (Episode e: s.getEpisodes()) {
+        for (Season s : this.getSeasons()) {
+            for (Episode e : s.getEpisodes()) {
                 count++;
             }
         }

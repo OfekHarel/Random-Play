@@ -43,7 +43,6 @@ public class PrefFragment extends BaseFragment {
     private ArrayAdapter<String> toggleAdapter;
     private Dialog dialog;
     private View dialogView;
-    private View rootView;
 
     private final String ALL = "Toggle All";
 
@@ -54,7 +53,7 @@ public class PrefFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_pref, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pref, container, false);
         
         dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.activity_pop_up_pref_activity);
@@ -66,14 +65,16 @@ public class PrefFragment extends BaseFragment {
         );
 
         Button seriesPreff = rootView.findViewById(R.id.series_pref_btn);
-        seriesPreff.setOnClickListener(v -> {
-            openPop(true);
-        });
+        seriesPreff.setOnClickListener(v -> openPop(true));
 
         Button moviePreff = rootView.findViewById(R.id.movie_pref_btn);
-        moviePreff.setOnClickListener(v -> {
-            openPop(false);
-        });
+        moviePreff.setOnClickListener(v -> openPop(false));
+
+        Button donate = rootView.findViewById(R.id.donate_bt);
+        donate.setOnClickListener(v -> { });
+
+        Button suggest = rootView.findViewById(R.id.suggest_btn);
+        suggest.setOnClickListener(v -> { });
 
         return rootView;
     }

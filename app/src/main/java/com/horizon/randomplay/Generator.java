@@ -41,7 +41,7 @@ public class Generator {
         this.recentEpisodes = new DynamicArray<>(5);
         this.recentSeries = new DynamicArray<>(DynamicArray.getIdealSize(SeriesHolder.SeriesKind.values().length));
         this.recentMovies = new DynamicArray<>(5);
-        this.recentMovieCollections  = new DynamicArray<>(DynamicArray.getIdealSize(MoviesHolder.MovieKind.values().length));
+        this.recentMovieCollections = new DynamicArray<>(DynamicArray.getIdealSize(MoviesHolder.MovieKind.values().length));
         this.context = context;
     }
 
@@ -102,7 +102,7 @@ public class Generator {
             MoodMovieCollection collection = MoviesHolder.getAllMovies().get(movieKind.getName());
             Movie movie;
             if (movieKind.equals(MoviesHolder.MovieKind.ANYTHING)) {
-                collection = mood.equals(Mood.ANYTHING)? genRandMovieCollection(): genRandMovieCollection(mood);
+                collection = mood.equals(Mood.ANYTHING) ? genRandMovieCollection() : genRandMovieCollection(mood);
                 assert collection != null;
                 recentMovieCollections.insert(collection.getName());
             }
@@ -127,7 +127,7 @@ public class Generator {
                 do {
                     seriesNum = numGen(chosen.size());
                 } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()) ||
-                            recentSeries.isExist(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                        recentSeries.isExist(SeriesHolder.SeriesKind.ANYTHING.getName()));
                 return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getSeriesHandler().getChosen().get(seriesNum));
             }
             return null;
@@ -171,7 +171,7 @@ public class Generator {
             MoodsSeries series = SeriesHolder.getAllSeries().get(seriesKind.getName());
             Episode episode;
             if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
-                series = mood.equals(Mood.ANYTHING)? genRandSeries(): genRandSeries(mood);
+                series = mood.equals(Mood.ANYTHING) ? genRandSeries() : genRandSeries(mood);
                 assert series != null;
                 recentSeries.insert(series.getName());
             }
@@ -186,7 +186,8 @@ public class Generator {
             return new Tuple<>(series, episode);
         }
     }
+
     private int numGen(int threshold) {
-        return threshold <= 0? 1 : randomGen.nextInt(threshold);
+        return threshold <= 0 ? 1 : randomGen.nextInt(threshold);
     }
 }

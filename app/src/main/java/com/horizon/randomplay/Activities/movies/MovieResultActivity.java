@@ -31,6 +31,7 @@ import java.util.Objects;
 public class MovieResultActivity extends BaseActivity {
 
     private Movie movie;
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override
@@ -42,7 +43,7 @@ public class MovieResultActivity extends BaseActivity {
 
         Mood mood = Vars.movie_choice.y;
         Tuple<MoodMovieCollection, Movie> gen = Generator.getInstance(this).getMovieHandler().generate(Vars.movie_choice.x, mood);
-        MoodMovieCollection movieCollection= gen.x;
+        MoodMovieCollection movieCollection = gen.x;
         this.movie = gen.y;
 
         MovieLogosManager.showLogo(this, Objects.requireNonNull(MoviesHolder.MovieKind.getByValue(movieCollection.getName())));

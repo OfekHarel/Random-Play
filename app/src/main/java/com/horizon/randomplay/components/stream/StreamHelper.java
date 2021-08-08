@@ -30,9 +30,7 @@ public class StreamHelper {
             intent.setClassName("com.netflix.mediaclient", "com.netflix.mediaclient.ui.launch.UIWebViewActivity");
             intent.setData(Uri.parse(watchUrl));
             activity.startActivity(intent);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             // Netflix app isn't installed, send to website.
             Toast.makeText(activity, "Please install the Netflix app!", Toast.LENGTH_SHORT).show();
         }

@@ -105,7 +105,7 @@ public class MovieFragment extends BaseFragment {
             String[] arr = new String[moods.size() + 1];
             arr[0] = Mood.ANYTHING.getName();
 
-            for (int i = 0; i < moods.size() ;i++) {
+            for (int i = 0; i < moods.size(); i++) {
                 arr[i + 1] = moods.get(i).getName();
             }
 
@@ -122,7 +122,7 @@ public class MovieFragment extends BaseFragment {
 
     private void restoreLatestPick() {
         // movie
-        for (int i = 0; i < MoviesHolder.MovieKind.getNames().length; i ++) {
+        for (int i = 0; i < MoviesHolder.MovieKind.getNames().length; i++) {
             if (MoviesHolder.MovieKind.getNames()[i].equals(Vars.movie_choice.x.getName())) {
                 this.movieScroll.setValue(i + 1);
             }
@@ -132,7 +132,7 @@ public class MovieFragment extends BaseFragment {
         moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(MoviesHolder.getAllMovies()
                 .get(Vars.movie_choice.x.getName())).getAvailableMoods()));
         initPicker(moods, moodScroll);
-        for (int i = 0; i < moods.length; i ++) {
+        for (int i = 0; i < moods.length; i++) {
             if (moods[i].equals(Vars.movie_choice.y.getName())) {
                 this.moodScroll.setValue(i + 1);
             }

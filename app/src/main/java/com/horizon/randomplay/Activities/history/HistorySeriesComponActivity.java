@@ -26,6 +26,7 @@ import java.util.Objects;
 public class HistorySeriesComponActivity extends BaseActivity {
 
     private Episode episode;
+
     @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressLint("DefaultLocale")
     @Override

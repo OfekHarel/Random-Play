@@ -1,40 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.preff.PrefFragment"
     android:paddingHorizontal="40dp"
-    android:translationY="15dp">
+    android:translationY="15dp"
+    tools:context=".Activities.preff.PrefFragment">
 
     <Button
+        android:id="@+id/series_pref_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Series you watch"
-        android:gravity="center_horizontal"
-        android:textColor="@color/app_black"
-        android:textSize="15sp"
-        android:paddingVertical="10dp"
         android:background="@color/transparent"
+        android:gravity="center_horizontal"
         android:outlineProvider="bounds"
-        android:outlineSpotShadowColor="@color/app_black"
-        android:id="@+id/series_pref_btn"/>
+        android:paddingVertical="10dp"
+        android:text="Series you watch"
+        android:textColor="@color/app_black"
+        android:textSize="15sp" />
 
     <Button
+        android:id="@+id/movie_pref_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movies you watch"
-        android:gravity="center_horizontal"
-        android:textColor="@color/app_black"
-        android:textSize="15sp"
-        android:paddingVertical="10dp"
-        android:translationY="15dp"
         android:layout_below="@+id/series_pref_btn"
         android:background="@color/transparent"
+        android:gravity="center_horizontal"
         android:outlineProvider="bounds"
-        android:outlineSpotShadowColor="@color/app_black"
-        android:id="@+id/movie_pref_btn"/>
+        android:paddingVertical="10dp"
+        android:text="Movies you watch"
+        android:textColor="@color/app_black"
+        android:textSize="15sp"
+        android:translationY="15dp" />
+
+    <Button
+        android:id="@+id/info_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/movie_pref_btn"
+        android:background="@color/transparent"
+        android:gravity="center_horizontal"
+        android:outlineProvider="bounds"
+        android:paddingVertical="10dp"
+        android:text="About Us"
+        android:textColor="@color/app_black"
+        android:textSize="15sp"
+        android:translationY="30dp" />
+
+    <Button
+        android:id="@+id/donate_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_btn"
+        android:background="@color/transparent"
+        android:gravity="center_horizontal"
+        android:outlineProvider="bounds"
+        android:paddingVertical="10dp"
+        android:text="Support Us"
+        android:textColor="@color/app_black"
+        android:textSize="15sp"
+        android:translationY="45dp" />
+
+    <Button
+        android:id="@+id/suggest_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/donate_bt"
+        android:background="@color/transparent"
+        android:gravity="center_horizontal"
+        android:outlineProvider="bounds"
+        android:paddingVertical="10dp"
+        android:text="Suggest Content"
+        android:textColor="@color/app_black"
+        android:textSize="15sp"
+        android:translationY="60dp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:src="@drawable/logo_only"
+        android:translationY="-70dp" />
 </RelativeLayout>

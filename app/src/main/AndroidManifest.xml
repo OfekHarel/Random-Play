@@ -6,28 +6,27 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:hapticFeedbackEnabled="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RandomPlay"
-        android:fullBackupContent="@xml/backup_descriptor">
+        android:theme="@style/Theme.RandomPlay">
         <activity
             android:name=".Activities.preff.PopUpPrefActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.RandomPlay.popWindow">
-        </activity>
+            android:theme="@style/Theme.RandomPlay.popWindow" />
         <activity
             android:name=".Activities.movies.MovieLogosManager"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.movies.MovieResultActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.series.SeriesInfoActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.LoaderActivity"
             android:screenOrientation="portrait">
@@ -53,5 +52,4 @@
             android:name=".Activities.history.HistoryMovieComponActivity"
             android:screenOrientation="portrait" />
     </application>
-
 </manifest>

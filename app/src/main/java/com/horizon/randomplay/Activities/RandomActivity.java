@@ -22,13 +22,15 @@ public class RandomActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
+        final int FPS = 15;
+
         TextView rightNum = findViewById(R.id.right_gen_num);
         this.rightNumGen = new RandomNumberAnimation(rightNum);
-        this.rightNumGen.setFPS(20);
+        this.rightNumGen.setFPS(FPS);
 
         TextView leftNum = findViewById(R.id.left_gen_num);
         this.leftNumGen = new RandomNumberAnimation(leftNum);
-        this.leftNumGen.setFPS(20);
+        this.leftNumGen.setFPS(FPS);
 
         Handler handler = new Handler();
         int delay = 1000;

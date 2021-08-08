@@ -1,7 +1,7 @@
 package com.horizon.randomplay.components.series;
 
 public class Episode {
-    
+
     private final int number;
     private String name;
     private Long id = null;
@@ -16,7 +16,6 @@ public class Episode {
     public Episode(int number, String name) {
         this(number, name, null);
     }
-
 
 
     public String getName() {

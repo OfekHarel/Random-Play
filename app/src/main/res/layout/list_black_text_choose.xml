@@ -3,11 +3,11 @@
     android:id="@+id/textView"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:gravity="center_vertical"
+    android:background="@color/transparent"
     android:checkMark="?android:attr/listChoiceIndicatorSingle"
+    android:gravity="center_vertical"
     android:paddingLeft="6dip"
     android:paddingRight="6dip"
-    android:background="@color/transparent"
+    android:textAppearance="?android:attr/textAppearanceLarge"
     android:textColor="@color/app_black"
-    android:textSize="18sp"/>
+    android:textSize="18sp" />
