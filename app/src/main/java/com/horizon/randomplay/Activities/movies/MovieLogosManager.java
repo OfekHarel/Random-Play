@@ -9,7 +9,7 @@ import com.horizon.randomplay.movies.MoviesHolder;
 
 public class MovieLogosManager extends BaseActivity {
 
-    public enum LogoSeries {
+    public enum LogoMovies {
         MARVEL(R.id.marvel_logo),
         DISNEY_ANIM(R.id.disney_logo),
         LORD_OF_THE_RINGS(R.id.lotr_logo),
@@ -19,12 +19,12 @@ public class MovieLogosManager extends BaseActivity {
 
         private final int logoId;
 
-        LogoSeries(int id) {
+        LogoMovies(int id) {
             this.logoId = id;
         }
 
         public void display(BaseActivity activity) {
-            for (LogoSeries s : LogoSeries.values()) {
+            for (LogoMovies s : LogoMovies.values()) {
                 activity.findViewById(s.getLogoId()).setVisibility(View.INVISIBLE);
             }
             ImageView imageView = activity.findViewById(this.logoId);
@@ -39,22 +39,22 @@ public class MovieLogosManager extends BaseActivity {
     public static void showLogo(BaseActivity activity, MoviesHolder.MovieKind dispKind) {
         switch (dispKind) {
             case MARVEL:
-                LogoSeries.MARVEL.display(activity);
+                LogoMovies.MARVEL.display(activity);
                 break;
             case DISNEY_ANIM:
-                LogoSeries.DISNEY_ANIM.display(activity);
+                LogoMovies.DISNEY_ANIM.display(activity);
                 break;
             case LORD_OF_THE_RINGS:
-                LogoSeries.LORD_OF_THE_RINGS.display(activity);
+                LogoMovies.LORD_OF_THE_RINGS.display(activity);
                 break;
             case HARRY_POTTER:
-                LogoSeries.HARRY_POTTER.display(activity);
+                LogoMovies.HARRY_POTTER.display(activity);
                 break;
             case DREAM_WORKS:
-                LogoSeries.DREAM_WORKS.display(activity);
+                LogoMovies.DREAM_WORKS.display(activity);
                 break;
             case MY_GOLDENS:
-                LogoSeries.MY_GOLDENS.display(activity);
+                LogoMovies.MY_GOLDENS.display(activity);
                 break;
         }
     }

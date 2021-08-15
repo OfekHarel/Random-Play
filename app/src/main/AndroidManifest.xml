@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomPlay">
         <activity
+            android:name=".Activities.StreamingServicesLogoManager"
+            android:exported="true" />
+        <activity
             android:name=".Activities.preff.PopUpPrefActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomPlay.popWindow" />
@@ -29,6 +32,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.LoaderActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,4 +56,5 @@
             android:name=".Activities.history.HistoryMovieComponActivity"
             android:screenOrientation="portrait" />
     </application>
+
 </manifest>

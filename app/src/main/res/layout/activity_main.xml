@@ -7,25 +7,15 @@
     tools:context=".Activities.MainActivity"
     android:background="@drawable/grad_background">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        tools:layout_editor_absoluteX="-33dp"
-        tools:layout_editor_absoluteY="0dp"
-        android:id="@+id/image_logo"
-        android:onClick="clickInfo">
-
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+        android:layout_centerHorizontal="true"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
+        android:translationY="-17dp"
         android:src="@drawable/logo"
-        android:contentDescription="TODO" />
-    </LinearLayout>
+        android:id="@+id/image_logo"/>
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
@@ -36,13 +26,14 @@
         app:tabIndicatorColor="@color/app_grey"
         app:tabSelectedTextColor="@color/app_black"
         android:background="@color/transparent"
-        android:translationY="-20dp"
+        android:translationY="-38dp"
         app:tabMode="fixed"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_layout"
+        android:translationY="-10dp"
         android:id="@+id/view_pager"/>
 
 </RelativeLayout>

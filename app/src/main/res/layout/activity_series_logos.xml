@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
+    android:layout_height="200dp"
+    android:layout_alignParentTop="true"
     android:layout_gravity="center_vertical"
     android:background="@color/transparent">
 
@@ -9,53 +10,44 @@
         android:id="@+id/friends_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
+        android:scaleX="0.9"
+        android:scaleY="0.9"
         android:src="@drawable/friends_logo"
-        android:translationY="-130dp"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/himym_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         android:src="@drawable/himym_logo"
-        android:translationY="-80dp"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/bnn_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+        android:scaleX="0.65"
+        android:scaleY="0.65"
         android:src="@drawable/bnn_logo"
-        android:translationY="-70dp"
-        android:visibility="invisible" />
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/rick_and_morty_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
         android:src="@drawable/rick_and_morty__logo"
-        android:translationY="-10dp"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/modern_family_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
         android:src="@drawable/modern_family_logo"
         android:visibility="invisible" />
 
@@ -63,64 +55,53 @@
         android:id="@+id/the_office_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.6"
-        android:scaleY="0.6"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
         android:src="@drawable/the_office_logo"
         android:visibility="invisible" />
 
     <ImageView
-        android:id="@+id/tbbt_logo_logo"
+        android:id="@+id/tbbt_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.4"
-        android:scaleY="0.4"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
         android:src="@drawable/tbbt_logo"
-        android:translationY="-152dp"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/grays_anatomy_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
         android:src="@drawable/ga_logo"
-        android:translationY="-180dp"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/atla_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.7"
-        android:scaleY="0.7"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
         android:src="@drawable/atla_logo"
-        android:translationY="-150dp"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/tlog_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="1.1"
-        android:scaleY="1.1"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
         android:src="@drawable/tlok_logo"
-        android:translationY="-20dp"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/black_mirror_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
+        android:scaleX="1"
+        android:scaleY="1"
         android:src="@drawable/black_mirror_logo"
-        android:translationY="-20dp"
         android:visibility="visible" />
 </RelativeLayout>

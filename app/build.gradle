@@ -3,15 +3,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.horizon.randomplay"
         minSdkVersion 26
-        targetSdkVersion 30
-        versionCode 12
-        versionName '6.1.0'
+        targetSdkVersion 31
+        versionCode 13
+        versionName '6.1.1'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -1,5 +1,6 @@
 package com.horizon.randomplay.components.series;
 
+import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.Tuple;
 
@@ -26,6 +27,10 @@ public class MoodsSeries extends Series {
 
     @SafeVarargs
     public final void setMood(Mood mood, Tuple<Integer, Integer>... episodes) {
+        if (episodes.length <= Generator.RECENT_BOUND) {
+            return;
+        }
+
         ArrayList<Episode> es = new ArrayList<>();
         for (Tuple<Integer, Integer> episode : episodes) {
             es.add(fromSetToEpisode(episode));

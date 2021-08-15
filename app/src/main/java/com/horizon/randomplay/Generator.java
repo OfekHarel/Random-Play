@@ -10,7 +10,7 @@ import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.series.MoodsSeries;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
-import com.horizon.randomplay.util.DynamicArray;
+import com.horizon.randomplay.util.ClosedBoundDynamicArray;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 
@@ -22,15 +22,17 @@ public class Generator {
     @SuppressLint("StaticFieldLeak")
     private static Generator instance = null;
 
-    private final DynamicArray<String> recentEpisodes;
-    private final DynamicArray<String> recentSeries;
-    private final DynamicArray<String> recentMovies;
-    private final DynamicArray<String> recentMovieCollections;
+    private final ClosedBoundDynamicArray<String> recentEpisodes;
+    private final ClosedBoundDynamicArray<String> recentSeries;
+    private final ClosedBoundDynamicArray<String> recentMovies;
+    private final ClosedBoundDynamicArray<String> recentMovieCollections;
     private final Random randomGen;
     private final Context context;
 
     private final SeriesHandler seriesHandler = new SeriesHandler();
     private final MovieHandler movieHandler = new MovieHandler();
+
+    public final static int RECENT_BOUND = 3;
 
     public static Generator getInstance(Context context) {
         return instance == null ? instance = new Generator(context) : instance;
@@ -38,11 +40,15 @@ public class Generator {
 
     private Generator(Context context) {
         this.randomGen = new Random();
-        this.recentEpisodes = new DynamicArray<>(5);
-        this.recentSeries = new DynamicArray<>(DynamicArray.getIdealSize(SeriesHolder.SeriesKind.values().length));
-        this.recentMovies = new DynamicArray<>(5);
-        this.recentMovieCollections = new DynamicArray<>(DynamicArray.getIdealSize(MoviesHolder.MovieKind.values().length));
+        this.recentEpisodes = new ClosedBoundDynamicArray<>(RECENT_BOUND);
+        this.recentSeries = new ClosedBoundDynamicArray<>(RECENT_BOUND);
+        this.recentMovies = new ClosedBoundDynamicArray<>(RECENT_BOUND);
+        this.recentMovieCollections = new ClosedBoundDynamicArray<>(RECENT_BOUND);
         this.context = context;
+
+        MoviesHolder.init(context);
+        SeriesHolder.init(context);
+        SharedData.getInstance(context);
     }
 
     public SeriesHandler getSeriesHandler() {
@@ -63,6 +69,7 @@ public class Generator {
                     movieNum = numGen(chosen.size());
                 } while (chosen.get(movieNum).equals(MoviesHolder.MovieKind.ANYTHING.getName()) ||
                         recentMovieCollections.isExist(MoviesHolder.MovieKind.ANYTHING.getName()));
+                recentMovieCollections.retrieveSize();
                 return MoviesHolder.getAllMovies().get(chosen.get(movieNum));
             }
             return null;
@@ -76,7 +83,9 @@ public class Generator {
             }
             do {
                 movieNum = numGen(moodsMovieCollection.size());
-            } while (Objects.equals(MoviesHolder.MovieKind.getByValue(moodsMovieCollection.get(movieNum).getName()), MoviesHolder.MovieKind.ANYTHING));
+            } while (recentMovieCollections.isExist(MoviesHolder.MovieKind.ANYTHING.getName()) ||
+                    Objects.equals(MoviesHolder.MovieKind.getByValue(moodsMovieCollection.get(movieNum).getName()), MoviesHolder.MovieKind.ANYTHING));
+
             return MoviesHolder.getAllMovies().get(moodsMovieCollection.get(movieNum).getName());
         }
 
@@ -95,25 +104,28 @@ public class Generator {
             do {
                 movieNum = numGen(moods.size());
             } while (recentMovies.isExist(moods.get(movieNum).getName()));
+
             return moods.get(movieNum);
         }
 
         public Tuple<MoodMovieCollection, Movie> generate(MoviesHolder.MovieKind movieKind, Mood mood) {
             MoodMovieCollection collection = MoviesHolder.getAllMovies().get(movieKind.getName());
+            System.out.println(collection.toString() + " aaaaaa");
             Movie movie;
             if (movieKind.equals(MoviesHolder.MovieKind.ANYTHING)) {
                 collection = mood.equals(Mood.ANYTHING) ? genRandMovieCollection() : genRandMovieCollection(mood);
+                System.out.println("77777777777777777777777777 " + recentMovieCollections.getSize());
                 assert collection != null;
                 recentMovieCollections.insert(collection.getName());
             }
 
-            assert collection != null;
             if (mood.equals(Mood.ANYTHING)) {
                 movie = genRandMovie(collection);
             } else {
                 movie = genRandMovie(collection, mood);
             }
             recentMovies.insert(movie.getName());
+
             return new Tuple<>(collection, movie);
         }
     }
@@ -128,6 +140,8 @@ public class Generator {
                     seriesNum = numGen(chosen.size());
                 } while (chosen.get(seriesNum).equals(SeriesHolder.SeriesKind.ANYTHING.getName()) ||
                         recentSeries.isExist(SeriesHolder.SeriesKind.ANYTHING.getName()));
+                recentSeries.retrieveSize();
+
                 return SeriesHolder.getAllSeries().get(SharedData.getInstance(context).getSeriesHandler().getChosen().get(seriesNum));
             }
             return null;
@@ -142,12 +156,12 @@ public class Generator {
             do {
                 seriesNum = numGen(moodsSeries.size());
             } while (Objects.equals(SeriesHolder.SeriesKind.getByValue(moodsSeries.get(seriesNum).getName()), SeriesHolder.SeriesKind.ANYTHING));
+
             return SeriesHolder.getAllSeries().get(moodsSeries.get(seriesNum).getName());
         }
 
         private Episode genRandEpisode(MoodsSeries series) {
-            int seasonNum;
-            int episodeNum;
+            int seasonNum, episodeNum;
             do {
                 seasonNum = numGen(series.getSeasons().size());
                 episodeNum = numGen(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
@@ -183,11 +197,12 @@ public class Generator {
                 episode = genRandEpisode(series, mood);
             }
             recentEpisodes.insert(episode.getName());
+
             return new Tuple<>(series, episode);
         }
     }
 
-    private int numGen(int threshold) {
-        return threshold <= 0 ? 1 : randomGen.nextInt(threshold);
+    private int numGen(int bound) {
+        return bound <= 0 ? 0 : randomGen.nextInt(bound);
     }
 }

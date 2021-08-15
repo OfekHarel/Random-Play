@@ -2,12 +2,12 @@ package com.horizon.randomplay.util;
 
 import java.util.ArrayList;
 
-public class DynamicArray<T> {
+public class ClosedBoundDynamicArray<T> {
     private ArrayList<T> arr;
     private final int SIZE;
     private int size;
 
-    public DynamicArray(int size) {
+    public ClosedBoundDynamicArray(int size) {
         this.SIZE = size;
         this.size = size;
         this.arr = new ArrayList<>();
@@ -44,10 +44,15 @@ public class DynamicArray<T> {
     }
 
     public static int getIdealSize(int size) {
-        return (size - 1) / 3;
+        int calc = (size - 1) / 3;
+        return Math.max(calc, 2);
     }
 
-    public void retrieveDefSize() {
+    public void retrieveSize() {
         changeSize(SIZE);
+    }
+
+    public int getSize() {
+        return size;
     }
 }

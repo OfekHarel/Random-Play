@@ -5,10 +5,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import com.horizon.randomplay.Activities.StreamingServicesLogoManager;
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.RandomActivity;
@@ -66,8 +68,10 @@ public class MovieResultActivity extends BaseActivity {
         Button watchNowBtn = findViewById(R.id.watch_now);
         if (movie.getMovieID() != null) {
             watchNowBtn.setVisibility(View.VISIBLE);
+            StreamingServicesLogoManager.showLogo(this, StreamingServices.NETFLIX);
         } else {
             watchNowBtn.setVisibility(View.INVISIBLE);
+            StreamingServicesLogoManager.goBlank(this);
         }
 
         preformVibration(7);

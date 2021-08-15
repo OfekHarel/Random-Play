@@ -10,7 +10,7 @@ import com.horizon.randomplay.series.SeriesHolder;
 public class SeriesLogosManager {
 
     public enum LogoSeries {
-        THE_BIG_BANG_THEORY(R.id.tbbt_logo_logo),
+        THE_BIG_BANG_THEORY(R.id.tbbt_logo),
         HOW_I_MET_YOUR_MOTHER(R.id.himym_logo),
         FRIENDS(R.id.friends_logo),
         BROOKLYN_NINE_NINE(R.id.bnn_logo),

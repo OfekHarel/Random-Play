@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingHorizontal="20dp"
-        android:paddingVertical="5dp"
-        android:translationY="20dp">
+        android:paddingVertical="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +30,7 @@
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:layout_alignBottom="@+id/logos"
-                android:translationY="-230dp"
+                android:translationY="50dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/gen_info"/>
 
@@ -42,8 +41,9 @@
                 android:textSize="25sp"
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
-                android:layout_alignBottom="@+id/gen_info"
-                android:translationY="-160dp"
+                android:layout_below="@id/gen_info"
+                android:layout_marginVertical="30dp"
+                android:translationY="50dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/episode_name"/>
 
@@ -54,14 +54,24 @@
                 android:textSize="18sp"
                 android:textColor="@color/app_black"
                 android:gravity="center_horizontal"
-                android:layout_alignBottom="@+id/gen_info"
-                android:translationY="-110dp"
+                android:layout_alignBottom="@+id/episode_name"
+                android:translationY="100dp"
                 android:layout_centerHorizontal="true"
                 android:visibility="invisible"
                 android:id="@+id/episode_moods"/>
 
-            <include layout="@layout/result_btns"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_below="@+id/episode_moods"
+                android:layout_alignParentBottom="true"
+                android:translationY="150dp">
+                <include
+                    layout="@layout/result_btns"
+                    android:layout_height="280dp"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

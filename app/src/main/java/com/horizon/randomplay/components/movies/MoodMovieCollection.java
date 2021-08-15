@@ -1,5 +1,6 @@
 package com.horizon.randomplay.components.movies;
 
+import com.horizon.randomplay.Generator;
 import com.horizon.randomplay.components.Mood;
 
 import java.util.ArrayList;
@@ -24,6 +25,10 @@ public class MoodMovieCollection extends MovieCollection {
     }
 
     public final void setMood(Mood mood, int... movies) {
+        if (movies.length <= Generator.RECENT_BOUND) {
+            return;
+        }
+
         ArrayList<Movie> es = new ArrayList<>();
         for (int movie : movies) {
             es.add(this.getMovies().get(movie - 1));
