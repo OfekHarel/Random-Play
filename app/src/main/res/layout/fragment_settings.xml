@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="40dp"
     android:translationY="15dp"
-    tools:context=".Activities.preff.PrefFragment">
+    tools:context=".Activities.preff.SettingsFragment">
 
     <Button
         android:id="@+id/series_pref_btn"

@@ -18,7 +18,7 @@
             android:name=".Activities.StreamingServicesLogoManager"
             android:exported="true" />
         <activity
-            android:name=".Activities.preff.PopUpMovieSeriesPrefActivity"
+            android:name=".Activities.preff.PopUpMovieSeriesSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomPlay.popWindow" />
         <activity

@@ -28,7 +28,7 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PrefFragment extends BaseFragment {
+public class SettingsFragment extends BaseFragment {
 
     private ListView listView;
     private ListView toggle;
@@ -40,14 +40,14 @@ public class PrefFragment extends BaseFragment {
 
     private final String ALL = "Toggle All";
 
-    public PrefFragment() { }
+    public SettingsFragment() { }
 
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        this.rootView = inflater.inflate(R.layout.fragment_pref, container, false);
+        this.rootView = inflater.inflate(R.layout.fragment_settings, container, false);
         
         dialog = new Dialog(getContext());
         dialog.setCanceledOnTouchOutside(true);
@@ -58,18 +58,18 @@ public class PrefFragment extends BaseFragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        dialog.getWindow().setLayout((int) (width * 0.98), (int) (height * 0.655));
+        dialog.getWindow().setLayout((int) (width * 1), (int) (height * 0.655));
 
         WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         params.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(params);
 
-        Button seriesPreff = rootView.findViewById(R.id.series_pref_btn);
-        seriesPreff.setOnClickListener(v -> openSeriesMoviesPop(true));
+        Button series = rootView.findViewById(R.id.series_pref_btn);
+        series.setOnClickListener(v -> openSeriesMoviesPop(true));
 
-        Button moviePreff = rootView.findViewById(R.id.movie_pref_btn);
-        moviePreff.setOnClickListener(v -> openSeriesMoviesPop(false));
+        Button movie = rootView.findViewById(R.id.movie_pref_btn);
+        movie.setOnClickListener(v -> openSeriesMoviesPop(false));
 
         Button about = rootView.findViewById(R.id.info_btn);
         about.setOnClickListener(v -> { openAbout(); });

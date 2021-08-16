@@ -16,7 +16,7 @@ import com.horizon.randomplay.util.Vars;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PopUpMovieSeriesPrefActivity extends BaseActivity {
+public class PopUpMovieSeriesSettingsActivity extends BaseActivity {
 
     private ListView listView;
     private ListView toggle;
