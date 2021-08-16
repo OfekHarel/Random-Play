@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.horizon.randomplay.Activities.MainActivity;
+import com.horizon.randomplay.Activities.StreamingServicesLogoManager;
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.series.SeriesLogosManager;
 import com.horizon.randomplay.R;
@@ -57,11 +58,14 @@ public class HistorySeriesComponActivity extends BaseActivity {
         TextView epName = findViewById(R.id.h_episode_name);
         epName.setText(episode.getName());
 
+        findViewById(R.id.regen_btn).setVisibility(View.INVISIBLE);
         Button watchNow = findViewById(R.id.watch_now);
         if (episode.getId() == null) {
             watchNow.setVisibility(View.INVISIBLE);
+            StreamingServicesLogoManager.goBlank(this);
         } else {
             watchNow.setVisibility(View.VISIBLE);
+            StreamingServicesLogoManager.showLogo(this, StreamingServices.NETFLIX);
         }
     }
 

@@ -2,19 +2,13 @@ package com.horizon.randomplay.Activities.preff;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import android.util.DisplayMetrics;
 import android.util.SparseBooleanArray;
-import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -22,7 +16,6 @@ import android.widget.TextView;
 
 
 import com.horizon.randomplay.Activities.base.BaseFragment;
-import com.horizon.randomplay.Activities.series.SeriesInfoActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
@@ -60,8 +53,7 @@ public class PrefFragment extends BaseFragment {
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
         dialogView = LayoutInflater.from(getContext()).inflate(
-                R.layout.activity_pop_up_pref_activity,
-                (RelativeLayout) rootView.findViewById(R.id.pop_container)
+                R.layout.activity_pop_up_pref_activity, rootView.findViewById(R.id.pop_container)
         );
 
         Button seriesPreff = rootView.findViewById(R.id.series_pref_btn);
@@ -166,14 +158,6 @@ public class PrefFragment extends BaseFragment {
         this.listView.setOnItemClickListener((parent, view, position, id) -> {
             preformVibration(dialogView, HapticFeedbackConstants.CLOCK_TICK);
             updatedChecked(isSeries);
-        });
-
-        this.listView.setOnItemLongClickListener((arg0, arg1, pos, id) -> {
-            if (isSeries) {
-                Vars.prefInfoChoice = SeriesHolder.SeriesKind.getByValue(this.adapter.getItem(pos));
-                redirectActivity((AppCompatActivity) getActivity(), SeriesInfoActivity.class);
-            }
-            return true;
         });
 
         check(isSeries);

@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -66,7 +65,7 @@ public class MovieResultActivity extends BaseActivity {
         }
 
         Button watchNowBtn = findViewById(R.id.watch_now);
-        if (movie.getMovieID() != null) {
+        if (movie.getId() != null) {
             watchNowBtn.setVisibility(View.VISIBLE);
             StreamingServicesLogoManager.showLogo(this, StreamingServices.NETFLIX);
         } else {
@@ -91,6 +90,6 @@ public class MovieResultActivity extends BaseActivity {
     }
 
     public void clickWatchNow(View view) {
-        StreamHelper.open(StreamingServices.NETFLIX, this.movie.getMovieID(), this);
+        StreamHelper.open(StreamingServices.NETFLIX, this.movie.getId(), this);
     }
 }

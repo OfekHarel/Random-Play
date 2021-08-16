@@ -13,7 +13,7 @@ public class Movie {
         return name;
     }
 
-    public Long getMovieID() {
+    public Long getId() {
         return movieID;
     }
 

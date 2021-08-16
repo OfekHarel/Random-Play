@@ -1,68 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/grad_background"
     tools:context=".Activities.history.HistoryMovieComponActivity">
 
+    <include
+        android:id="@+id/logos"
+        layout="@layout/activity_movie_logos" />
+
+    <TextView
+        android:id="@+id/h_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logos"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="Iron Man 2"
+        android:textColor="@color/app_black"
+        android:textSize="32sp"
+        android:translationY="50dp"/>
+
+    <TextView
+        android:id="@+id/h_e_moods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/h_info"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="In Moods: "
+        android:textColor="@color/app_black"
+        android:textSize="18sp"
+        android:translationY="100dp"
+        android:visibility="visible" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        tools:layout_editor_absoluteX="-33dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:translationY="30dp">
-
-            <include
-                android:id="@+id/logos"
-                layout="@layout/activity_movie_logos" />
-
-            <TextView
-                android:id="@+id/h_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/logos"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
-                android:text="Iron Man 2"
-                android:textColor="@color/app_black"
-                android:textSize="32sp"
-                android:translationY="-250dp" />
-
-            <TextView
-                android:id="@+id/h_e_moods"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/h_info"
-                android:layout_centerHorizontal="true"
-                android:gravity="center_horizontal"
-                android:text="In Moods: "
-                android:textColor="@color/app_black"
-                android:textSize="18sp"
-                android:translationY="-150dp"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/watch_now"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/h_e_moods"
-                android:layout_centerHorizontal="true"
-                android:background="@color/transparent"
-                android:gravity="center"
-                android:onClick="clickWatchNow"
-                android:outlineProvider="bounds"
-                android:text="Watch now"
-                android:textColor="@color/app_black"
-                android:textStyle="bold" />
-
-
-        </RelativeLayout>
+        android:layout_height="280dp"
+        android:layout_below="@+id/h_e_moods"
+        android:layout_alignParentBottom="true"
+        android:translationY="150dp">
+        <include
+            layout="@layout/result_btns"
+            android:layout_height="280dp"
+            android:layout_width="wrap_content"/>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

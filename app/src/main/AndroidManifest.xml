@@ -28,9 +28,6 @@
             android:name=".Activities.movies.MovieResultActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.series.SeriesInfoActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activities.LoaderActivity"
             android:exported="true"
             android:screenOrientation="portrait">

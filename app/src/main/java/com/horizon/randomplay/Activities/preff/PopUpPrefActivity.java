@@ -6,15 +6,12 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseActivity;
-import com.horizon.randomplay.Activities.series.SeriesInfoActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
@@ -84,14 +81,6 @@ public class PopUpPrefActivity extends BaseActivity {
         this.listView.setOnItemClickListener((parent, view, position, id) -> {
             preformVibration(2);
             updatedChecked();
-        });
-
-        this.listView.setOnItemLongClickListener((arg0, arg1, pos, id) -> {
-            if (Vars.isSeries) {
-                Vars.prefInfoChoice = SeriesHolder.SeriesKind.getByValue(this.adapter.getItem(pos));
-                redirectActivity(this, SeriesInfoActivity.class);
-            }
-            return true;
         });
 
         check();

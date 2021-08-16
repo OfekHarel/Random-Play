@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 
 import com.horizon.randomplay.Activities.MainActivity;
+import com.horizon.randomplay.Activities.StreamingServicesLogoManager;
 import com.horizon.randomplay.Activities.base.BaseActivity;
 import com.horizon.randomplay.Activities.movies.MovieLogosManager;
 import com.horizon.randomplay.R;
@@ -53,11 +54,14 @@ public class HistoryMovieComponActivity extends BaseActivity {
         TextView genInfo = findViewById(R.id.h_info);
         genInfo.setText(this.movie.getName());
 
+        findViewById(R.id.regen_btn).setVisibility(View.INVISIBLE);
         Button watchNow = findViewById(R.id.watch_now);
-        if (movie.getMovieID() == null) {
+        if (movie.getId() == null) {
             watchNow.setVisibility(View.INVISIBLE);
+            StreamingServicesLogoManager.goBlank(this);
         } else {
             watchNow.setVisibility(View.VISIBLE);
+            StreamingServicesLogoManager.showLogo(this, StreamingServices.NETFLIX);
         }
     }
 
@@ -67,6 +71,6 @@ public class HistoryMovieComponActivity extends BaseActivity {
     }
 
     public void clickWatchNow(View view) {
-        StreamHelper.open(StreamingServices.NETFLIX, this.movie.getMovieID(), this);
+        StreamHelper.open(StreamingServices.NETFLIX, this.movie.getId(), this);
     }
 }

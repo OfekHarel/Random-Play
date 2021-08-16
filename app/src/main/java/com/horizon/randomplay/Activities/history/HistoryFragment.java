@@ -28,7 +28,6 @@ import java.util.ArrayList;
 
 public class HistoryFragment extends BaseFragment {
 
-    private ListView historyList;
     private ArrayAdapter<String> adapter;
 
     private Button clear;
@@ -47,7 +46,7 @@ public class HistoryFragment extends BaseFragment {
         MoviesHolder.init(getContext());
         SeriesHolder.init(getContext());
 
-        this.historyList = rootView.findViewById(R.id.hist_list);
+        ListView historyList = rootView.findViewById(R.id.hist_list);
         this.adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, SharedData.getInstance().getSeriesHandler().getHistory());
 
         this.adapter = new ArrayAdapter<String>
@@ -55,7 +54,7 @@ public class HistoryFragment extends BaseFragment {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+                TextView tv = view.findViewById(android.R.id.text1);
                 tv.setTextColor(getResources().getColor(R.color.app_black));
                 tv.setTextSize(18);
                 tv.setPadding(0, 3, 0, 2);
@@ -63,8 +62,8 @@ public class HistoryFragment extends BaseFragment {
             }
         };
 
-        this.historyList.setAdapter(adapter);
-        this.historyList.setOnItemClickListener((parent, view, position, id) -> {
+        historyList.setAdapter(adapter);
+        historyList.setOnItemClickListener((parent, view, position, id) -> {
             String[] txt = adapter.getItem(position).replace(":", "-").split("-");
             preformVibration(requireContext(), 2);
 
