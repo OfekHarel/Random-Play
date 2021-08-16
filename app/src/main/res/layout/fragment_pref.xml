@@ -44,10 +44,10 @@
         android:gravity="center_horizontal"
         android:outlineProvider="bounds"
         android:paddingVertical="10dp"
-        android:text="About Us"
+        android:text="About"
         android:textColor="@color/app_black"
         android:textSize="15sp"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:translationY="30dp" />
 
     <Button
@@ -59,7 +59,7 @@
         android:gravity="center_horizontal"
         android:outlineProvider="bounds"
         android:paddingVertical="10dp"
-        android:text="Support Us"
+        android:text="Support"
         android:textColor="@color/app_black"
         android:textSize="15sp"
         android:visibility="invisible"

@@ -58,7 +58,7 @@ public class PrefFragment extends BaseFragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        dialog.getWindow().setLayout((int) (width * 0.98), (int) (height * 0.5));
+        dialog.getWindow().setLayout((int) (width * 0.98), (int) (height * 0.655));
 
         WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

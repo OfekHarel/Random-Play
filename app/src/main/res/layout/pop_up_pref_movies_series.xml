@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.preff.PopUpPrefActivity"
+    tools:context=".Activities.preff.PopUpMovieSeriesPrefActivity"
     android:paddingHorizontal="0dp"
     android:background="@drawable/circleback"
     android:id="@+id/pop_container">
@@ -24,8 +24,8 @@
     <ListView
         android:id="@+id/pref_list_set"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginVertical="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="7dp"
         android:layout_marginHorizontal="30dp"
         android:layout_gravity="center_vertical"
         android:divider="@android:color/transparent"
