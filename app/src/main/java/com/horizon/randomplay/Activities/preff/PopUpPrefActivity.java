@@ -1,12 +1,7 @@
 package com.horizon.randomplay.Activities.preff;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.SparseBooleanArray;
-import android.view.Gravity;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,19 +28,7 @@ public class PopUpPrefActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_pref_activity);
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-        getWindow().setLayout((int) (width * 0.8), (int) (height * 0.7));
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        params.gravity = Gravity.CENTER;
-        params.x = 0;
-        params.y = -20;
-        getWindow().setAttributes(params);
+        setContentView(R.layout.pop_up_pref_movies_series);
 
         TextView title = findViewById(R.id.pref_title);
         title.setText(String.format("%s you watch", Vars.isSeries ? "Series" : "Movies"));

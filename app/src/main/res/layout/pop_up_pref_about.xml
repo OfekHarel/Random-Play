@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.preff.PopUpPrefActivity"
+    android:paddingHorizontal="0dp"
+    android:background="@drawable/circleback"
+    android:id="@+id/pop_container">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:gravity="center_horizontal"
+        android:textColor="@color/app_black"
+        android:textSize="25sp"
+        android:paddingVertical="20dp"
+        android:textStyle="bold"
+        android:id="@+id/pref_title"/>
+</RelativeLayout>

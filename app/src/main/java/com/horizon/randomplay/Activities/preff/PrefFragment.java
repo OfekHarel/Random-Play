@@ -2,28 +2,28 @@ package com.horizon.randomplay.Activities.preff;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import android.util.DisplayMetrics;
 import android.util.SparseBooleanArray;
+import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.SharedData;
-import com.horizon.randomplay.util.Vars;
 import android.widget.ArrayAdapter;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,6 +36,7 @@ public class PrefFragment extends BaseFragment {
     private ArrayAdapter<String> toggleAdapter;
     private Dialog dialog;
     private View dialogView;
+    private View rootView;
 
     private final String ALL = "Toggle All";
 
@@ -46,21 +47,32 @@ public class PrefFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_pref, container, false);
+        this.rootView = inflater.inflate(R.layout.fragment_pref, container, false);
         
         dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.activity_pop_up_pref_activity);
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
-        dialogView = LayoutInflater.from(getContext()).inflate(
-                R.layout.activity_pop_up_pref_activity, rootView.findViewById(R.id.pop_container)
-        );
+
+        DisplayMetrics dm = new DisplayMetrics();
+        dialog.setContentView(R.layout.pop_up_pref_movies_series);
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        dialog.getWindow().setLayout((int) (width * 0.98), (int) (height * 0.5));
+
+        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        params.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(params);
 
         Button seriesPreff = rootView.findViewById(R.id.series_pref_btn);
-        seriesPreff.setOnClickListener(v -> openPop(true));
+        seriesPreff.setOnClickListener(v -> openSeriesMoviesPop(true));
 
         Button moviePreff = rootView.findViewById(R.id.movie_pref_btn);
-        moviePreff.setOnClickListener(v -> openPop(false));
+        moviePreff.setOnClickListener(v -> openSeriesMoviesPop(false));
+
+        Button about = rootView.findViewById(R.id.info_btn);
+        about.setOnClickListener(v -> { openAbout(); });
 
         Button donate = rootView.findViewById(R.id.donate_bt);
         donate.setOnClickListener(v -> { });
@@ -71,8 +83,23 @@ public class PrefFragment extends BaseFragment {
         return rootView;
     }
 
-    private void openPop(boolean isSeries) {
+    private void openSeriesMoviesPop(boolean isSeries) {
+        dialogView = LayoutInflater.from(getContext()).inflate(
+                R.layout.pop_up_pref_movies_series,
+                rootView.findViewById(R.id.pop_container)
+        );
+
         handlePop(isSeries);
+        this.dialog.setContentView(dialogView);
+        this.dialog.show();
+    }
+
+    private void openAbout() {
+        dialogView = LayoutInflater.from(getContext()).inflate(
+                R.layout.pop_up_pref_about,
+                rootView.findViewById(R.id.pop_container)
+        );
+
         this.dialog.setContentView(dialogView);
         this.dialog.show();
     }

@@ -80,8 +80,6 @@ public class HistoryFragment extends BaseFragment {
                 assert movieCollection != null;
                 Movie movie = movieCollection.getMovieByString(txt[2].trim());
 
-                System.out.println(movie.getName());
-
                 Vars.m_historyCompon = new Tuple<>(movieCollection, movie);
                 redirectActivity((AppCompatActivity) getActivity(), HistoryMovieComponActivity.class);
             }
