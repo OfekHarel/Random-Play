@@ -114,7 +114,7 @@ public class SuggestContentActivity extends BaseActivity {
                 "Type: %s\nName: %s\nVibes: %S\nStream In: %s\nFrom: %s",
                 content.toString(), name_str, mood_str, streaming_str, emailFrom);
 
-        new JavaMailAPI(this, subject, body).execute();
+        new JavaMailAPI(subject, body).execute();
     }
 
     @Override

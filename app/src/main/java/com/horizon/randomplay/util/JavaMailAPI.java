@@ -1,6 +1,5 @@
 package com.horizon.randomplay.util;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
 import java.util.Properties;
@@ -15,13 +14,10 @@ import javax.mail.internet.MimeMessage;
 
 public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
 
-    private Context context;
+    private final String subject;
+    private final String message;
 
-    private Session session;
-    private String subject, message;
-
-    public JavaMailAPI(Context context, String subject, String message) {
-        this.context = context;
+    public JavaMailAPI(String subject, String message) {
         this.subject = subject;
         this.message = message;
     }
@@ -35,7 +31,7 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.port", "465");
 
-        session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+        Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(Params.EMAIL, Params.PASSWORD);
             }
