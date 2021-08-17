@@ -50,8 +50,9 @@
         android:visibility="visible"
         android:translationY="30dp" />
 
+
     <Button
-        android:id="@+id/donate_bt"
+        android:id="@+id/suggest_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/info_btn"
@@ -59,26 +60,11 @@
         android:gravity="center_horizontal"
         android:outlineProvider="bounds"
         android:paddingVertical="10dp"
-        android:text="Support"
-        android:textColor="@color/app_black"
-        android:textSize="15sp"
-        android:visibility="invisible"
-        android:translationY="45dp" />
-
-    <Button
-        android:id="@+id/suggest_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/donate_bt"
-        android:background="@color/transparent"
-        android:gravity="center_horizontal"
-        android:outlineProvider="bounds"
-        android:paddingVertical="10dp"
         android:text="Suggest Content"
         android:textColor="@color/app_black"
         android:textSize="15sp"
-        android:visibility="invisible"
-        android:translationY="60dp" />
+        android:visibility="visible"
+        android:translationY="45dp" />
 
     <ImageView
         android:layout_width="match_parent"

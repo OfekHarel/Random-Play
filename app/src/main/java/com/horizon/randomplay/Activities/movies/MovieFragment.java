@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.components.Mood;
+import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Vars;
 import com.shawnlin.numberpicker.NumberPicker;
@@ -30,6 +32,7 @@ public class MovieFragment extends BaseFragment {
     private String[] moods;
 
     public MovieFragment() {
+        super(FragmentAdapter.Tabs.MOVIE);
     }
 
     @Override

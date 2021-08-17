@@ -36,8 +36,8 @@ public class HistoryMovieComponActivity extends BaseActivity {
         setContentView(R.layout.activity_movies_history_compon);
         MoviesHolder.init(this);
 
-        MoodMovieCollection movieCollection = Vars.m_historyCompon.x;
-        this.movie = Vars.m_historyCompon.y;
+        MoodMovieCollection movieCollection = Vars.m_historyComponent.x;
+        this.movie = Vars.m_historyComponent.y;
 
         TextView moodViewer = findViewById(R.id.h_e_moods);
         ArrayList<String> moodsViewArr = MoviesHolder.getModesByMovie(movieCollection, this.movie);

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.components.movies.MoodMovieCollection;
@@ -20,6 +21,7 @@ import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.series.MoodsSeries;
+import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;
@@ -34,14 +36,15 @@ public class HistoryFragment extends BaseFragment {
     private TextView txt;
 
     public HistoryFragment() {
+        super(FragmentAdapter.Tabs.HISTORY);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-        Vars.s_historyCompon = new Tuple<>(null, null);
-        Vars.m_historyCompon = new Tuple<>(null, null);
+        Vars.s_historyComponent = new Tuple<>(null, null);
+        Vars.m_historyComponent = new Tuple<>(null, null);
 
         MoviesHolder.init(getContext());
         SeriesHolder.init(getContext());
@@ -73,14 +76,14 @@ public class HistoryFragment extends BaseFragment {
                 assert series != null;
                 Episode episode = series.getEpisodeByString(txt[1].split("\\.")[1], txt[2].split("\\.")[1]);
 
-                Vars.s_historyCompon = new Tuple<>(series, episode);
+                Vars.s_historyComponent = new Tuple<>(series, episode);
                 redirectActivity((AppCompatActivity) getActivity(), HistorySeriesComponActivity.class);
             } else {
                 MoodMovieCollection movieCollection = MoviesHolder.getAllMovies().get(txt[1].trim());
                 assert movieCollection != null;
                 Movie movie = movieCollection.getMovieByString(txt[2].trim());
 
-                Vars.m_historyCompon = new Tuple<>(movieCollection, movie);
+                Vars.m_historyComponent = new Tuple<>(movieCollection, movie);
                 redirectActivity((AppCompatActivity) getActivity(), HistoryMovieComponActivity.class);
             }
         });

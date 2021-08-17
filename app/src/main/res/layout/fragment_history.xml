@@ -13,6 +13,7 @@
         android:layout_height="485dp"
         android:layout_gravity="center_vertical"
         android:divider="@android:color/transparent"
+        android:textDirection="ltr"
         android:dividerHeight="10dp" />
 
     <TextView

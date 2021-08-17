@@ -36,7 +36,7 @@
                 android:textColor="@color/app_black"
                 android:textSize="37sp"
                 android:layout_marginVertical="30dp"
-                android:translationY="60dp"
+                android:translationY="80dp"
                 android:textStyle="bold"/>
 
             <TextView

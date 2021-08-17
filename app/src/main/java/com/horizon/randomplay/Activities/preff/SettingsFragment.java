@@ -18,12 +18,17 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseFragment;
+import com.horizon.randomplay.Activities.preff.suggest_content.SuggestContentActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
+import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
 import android.widget.ArrayAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,7 +45,9 @@ public class SettingsFragment extends BaseFragment {
 
     private final String ALL = "Toggle All";
 
-    public SettingsFragment() { }
+    public SettingsFragment() {
+        super(FragmentAdapter.Tabs.SETTINGS);
+    }
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -74,11 +81,8 @@ public class SettingsFragment extends BaseFragment {
         Button about = rootView.findViewById(R.id.info_btn);
         about.setOnClickListener(v -> { openAbout(); });
 
-        Button donate = rootView.findViewById(R.id.donate_bt);
-        donate.setOnClickListener(v -> { });
-
         Button suggest = rootView.findViewById(R.id.suggest_btn);
-        suggest.setOnClickListener(v -> { });
+        suggest.setOnClickListener(v -> { redirectActivity((AppCompatActivity) getActivity(), SuggestContentActivity.class);});
 
         return rootView;
     }

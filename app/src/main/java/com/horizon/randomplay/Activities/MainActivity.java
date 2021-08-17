@@ -46,12 +46,7 @@ public class MainActivity extends BaseActivity {
         this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())));
         this.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        FragmentAdapter.Tabs selectedTab;
-        if (Vars.s_historyCompon.x == null) {
-            selectedTab = Vars.isSeries ? FragmentAdapter.Tabs.SERIES : FragmentAdapter.Tabs.MOVIE;
-        } else {
-            selectedTab = FragmentAdapter.Tabs.HISTORY;
-        }
+        FragmentAdapter.Tabs selectedTab = Vars.currentTab;
 
         this.pager2.setCurrentItem(selectedTab.getTabNum());
         Objects.requireNonNull(this.tabLayout.getTabAt(selectedTab.getTabNum())).select();
@@ -100,8 +95,5 @@ public class MainActivity extends BaseActivity {
             case 1:
                 exit();
         }
-    }
-
-    public void clickInfo(View view) {
     }
 }

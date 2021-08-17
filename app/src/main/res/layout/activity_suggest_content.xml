@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activities.preff.suggest_content.SuggestContentActivity"
+    android:background="@drawable/grad_background"
+    android:paddingHorizontal="35dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suggest Content"
+        android:textSize="32sp"
+        android:translationY="10dp"
+        android:textStyle="bold"
+        android:layout_marginVertical="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/app_black"
+        android:id="@+id/sugg_title"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/content_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Content Type "
+        android:textSize="20sp"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/app_black"
+        android:translationY="10dp"
+        android:layout_below="@id/sugg_title"
+        android:layout_alignParentStart="true"
+        android:layout_marginVertical="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Series"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/sugg_title"
+        android:textColor="@color/app_black"
+        android:layout_marginVertical="15dp"
+        android:layout_alignEnd="@id/content_switch"
+        android:layout_marginHorizontal="50dp"
+        android:translationY="10dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/content_title"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/content_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColorHint="@color/app_black"
+        app:hintTextColor="@color/app_black"
+        app:boxStrokeColor="@color/app_black"
+        app:boxStrokeWidth="2dp"
+        android:layout_below="@id/content_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contant Name"
+            android:inputType="textCapWords"
+            android:background="@color/transparent"
+            android:textCursorDrawable="@drawable/type_cursor"
+            android:textColor="@color/app_black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/content_mood_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColorHint="@color/app_black"
+        app:hintTextColor="@color/app_black"
+        app:boxStrokeColor="@color/app_black"
+        app:boxStrokeWidth="2dp"
+        android:layout_below="@id/content_name_input">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Content Vibes"
+            android:inputType="textCapWords"
+            android:background="@color/transparent"
+            android:textCursorDrawable="@drawable/type_cursor"
+            android:textColor="@color/app_black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/content_streaming_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColorHint="@color/app_black"
+        app:hintTextColor="@color/app_black"
+        app:boxStrokeColor="@color/app_black"
+        app:boxStrokeWidth="2dp"
+        android:layout_below="@id/content_mood_input">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Content Streaming Services"
+            android:inputType="textCapWords"
+            android:background="@color/transparent"
+            android:textCursorDrawable="@drawable/type_cursor"
+            android:textColor="@color/app_black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/content_person_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:textColorHint="@color/app_black"
+        app:hintTextColor="@color/app_black"
+        app:boxStrokeColor="@color/app_black"
+        app:boxStrokeWidth="2dp"
+        android:layout_below="@id/content_streaming_input">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your Email"
+            android:inputType="textEmailAddress"
+            android:background="@color/transparent"
+            android:textCursorDrawable="@drawable/type_cursor"
+            android:textColor="@color/app_black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suggest Content"
+        android:textColor="@color/app_black"
+        android:background="@color/transparent"
+        android:outlineProvider="bounds"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="100dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/suggest_finish_btn"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We will review your suggestion as soon as possible."
+        android:textColor="@color/app_black"
+        android:background="@color/transparent"
+        android:outlineProvider="bounds"
+        android:layout_alignParentBottom="true"
+        android:textSize="14dp"
+        android:layout_marginVertical="50dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

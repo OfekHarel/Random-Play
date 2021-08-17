@@ -36,8 +36,8 @@ public class HistorySeriesComponActivity extends BaseActivity {
         setContentView(R.layout.activity_series_history_compon);
         SeriesHolder.init(this);
 
-        MoodsSeries series = Vars.s_historyCompon.x;
-        this.episode = Vars.s_historyCompon.y;
+        MoodsSeries series = Vars.s_historyComponent.x;
+        this.episode = Vars.s_historyComponent.y;
 
         TextView moodViewer = findViewById(R.id.h_e_moods);
         ArrayList<String> moodsViewArr = SeriesHolder.getModesByEpisode(series, episode);

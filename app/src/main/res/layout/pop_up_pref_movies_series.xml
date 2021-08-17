@@ -30,6 +30,7 @@
         android:layout_gravity="center_vertical"
         android:divider="@android:color/transparent"
         android:dividerHeight="1dp"
+        android:textDirection="ltr"
         android:layout_below="@+id/pref_title"
         android:scrollbars="none" />
 
@@ -43,5 +44,6 @@
         android:layout_marginVertical="2dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="1dp"
+        android:textDirection="ltr"
         android:smoothScrollbar="true" />
 </RelativeLayout>
