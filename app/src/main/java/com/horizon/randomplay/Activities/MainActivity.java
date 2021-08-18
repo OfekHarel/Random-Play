@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
         this.tabLayout = findViewById(R.id.tab_layout);
         this.pager2 = findViewById(R.id.view_pager);
 
-        FragmentManager fm = getSupportFragmentManager();
+        final FragmentManager fm = getSupportFragmentManager();
         this.fragmentAdapter = new FragmentAdapter(fm, getLifecycle());
         this.pager2.setAdapter(this.fragmentAdapter);
 
@@ -54,7 +54,8 @@ public class MainActivity extends BaseActivity {
         this.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                if (SharedData.getInstance().getSeriesHandler().getChosen().size() <= 0 && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
+                if ((SharedData.getInstance().getSeriesHandler().getChosen().isEmpty() || SharedData.getInstance().getMovieHandler().getChosen().isEmpty())
+                            && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
                     pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
                     tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
                     setPopWin(cont, "Note", "You must choose at list one series or a movie!", "Okay", (dialog, which) -> {

@@ -29,9 +29,9 @@
         android:translationY="-150dp"
         android:visibility="invisible" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/hist_list"
         android:paddingHorizontal="50dp">
 
@@ -39,15 +39,15 @@
             android:id="@+id/clear_hist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginVertical="60dp"
+            android:layout_centerHorizontal="true"
             android:background="@color/transparent"
             android:outlineProvider="bounds"
             android:text="Clear"
             android:textColor="@color/app_black"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:visibility="invisible" />
-    </LinearLayout>
+            android:visibility="visible" />
+    </RelativeLayout>
 
 </RelativeLayout>

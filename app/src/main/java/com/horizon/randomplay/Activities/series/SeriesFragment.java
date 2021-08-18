@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseFragment;
 import com.horizon.randomplay.Activities.RandomActivity;
 import com.horizon.randomplay.R;
@@ -32,7 +31,7 @@ public class SeriesFragment extends BaseFragment {
     private String[] moods;
 
     public SeriesFragment() {
-        super(FragmentAdapter.Tabs.MOVIE);
+        super(FragmentAdapter.Tabs.SERIES);
     }
 
     @Override

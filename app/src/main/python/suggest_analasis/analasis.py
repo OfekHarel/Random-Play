@@ -1,5 +1,6 @@
 import EmailHelper
 
+
 class Params:
     username = "random.play.app@gmail.com"
     password = "qmlzowneumdkkbqw"
@@ -10,12 +11,27 @@ class Analasis:
         self.emails = emails
 
 
+    def get_names(self) -> list:
+        pass
+
+
+    def get_vibes(self) -> list:
+        pass
+
+
+    def get_stream(self) -> list:
+        pass
+
+
     def top_to_bottom_new(self) -> list:
         pass
 
 
-if __name__ == '__main__':
-    helper = EmailHelper.Helper((Params.username, Params.password))
+    def display(self):
+        pass
 
-    emails = helper.extract_emails()
-    print(emails)
+
+if __name__ == '__main__':
+    helper   = EmailHelper.Helper((Params.username, Params.password))
+    analasis = Analasis(helper.extract_emails())
+    analasis.display()

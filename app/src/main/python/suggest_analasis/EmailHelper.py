@@ -32,10 +32,10 @@ class Helper:
                 body_raw = raw[index + 3:]
                 try:
                     body = {
-                        "Name": body_raw[0].replace('\r', '').replace('Name: ', ''),
-                        "Vibes": body_raw[1].replace('\r', '').replace('Vibes: ', ''),
-                        "Stream": body_raw[2].replace('\r', '').replace('Stream In: ', ''),
-                        "From": body_raw[3].replace('\r', '').replace('From: ', '')}
+                        "name": body_raw[0].replace('\r', '').replace('Name: ', ''),
+                        "vibes": body_raw[1].replace('\r', '').replace('Vibes: ', ''),
+                        "stream": body_raw[2].replace('\r', '').replace('Stream In: ', ''),
+                        "from": body_raw[3].replace('\r', '').replace('From: ', '')}
 
                     return body
 

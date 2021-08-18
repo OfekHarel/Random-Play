@@ -35,7 +35,7 @@
                 android:text="Iron Man 2"
                 android:textColor="@color/app_black"
                 android:textSize="37sp"
-                android:layout_marginVertical="30dp"
+                android:layout_marginVertical="10dp"
                 android:translationY="80dp"
                 android:textStyle="bold"/>
 
@@ -49,7 +49,7 @@
                 android:layout_below="@id/movie_gen_info"
                 android:textColor="@color/app_black"
                 android:textSize="22sp"
-                android:translationY="60dp"
+                android:translationY="90dp"
                 android:visibility="invisible" />
 
             <LinearLayout

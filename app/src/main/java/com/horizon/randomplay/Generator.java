@@ -110,15 +110,14 @@ public class Generator {
 
         public Tuple<MoodMovieCollection, Movie> generate(MoviesHolder.MovieKind movieKind, Mood mood) {
             MoodMovieCollection collection = MoviesHolder.getAllMovies().get(movieKind.getName());
-            System.out.println(collection.toString() + " aaaaaa");
             Movie movie;
             if (movieKind.equals(MoviesHolder.MovieKind.ANYTHING)) {
                 collection = mood.equals(Mood.ANYTHING) ? genRandMovieCollection() : genRandMovieCollection(mood);
-                System.out.println("77777777777777777777777777 " + recentMovieCollections.getSize());
                 assert collection != null;
                 recentMovieCollections.insert(collection.getName());
             }
 
+            assert collection != null;
             if (mood.equals(Mood.ANYTHING)) {
                 movie = genRandMovie(collection);
             } else {
