@@ -163,7 +163,7 @@ public class Generator {
             int seasonNum, episodeNum;
             do {
                 seasonNum = numGen(series.getSeasons().size());
-                episodeNum = numGen(series.getSeasons().get(seasonNum).getEpisodes().size() - 1);
+                episodeNum = numGen(series.getSeasons().get(seasonNum).getEpisodes().size());
 
             } while (recentEpisodes.isExist(series.getSeasons().get(seasonNum).getEpisodes().get(episodeNum).getName()));
 
@@ -201,7 +201,12 @@ public class Generator {
         }
     }
 
+    /**
+     * @param bound - random number between 0(inclusive) and the number passed in this argument(inclusive)
+     * @return the random number
+     */
     private int numGen(int bound) {
+        bound -= 1;
         return bound <= 0 ? 0 : randomGen.nextInt(bound);
     }
 }
