@@ -9,20 +9,15 @@ public enum Mood {
     HAPPY("Feeling Good"),
     ROMANTIC("Romantic Vibes"),
     BEST("Premium Super Deluxe +"),
-    SMART("High IQ WARNING!");
+    SMART("High IQ WARNING!"),
+    WAR("PEW PEW BOOM BOOM"),
+    NOSTALGIC("Relive Your Childhood"),
+    SOUND_SCORE("For The Sound Of It");
 
     private final String name;
 
     Mood(String name) {
         this.name = name;
-    }
-
-    public static String[] getNames() {
-        String[] arrayList = new String[Mood.values().length];
-        for (int i = 0; i < Mood.values().length; i++) {
-            arrayList[i] = Mood.values()[i].getName();
-        }
-        return arrayList;
     }
 
     public static String[] getNames(ArrayList<Mood> moods) {
@@ -35,6 +30,11 @@ public enum Mood {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 
     public static Mood getByValue(String value) {

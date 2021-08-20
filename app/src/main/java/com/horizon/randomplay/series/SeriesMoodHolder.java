@@ -145,8 +145,14 @@ public class SeriesMoodHolder {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.RICK_AND_MORTY.getName())).setMood(
                 Mood.SMART,
                 new Tuple<>(1, 5), new Tuple<>(1, 2), new Tuple<>(2, 10),
-                new Tuple<>(2, 6), new Tuple<>(2, 4), new Tuple<>(3, 1), new Tuple<>(3, 6), new Tuple<>(3, 7))
-        ;
+                new Tuple<>(2, 6), new Tuple<>(2, 4), new Tuple<>(3, 1), new Tuple<>(3, 6), new Tuple<>(3, 7)
+        );
+
+        Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.RICK_AND_MORTY.getName())).setMood(
+                Mood.BEST,
+                new Tuple<>(1, 11), new Tuple<>(4, 2), new Tuple<>(1, 5), new Tuple<>(2, 4), new Tuple<>(3, 3),
+                new Tuple<>(4, 8), new Tuple<>(3, 7), new Tuple<>(1, 8), new Tuple<>(3, 8), new Tuple<>(2, 2)
+        );
     }
 
     private static void modernFamily() {
@@ -156,6 +162,13 @@ public class SeriesMoodHolder {
                 new Tuple<>(6, 24), new Tuple<>(1, 15), new Tuple<>(2, 16), new Tuple<>(2, 2), new Tuple<>(3, 24),
                 new Tuple<>(3, 16), new Tuple<>(3, 7), new Tuple<>(4, 6), new Tuple<>(4, 12), new Tuple<>(4, 2),
                 new Tuple<>(5, 24), new Tuple<>(6, 16), new Tuple<>(4, 2)
+        );
+
+        Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.MODERN_FAMILY.getName())).setMood(
+                Mood.BEST,
+                new Tuple<>(1, 1), new Tuple<>(1, 9), new Tuple<>(1, 15), new Tuple<>(2, 13), new Tuple<>(3, 22),
+                new Tuple<>(4, 2), new Tuple<>(4, 24), new Tuple<>(5, 1), new Tuple<>(5, 23),
+                new Tuple<>(5, 24), new Tuple<>(6, 16)
         );
     }
 
@@ -170,7 +183,8 @@ public class SeriesMoodHolder {
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.GRAYS_ANATOMY.getName())).setMood(
-                Mood.LAUGH, new Tuple<>(1, 9), new Tuple<>(6, 21), new Tuple<>(8, 7),
+                Mood.LAUGH,
+                new Tuple<>(1, 9), new Tuple<>(6, 21), new Tuple<>(8, 7),
                 new Tuple<>(8, 18)
         );
 
@@ -184,8 +198,27 @@ public class SeriesMoodHolder {
     private static void atla() {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.AVATAR_THE_LAST_AIRBENDER.getName())).setMood(
                 Mood.HAPPY,
-                new Tuple<>(1, 4), new Tuple<>(1, 5), new Tuple<>(2, 2), new Tuple<>(2, 15),
-                new Tuple<>(2, 19), new Tuple<>(3, 2), new Tuple<>(3, 4), new Tuple<>(3, 13), new Tuple<>(3, 17));
+                new Tuple<>(1, 4), new Tuple<>(1, 5), new Tuple<>(2, 2), new Tuple<>(2, 19),
+                new Tuple<>(3, 2), new Tuple<>(3, 4), new Tuple<>(3, 13), new Tuple<>(3, 17)
+        );
+
+        Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.AVATAR_THE_LAST_AIRBENDER.getName())).setMood(
+                Mood.BEST,
+                new Tuple<>(2, 8), new Tuple<>(1, 5), new Tuple<>(2, 13), new Tuple<>(3, 12),
+                new Tuple<>(1, 3), new Tuple<>(3, 8), new Tuple<>(1, 4), new Tuple<>(2, 18),
+                new Tuple<>(3, 15), new Tuple<>(2, 15), new Tuple<>(3, 13), new Tuple<>(2, 6),
+                new Tuple<>(2, 7)
+        );
+    }
+
+    private static void tlok() {
+        Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_LEGEND_OF_KORRA.getName())).setMood(
+                Mood.BEST,
+                new Tuple<>(3, 8), new Tuple<>(1, 10), new Tuple<>(1, 11), new Tuple<>(1, 6),
+                new Tuple<>(3, 10), new Tuple<>(4, 10), new Tuple<>(4, 13), new Tuple<>(4, 12),
+                new Tuple<>(1, 12), new Tuple<>(3, 11), new Tuple<>(4, 2), new Tuple<>(2, 7),
+                new Tuple<>(3, 12), new Tuple<>(2, 8), new Tuple<>(3, 13)
+        );
     }
 
     public static void init() {
@@ -198,5 +231,6 @@ public class SeriesMoodHolder {
         modernFamily();
         graysAnatomy();
         atla();
+        tlok();
     }
 }

@@ -21,6 +21,7 @@ import com.horizon.randomplay.util.Vars;
 import com.shawnlin.numberpicker.NumberPicker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class SeriesFragment extends BaseFragment {
@@ -62,7 +63,6 @@ public class SeriesFragment extends BaseFragment {
             moods = updateMoodsArr(Mood.getNames(Objects.requireNonNull(SeriesHolder.getAllSeries()
                     .get(series.getName())).getAvailableMoods()));
             initPicker(moods, moodScroll);
-
         });
 
         this.seriesScroll.setOnScrollListener((picker, scrollState) -> {
@@ -72,7 +72,9 @@ public class SeriesFragment extends BaseFragment {
             }
         });
 
-        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> Vars.series_choice.y = Mood.getByValue(moods[newVal - 1]));
+        this.moodScroll.setOnValueChangedListener((picker, oldVal, newVal) -> {
+            Vars.series_choice.y = Mood.getByValue(moods[newVal - 1]);
+        });
         this.moodScroll.setOnScrollListener((picker, scrollState) -> {
             preformVibration(requireContext(), 2);
             if (scrollState == NumberPicker.OnScrollListener.SCROLL_STATE_IDLE) {
@@ -174,5 +176,4 @@ public class SeriesFragment extends BaseFragment {
         }
         return temp;
     }
-
 }

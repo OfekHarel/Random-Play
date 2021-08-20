@@ -17,6 +17,8 @@ public class RandomActivity extends BaseActivity {
     private RandomNumberAnimation rightNumGen;
     private RandomNumberAnimation leftNumGen;
 
+    private Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +34,22 @@ public class RandomActivity extends BaseActivity {
         this.leftNumGen = new RandomNumberAnimation(leftNum);
         this.leftNumGen.setFPS(FPS);
 
-        Handler handler = new Handler();
-        int delay = 1000;
+        handler = new Handler();
+        int delay = 750;
         handler.postAtTime(()-> {
             leftNumGen.start();
             rightNumGen.start();
         }, delay);
 
         handler.postDelayed(()-> {
-            redirectActivity(this, SeriesResultActivity.class);
             leftNumGen.stop(true);
             rightNumGen.stop(true);
+            if (Vars.isSeries) {
+                redirectActivity(this, SeriesResultActivity.class);
+            } else {
+                redirectActivity(this, MovieResultActivity.class);
+            }
+
         }, delay);
     }
 
@@ -51,15 +58,11 @@ public class RandomActivity extends BaseActivity {
         super.onPause();
         this.rightNumGen.stop(true);
         this.leftNumGen.stop(true);
-        if (Vars.isSeries) {
-            redirectActivity(this, SeriesResultActivity.class);
-        } else {
-            redirectActivity(this, MovieResultActivity.class);
-        }
     }
 
     @Override
     public void onBackPressed() {
+        handler.removeCallbacksAndMessages(null);
         redirectActivity(this, MainActivity.class);
     }
 }

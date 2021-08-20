@@ -117,6 +117,14 @@ public class Generator {
                 recentMovieCollections.insert(collection.getName());
             }
 
+            // Safety checkup
+            if (!mood.equals(Mood.ANYTHING)) {
+                if (Objects.requireNonNull(MoviesHolder.getAllMovies()
+                        .get(movieKind.getName())).getMovieByMoods(mood).isEmpty()) {
+                    mood = Mood.ANYTHING;
+                }
+            }
+
             assert collection != null;
             if (mood.equals(Mood.ANYTHING)) {
                 movie = genRandMovie(collection);
@@ -173,6 +181,7 @@ public class Generator {
         private Episode genRandEpisode(MoodsSeries series, Mood mood) {
             int randNum;
             ArrayList<Episode> moods = series.getEpisodesByMoods(mood);
+
             do {
                 randNum = numGen(moods.size());
             } while (recentEpisodes.isExist(moods.get(randNum).getName()));
@@ -183,10 +192,19 @@ public class Generator {
         public Tuple<MoodsSeries, Episode> generate(SeriesHolder.SeriesKind seriesKind, Mood mood) {
             MoodsSeries series = SeriesHolder.getAllSeries().get(seriesKind.getName());
             Episode episode;
+
             if (seriesKind.equals(SeriesHolder.SeriesKind.ANYTHING)) {
                 series = mood.equals(Mood.ANYTHING) ? genRandSeries() : genRandSeries(mood);
                 assert series != null;
                 recentSeries.insert(series.getName());
+            }
+
+            // Safety checkup
+            if (!mood.equals(Mood.ANYTHING)) {
+                if (Objects.requireNonNull(SeriesHolder.getAllSeries()
+                        .get(seriesKind.getName())).getEpisodesByMoods(mood).isEmpty()) {
+                    mood = Mood.ANYTHING;
+                }
             }
 
             assert series != null;
@@ -202,11 +220,10 @@ public class Generator {
     }
 
     /**
-     * @param bound - random number between 0(inclusive) and the number passed in this argument(inclusive)
+     * @param bound - random number between 0 - (bound-1)
      * @return the random number
      */
     private int numGen(int bound) {
-        bound -= 1;
-        return bound <= 0 ? 0 : randomGen.nextInt(bound);
+        return bound < 1 ? 0 : randomGen.nextInt(bound);
     }
 }
