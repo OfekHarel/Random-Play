@@ -18,9 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.base.BaseFragment;
-import com.horizon.randomplay.Activities.preff.suggest_content.SuggestContentActivity;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;

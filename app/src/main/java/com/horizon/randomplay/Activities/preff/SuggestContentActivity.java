@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities.preff.suggest_content;
+package com.horizon.randomplay.Activities.preff;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -64,7 +64,6 @@ public class SuggestContentActivity extends BaseActivity {
         findViewById(R.id.suggest_finish_btn).setOnClickListener(view -> {
             if (!checkErrors()) {
                 sendContentFormEmail();
-                Toast.makeText(this, "Sent...", Toast.LENGTH_SHORT).show();
                 redirectActivity(this, MainActivity.class);
             } else {
                 preformVibration(10);
@@ -113,7 +112,6 @@ public class SuggestContentActivity extends BaseActivity {
         final String body = String.format(
                 "Type: %s\nName: %s\nVibes: %S\nStream In: %s\nFrom: %s",
                 content.toString(), name_str, mood_str, streaming_str, emailFrom);
-
         new JavaMailAPI(subject, body).execute();
     }
 

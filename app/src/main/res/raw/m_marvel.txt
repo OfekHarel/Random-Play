@@ -1,3 +1,6 @@
+Spider-Man |60004481
+The Amazing Spider-Man |70208599
+The Amazing Spider-Man 2 |70293702
 Iron Man
 The Incredible Hulk
 Iron Man 2
@@ -15,7 +18,9 @@ Doctor Strange
 Guardians of the Galaxy Vol. 2
 Spider-Man: Homecoming |80166369
 Thor: Ragnarok
+VENOM |80991034
 Black Panther
+Spider-Man: Into The Spider-verse |81002747
 Avengers: Infinity War
 Ant-Man and the Wasp
 Captain Marvel
