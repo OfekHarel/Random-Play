@@ -79,13 +79,13 @@ public class BaseActivity extends AppCompatActivity {
      * @param positiveListener - what will happen when pressing positive.
      * @return the popup win object
      */
-    protected AlertDialog.Builder setPopWin(Context context, String title, String msg, String positiveBtn,
+    protected AlertDialog.Builder setPopWin(Context context, String title, String msg, String positiveBtn, String falseBtn,
                                             DialogInterface.OnClickListener positiveListener) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setCancelable(true);
         alert.setTitle(title);
         alert.setMessage(msg);
-        alert.setNegativeButton("Okay but cooler", (dialog, which) -> dialog.cancel());
+        alert.setNegativeButton(falseBtn, (dialog, which) -> dialog.cancel());
         alert.setPositiveButton(positiveBtn, positiveListener);
         return alert;
     }

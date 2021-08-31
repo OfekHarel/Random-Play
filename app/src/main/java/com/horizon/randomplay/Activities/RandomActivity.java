@@ -24,7 +24,7 @@ public class RandomActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random);
 
-        final int FPS = 15;
+        final int FPS = 18;
 
         TextView rightNum = findViewById(R.id.right_gen_num);
         this.rightNumGen = new RandomNumberAnimation(rightNum);
@@ -49,7 +49,6 @@ public class RandomActivity extends BaseActivity {
             } else {
                 redirectActivity(this, MovieResultActivity.class);
             }
-
         }, delay);
     }
 

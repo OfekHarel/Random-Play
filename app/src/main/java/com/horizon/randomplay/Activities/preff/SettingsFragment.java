@@ -24,6 +24,8 @@ import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.FragmentAdapter;
 import com.horizon.randomplay.util.SharedData;
+import com.horizon.randomplay.util.Vars;
+
 import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +65,7 @@ public class SettingsFragment extends BaseFragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        dialog.getWindow().setLayout((int) (width * 1), (int) (height * 0.655));
+        dialog.getWindow().setLayout((int) (width * 1.0), (int) (height * 0.655));
 
         WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -77,10 +79,12 @@ public class SettingsFragment extends BaseFragment {
         movie.setOnClickListener(v -> openSeriesMoviesPop(false));
 
         Button about = rootView.findViewById(R.id.info_btn);
-        about.setOnClickListener(v -> { openAbout(); });
+        about.setOnClickListener(v -> openAbout());
 
         Button suggest = rootView.findViewById(R.id.suggest_btn);
-        suggest.setOnClickListener(v -> { redirectActivity((AppCompatActivity) getActivity(), SuggestContentActivity.class);});
+        suggest.setOnClickListener(v -> redirectActivity((AppCompatActivity) getActivity(), SuggestContentActivity.class));
+
+        handleInfoFlag();
 
         return rootView;
     }
@@ -196,5 +200,12 @@ public class SettingsFragment extends BaseFragment {
                 preformVibration(dialogView, HapticFeedbackConstants.LONG_PRESS);
             }
         });
+    }
+
+    private void handleInfoFlag() {
+        if (Vars.infoFlag) {
+            Vars.infoFlag = false;
+            openAbout();
+        }
     }
 }

@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/hist_list"
-        android:paddingHorizontal="50dp">
+        android:paddingHorizontal="70dp">
 
         <Button
             android:id="@+id/clear_hist"
@@ -45,8 +45,7 @@
             android:outlineProvider="bounds"
             android:text="Clear"
             android:textColor="@color/app_black"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="20sp"
             android:visibility="visible" />
     </RelativeLayout>
 

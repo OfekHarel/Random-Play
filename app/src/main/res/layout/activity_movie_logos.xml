@@ -60,7 +60,8 @@
         android:layout_centerHorizontal="true"
         android:scaleX="2.54"
         android:scaleY="2.54"
+        android:translationY="15dp"
         android:src="@drawable/golden_logo"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:layout_marginVertical="60dp"/>
 </RelativeLayout>

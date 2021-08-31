@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.horizon.randomplay.BuildConfig;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.series.SeriesHolder;
 
@@ -19,6 +20,8 @@ public class SharedData {
     private final String HISTORY = "HISTORY";
     private final String S_CHOOSE = "S_CHOOSE";
     private final String M_CHOOSE = "M_CHOOSE";
+    private final String PREF_VERSION_CODE_KEY = "VERSION_CODE";
+
     private final SharedPreferences sharedPreferences;
     private final SharedPreferences.Editor editor;
     private final Gson gson;
@@ -197,5 +200,17 @@ public class SharedData {
             arrayList.add(history);
             setHistory(arrayList);
         }
+    }
+
+    public boolean isFirstRunAfterInstall() {
+        int currentVersionCode = BuildConfig.VERSION_CODE;
+
+        final int DOES_NOT_EXIST = -1;
+        int savedVersionCode = this.sharedPreferences.getInt(PREF_VERSION_CODE_KEY, DOES_NOT_EXIST);
+
+        this.sharedPreferences.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
+
+        System.out.println(savedVersionCode == DOES_NOT_EXIST);
+        return savedVersionCode == DOES_NOT_EXIST;
     }
 }

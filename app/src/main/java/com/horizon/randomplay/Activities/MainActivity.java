@@ -1,13 +1,13 @@
 package com.horizon.randomplay.Activities;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.horizon.randomplay.Activities.base.BaseActivity;
+import com.horizon.randomplay.Activities.preff.SettingsFragment;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.FragmentAdapter;
@@ -58,8 +58,8 @@ public class MainActivity extends BaseActivity {
                             && tab.getText() != fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())) {
                     pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
                     tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
-                    setPopWin(cont, "Note", "You must choose at list one series or a movie!", "Okay", (dialog, which) -> {
-                    }).show();
+                    setPopWin(cont, "Note", "You must choose at list one series or a movie!",
+                            "OK", "Cool", (dialog, which) -> {}).show();
                 } else {
                     pager2.setCurrentItem(tab.getPosition());
                 }
@@ -82,6 +82,22 @@ public class MainActivity extends BaseActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+
+        if (SharedData.getInstance().isFirstRunAfterInstall() || Vars.DEBUG) {
+            setPopWin(cont, "Welcome!", "This is Random Play, the place where you can be as indecisive as it gets.\n" +
+                                                "Here you can randomize episodes and movies from a large verity of content.\n" +
+                                                "It's linked to Netflix so yeah\n" +
+                                                "Go get some Netflix & Chill!",
+                    "Learn More", "Cool", (dialog, which) -> {
+                        Vars.infoFlag = true;
+                        moveTo(FragmentAdapter.Tabs.SETTINGS);
+                    }).show();
+        }
+    }
+
+    private void moveTo(FragmentAdapter.Tabs tab) {
+        pager2.setCurrentItem(tab.getTabNum());
+        tabLayout.selectTab(tabLayout.getTabAt(tab.getTabNum()));
     }
 
     @Override
@@ -90,11 +106,11 @@ public class MainActivity extends BaseActivity {
             case 0:
             case 2:
             case 3:
-                pager2.setCurrentItem(FragmentAdapter.Tabs.SERIES.getTabNum());
-                tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SERIES.getTabNum()));
+                moveTo(FragmentAdapter.Tabs.SERIES);
                 break;
             case 1:
                 exit();
+                break;
         }
     }
 }
