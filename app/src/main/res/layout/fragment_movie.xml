@@ -69,9 +69,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@drawable/ripple"
+        android:layout_below="@+id/movies_scroll_mood"
         android:scaleX="0.5"
         android:scaleY="0.5"
         android:src="@drawable/generate"
         android:layout_alignParentBottom="true"
-        android:translationY="10dp" />
+        android:scaleType="fitCenter"
+        android:translationY="30dp" />
 </RelativeLayout>

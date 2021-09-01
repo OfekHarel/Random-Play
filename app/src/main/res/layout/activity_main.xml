@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:scaleX="0.4"
-        android:scaleY="0.4"
-        android:translationY="-17dp"
+        android:scaleX="0.358"
+        android:scaleY="0.358"
+        android:translationY="-20dp"
         android:src="@drawable/logo"
         android:id="@+id/image_logo"/>
 
@@ -26,14 +26,14 @@
         app:tabIndicatorColor="@color/app_grey"
         app:tabSelectedTextColor="@color/app_black"
         android:background="@color/transparent"
-        android:translationY="-38dp"
+        android:translationY="-60dp"
         app:tabMode="fixed"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_layout"
-        android:translationY="-10dp"
+        android:translationY="-50dp"
         android:id="@+id/view_pager"/>
 
 </RelativeLayout>

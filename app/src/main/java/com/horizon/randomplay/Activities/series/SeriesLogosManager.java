@@ -20,7 +20,8 @@ public class SeriesLogosManager {
         GRAYS_ANATOMY(R.id.grays_anatomy_logo),
         ATLA(R.id.atla_logo),
         TLOK(R.id.tlog_logo),
-        BLACK_MIRROR(R.id.black_mirror_logo);
+        BLACK_MIRROR(R.id.black_mirror_logo),
+        SEINFELD(R.id.seinfeld_logo);
 
         private final int logoId;
 
@@ -75,6 +76,9 @@ public class SeriesLogosManager {
                 break;
             case BLACK_MIRROR:
                 LogoSeries.BLACK_MIRROR.display(activity);
+                break;
+            case SEINFELD:
+                LogoSeries.SEINFELD.display(activity);
                 break;
         }
     }

@@ -35,7 +35,8 @@ public class SeriesHolder {
         GRAYS_ANATOMY("Grays Anatomy"),
         AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender"),
         THE_LEGEND_OF_KORRA("The Legend Of Korra"),
-        BLACK_MIRROR("Black Mirror");
+        BLACK_MIRROR("Black Mirror"),
+        SEINFELD("Seinfeld");
 
         private final String name;
 

@@ -104,4 +104,13 @@
         android:scaleY="1"
         android:src="@drawable/black_mirror_logo"
         android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/seinfeld_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:src="@drawable/seinfeld_logo"
+        android:visibility="visible" />
 </RelativeLayout>
