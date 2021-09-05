@@ -13,6 +13,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.horizon.randomplay.R;
+
 public class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -79,14 +81,18 @@ public class BaseActivity extends AppCompatActivity {
      * @param positiveListener - what will happen when pressing positive.
      * @return the popup win object
      */
-    protected AlertDialog.Builder setPopWin(Context context, String title, String msg, String positiveBtn, String falseBtn,
-                                            DialogInterface.OnClickListener positiveListener) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setCancelable(true);
-        alert.setTitle(title);
-        alert.setMessage(msg);
-        alert.setNegativeButton(falseBtn, (dialog, which) -> dialog.cancel());
-        alert.setPositiveButton(positiveBtn, positiveListener);
-        return alert;
+    protected AlertDialog setPopWin(Context context, String title, String msg, String positiveBtn, String falseBtn,
+                                    DialogInterface.OnClickListener positiveListener) {
+
+        AlertDialog dialog = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert).create();
+        dialog.setTitle(title);
+        dialog.setMessage(msg);
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE, positiveBtn, positiveListener);
+        dialog.setButton(AlertDialog.BUTTON_NEUTRAL, falseBtn, (d, which)-> d.cancel());
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.white));
+        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.white));
+
+        return dialog;
     }
 }

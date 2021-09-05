@@ -7,7 +7,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.horizon.randomplay.Activities.base.BaseActivity;
-import com.horizon.randomplay.Activities.preff.SettingsFragment;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.series.SeriesHolder;
 import com.horizon.randomplay.util.FragmentAdapter;
@@ -59,7 +58,7 @@ public class MainActivity extends BaseActivity {
                     pager2.setCurrentItem(FragmentAdapter.Tabs.SETTINGS.getTabNum());
                     tabLayout.selectTab(tabLayout.getTabAt(FragmentAdapter.Tabs.SETTINGS.getTabNum()));
                     setPopWin(cont, "Note", "You must choose at list one series or a movie!",
-                            "OK", "Cool", (dialog, which) -> {}).show();
+                            "OK", "Cool", (dialog, which) -> {});
                 } else {
                     pager2.setCurrentItem(tab.getPosition());
                 }
@@ -91,7 +90,7 @@ public class MainActivity extends BaseActivity {
                     "Learn More", "Cool", (dialog, which) -> {
                         Vars.infoFlag = true;
                         moveTo(FragmentAdapter.Tabs.SETTINGS);
-                    }).show();
+                    });
         }
     }
 

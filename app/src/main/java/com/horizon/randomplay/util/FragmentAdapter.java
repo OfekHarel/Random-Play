@@ -20,7 +20,6 @@ public class FragmentAdapter extends FragmentStateAdapter {
         SETTINGS(3);
 
         private final int tabNum;
-
         Tabs(final int tabNum) {
             this.tabNum = tabNum;
         }
@@ -45,9 +44,9 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case 2:
                 return new MovieFragment();
             case 3:
+            default:
                 return new SettingsFragment();
         }
-        return null;
     }
 
     @Override
@@ -64,9 +63,9 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case 2:
                 return "Movies";
             case 3:
+            default:
                 return "Settings";
         }
-        return null;
     }
 }
 
