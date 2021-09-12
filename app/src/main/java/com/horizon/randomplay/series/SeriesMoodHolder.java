@@ -144,14 +144,15 @@ public class SeriesMoodHolder {
     private static void rickAndMorty() {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.RICK_AND_MORTY.getName())).setMood(
                 Mood.SMART,
-                new Tuple<>(1, 5), new Tuple<>(1, 2), new Tuple<>(2, 10),
+                new Tuple<>(1, 5), new Tuple<>(1, 2), new Tuple<>(2, 10), new Tuple<>(5, 10),
                 new Tuple<>(2, 6), new Tuple<>(2, 4), new Tuple<>(3, 1), new Tuple<>(3, 6), new Tuple<>(3, 7)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.RICK_AND_MORTY.getName())).setMood(
                 Mood.BEST,
                 new Tuple<>(1, 11), new Tuple<>(4, 2), new Tuple<>(1, 5), new Tuple<>(2, 4), new Tuple<>(3, 3),
-                new Tuple<>(4, 8), new Tuple<>(3, 7), new Tuple<>(1, 8), new Tuple<>(3, 8), new Tuple<>(2, 2)
+                new Tuple<>(4, 8), new Tuple<>(3, 7), new Tuple<>(1, 8), new Tuple<>(3, 8), new Tuple<>(2, 2),
+                new Tuple<>(5, 10)
         );
     }
 

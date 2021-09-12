@@ -24,3 +24,5 @@ Wild
 Gladiator |60000929
 The Matrix |20557937
 PASSENGERS |80117456
+Bohemian Rhapsody
+Papilon

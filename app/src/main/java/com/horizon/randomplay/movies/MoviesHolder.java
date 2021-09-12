@@ -26,7 +26,7 @@ public class MoviesHolder {
         LORD_OF_THE_RINGS("Lord of the Rings World"),
         HARRY_POTTER("Harry Potter"),
         DREAM_WORKS("Animated DreamWorks"),
-        MY_GOLDENS("My Goldens");
+        MY_GOLDENS("Golden Ring");
 
         private final String name;
 
