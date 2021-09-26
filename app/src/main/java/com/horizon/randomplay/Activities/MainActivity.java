@@ -82,7 +82,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        if (SharedData.getInstance().isFirstRunAfterInstall() || Vars.DEBUG) {
+        if (SharedData.getInstance().isFirstRunAfterInstall(this) || Vars.DEBUG) {
             setPopWin(cont, "Welcome!", "This is Random Play, the place where you can be as indecisive as it gets.\n" +
                                                 "Here you can randomize episodes and movies from a large verity of content.\n" +
                                                 "It's linked to Netflix so yeah\n" +

@@ -202,15 +202,19 @@ public class SharedData {
         }
     }
 
-    public boolean isFirstRunAfterInstall() {
+    public boolean isFirstRunAfterInstall(Context context) {
         int currentVersionCode = BuildConfig.VERSION_CODE;
 
         final int DOES_NOT_EXIST = -1;
         int savedVersionCode = this.sharedPreferences.getInt(PREF_VERSION_CODE_KEY, DOES_NOT_EXIST);
 
+        if (savedVersionCode < currentVersionCode) {
+            sharedPreferences.edit().clear().apply();
+            new SharedData(context);
+        }
+
         this.sharedPreferences.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
 
-        System.out.println(savedVersionCode == DOES_NOT_EXIST);
         return savedVersionCode == DOES_NOT_EXIST;
     }
 }
