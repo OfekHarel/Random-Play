@@ -208,7 +208,8 @@ public class SharedData {
         final int DOES_NOT_EXIST = -1;
         int savedVersionCode = this.sharedPreferences.getInt(PREF_VERSION_CODE_KEY, DOES_NOT_EXIST);
 
-        if (savedVersionCode < currentVersionCode) {
+        // Edit to clear s_preff
+        if (savedVersionCode < Vars.CLEAN_VERS) {
             sharedPreferences.edit().clear().apply();
             new SharedData(context);
         }

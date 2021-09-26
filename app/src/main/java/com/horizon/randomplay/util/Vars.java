@@ -10,6 +10,7 @@ import com.horizon.randomplay.components.series.MoodsSeries;
 
 public class Vars {
     public static boolean DEBUG = false;
+    public static final int CLEAN_VERS = 28;
 
     public static Tuple<SeriesHolder.SeriesKind, Mood> series_choice = new Tuple<>(SeriesHolder.SeriesKind.ANYTHING, Mood.ANYTHING);
     public static Tuple<MoviesHolder.MovieKind, Mood> movie_choice = new Tuple<>(MoviesHolder.MovieKind.ANYTHING, Mood.ANYTHING);
