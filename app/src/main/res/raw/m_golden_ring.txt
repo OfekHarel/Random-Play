@@ -26,3 +26,5 @@ The Matrix |20557937
 PASSENGERS |80117456
 Bohemian Rhapsody
 Papilon
+The Imitation Game
+Lucy

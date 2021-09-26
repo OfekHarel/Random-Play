@@ -22,7 +22,7 @@ public class MovieMoodsHolder {
 
     private static void goldens() {
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MY_GOLDENS.getName())).
-                setMood(Mood.SMART, 1, 2, 3, 8, 12);
+                setMood(Mood.SMART, 1, 2, 3, 8, 12, 30);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MY_GOLDENS.getName())).
                 setMood(Mood.WAR, 22, 20, 19, 16, 9, 7, 6);

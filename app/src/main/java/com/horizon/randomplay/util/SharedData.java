@@ -21,6 +21,7 @@ public class SharedData {
     private final String S_CHOOSE = "S_CHOOSE";
     private final String M_CHOOSE = "M_CHOOSE";
     private final String PREF_VERSION_CODE_KEY = "VERSION_CODE";
+    private final String FIRST_TIME = "FIRST_TIME";
 
     private final SharedPreferences sharedPreferences;
     private final SharedPreferences.Editor editor;
@@ -45,7 +46,6 @@ public class SharedData {
         this.editor = this.sharedPreferences.edit();
         this.gson = new Gson();
 
-        final String FIRST_TIME = "FIRST_TIME";
         final boolean isFirstTime = this.sharedPreferences.getBoolean(FIRST_TIME, true);
 
         if (isFirstTime) {
@@ -210,6 +210,7 @@ public class SharedData {
 
         // Edit to clear s_preff
         if (savedVersionCode < Vars.CLEAN_VERS) {
+            this.sharedPreferences.getBoolean(FIRST_TIME, true);
             sharedPreferences.edit().clear().apply();
             new SharedData(context);
         }
