@@ -39,10 +39,9 @@ public class MainActivity extends BaseActivity {
         this.fragmentAdapter = new FragmentAdapter(fm, getLifecycle());
         this.pager2.setAdapter(this.fragmentAdapter);
 
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.HISTORY.getTabNum())));
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SERIES.getTabNum())));
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.MOVIE.getTabNum())));
-        this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(FragmentAdapter.Tabs.SETTINGS.getTabNum())));
+        for(FragmentAdapter.Tabs t: FragmentAdapter.Tabs.values()) {
+            this.tabLayout.addTab(this.tabLayout.newTab().setText(this.fragmentAdapter.getPageTitle(t.getTabNum())));
+        }
         this.tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         FragmentAdapter.Tabs selectedTab = Vars.currentTab;
@@ -82,21 +81,25 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        if (SharedData.getInstance().isFirstRunAfterInstall(this) || Vars.DEBUG) {
-            setPopWin(cont, "Welcome!", "This is Random Play, the place where you can be as indecisive as it gets.\n" +
-                                                "Here you can randomize episodes and movies from a large verity of content.\n" +
-                                                "It's linked to Netflix so yeah\n" +
-                                                "Go get some Netflix & Chill!",
-                    "Learn More", "Cool", (dialog, which) -> {
-                        Vars.infoFlag = true;
-                        moveTo(FragmentAdapter.Tabs.SETTINGS);
-                    });
-        }
+        firstRun();
     }
 
     private void moveTo(FragmentAdapter.Tabs tab) {
         pager2.setCurrentItem(tab.getTabNum());
         tabLayout.selectTab(tabLayout.getTabAt(tab.getTabNum()));
+    }
+
+    private void firstRun() {
+        if (SharedData.getInstance().isFirstRunAfterInstall(this) || Vars.DEBUG) {
+            setPopWin(this, "Welcome!", "This is Random Play, the place where you can be as indecisive as it gets.\n" +
+                            "Here you can randomize episodes and movies from a large verity of content.\n" +
+                            "It's linked to Netflix so yeah\n" +
+                            "Go get some Netflix & Chill!",
+                    "Learn More", "Cool", (dialog, which) -> {
+                        Vars.infoFlag = true;
+                        moveTo(FragmentAdapter.Tabs.SETTINGS);
+                    });
+        }
     }
 
     @Override

@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tab_layout"
-        android:translationY="-50dp"
+        android:translationY="-40dp"
         android:id="@+id/view_pager"/>
 
 </RelativeLayout>

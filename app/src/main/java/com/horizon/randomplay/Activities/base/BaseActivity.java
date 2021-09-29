@@ -79,10 +79,9 @@ public class BaseActivity extends AppCompatActivity {
      * @param msg              - the pop up window description
      * @param positiveBtn      - positive option string
      * @param positiveListener - what will happen when pressing positive.
-     * @return the popup win object
      */
-    protected AlertDialog setPopWin(Context context, String title, String msg, String positiveBtn, String falseBtn,
-                                    DialogInterface.OnClickListener positiveListener) {
+    protected void setPopWin(Context context, String title, String msg, String positiveBtn, String falseBtn,
+                             DialogInterface.OnClickListener positiveListener) {
 
         AlertDialog dialog = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert).create();
         dialog.setTitle(title);
@@ -93,6 +92,5 @@ public class BaseActivity extends AppCompatActivity {
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.white));
         dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.white));
 
-        return dialog;
     }
 }
