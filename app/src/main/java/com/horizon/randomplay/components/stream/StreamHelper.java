@@ -8,16 +8,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class StreamHelper {
+    private static boolean streamed = true;
+
     public static void open(StreamingServices s, Long id, AppCompatActivity activity) {
         switch (s) {
             case NETFLIX:
                 netflix(activity, id);
         }
-        embrace(activity);
+        if (streamed) {
+            embrace(activity);
+        } else {
+            disembrace(activity);
+        }
     }
 
     private static void embrace(AppCompatActivity activity) {
         Toast.makeText(activity, "Enjoy!", Toast.LENGTH_SHORT).show();
+    }
+
+    private static void disembrace(AppCompatActivity activity) {
+        // Netflix app isn't installed, send to website.
+        Toast.makeText(activity, "Please install the Netflix app!", Toast.LENGTH_SHORT).show();
     }
 
     private static void netflix(AppCompatActivity activity, Long id) {
@@ -30,9 +41,9 @@ public class StreamHelper {
             intent.setClassName("com.netflix.mediaclient", "com.netflix.mediaclient.ui.launch.UIWebViewActivity");
             intent.setData(Uri.parse(watchUrl));
             activity.startActivity(intent);
+            streamed = true;
         } catch (Exception e) {
-            // Netflix app isn't installed, send to website.
-            Toast.makeText(activity, "Please install the Netflix app!", Toast.LENGTH_SHORT).show();
+            streamed = false;
         }
     }
 }

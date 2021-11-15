@@ -1,191 +1,188 @@
-Season 1:
-The Seinfeld Chronicles
-The Stake Out
-The Robbery
-Male Unbonding
-The Stock Tip
+Season 1
+Seinfeld |80132845
+The Stake Out |80132847
+The Robbery |80132848
+Male Unbonding |80132846
+The Stock Tip |80132849
 
-Season 2:
-The Ex-Girlfriend
-The Pony Remark
-The Jacket
-The Phone Message
-The Apartment
-The Statue
-The Revenge
-The Heart Attack
-The Deal
-The Baby Shower
-The Chinese Restaurant
-The Busboy
+Season 2
+The Ex-Girlfriend |80132850
+The Pony Remark |80132851
+The Jacket |80132854
+The Phone Message |80132856
+The Apartment |80132857
+The Statue |80132859
+The Revenge |80132861
+The Heart Attack |80132860
+The Deal |80132914
+The Baby Shower |80132853
+The Chinese Restaurant |80132855
+The Busboy |80132852
 
-Season 3:
-The Note
-The Truth
-The Pen
-The Dog
-The Library
-The Parking Garage
-The Cafe
-The Tape
-The Nose Job
-The Stranded
-The Alternate Side
-The Red Dot
-The Subway
-The Pez Dispenser
-The Suicide
-The Fix-Up
-The Boyfriend
-The New Friend
-The Limo
-The Good Samaritan
-The Letter
-The Parking Space
-The Keys
+Season 3
+The Note |80132793
+The Truth |80132794
+The Pen |80132795
+The Dog |80132796
+The Library |80132798
+The Parking Garage |80132797
+The Cafe |80132799
+The Tape |80132900
+The Nose Job |80132901
+The Stranded |80132858
+The Alternate Side |80132902
+The Red Dot |80132903
+The Subway |80132905
+The Pez Dispenser |80132906
+The Suicide |80132904
+The Fix-Up |80132907
+The Boy Friend, Part I & II |80132913
+The Limo |80132908
+The Good Samaritan |80132909
+The Letter |80132910
+The Parking Space |80132911
+The Keys |80132912
 
-Season 4:
-The Trip Part 1
-The Trip Part 2
-the Pitch
-the Ticket
-the Wallet
-the Watch
-the Bubble Boy
-the Cheever Letters
-the Opera
-the Virgin
-the Contest
-the Airport
-the Pick
-the Movie
-the Visa
-the Shoes
-the Outing
-the Old Man
-the Implan
-the Junior Mint
-the Smelly Car
-the Handicap Spot
-The Pilot
+Season 4
+The Trip, Part I |80132862
+The Trip, Part II |80132863
+The Pitch/Ticket |80132864
+The Wallet |80132866
+The Watch |80132867
+The Bubble Boy |80132868
+The Cheever Letters |80132869
+The Opera |80132870
+The Virgin |80132871
+The Contest |80132872
+The Airport |80132873
+The Pick |80132874
+The Movie |80132876
+The Visa |80132875
+The Shoes |80132878
+The Outing |80132877
+The Old Man |80132879
+The Implant |80132880
+The Junior Mint |80132882
+The Smelly Car |80132883
+The Handicap Spot |80132881
+The Pilot, Part I & II |80132865
 
-Season 5:
-The Mango
-The Puffy Shirt
-The Glasses
-The Sniffing Accountant
-The Bris
-The Lip Reader
-The Non-Fat Yogurt
-The Barber
-The Masseuse
-The Cigar Store Indian
-The Conversion
-The Stall
-The Dinner Party
-The Marine Biologist
-The Pie
-The Stand-In
-The Wife
-The Raincoats
-The Fire
-The Hamptons
-The Opposite  
+Season 5
+The Mango |80132672
+The Puffy Shirt |80132674
+The Glasses |80132673
+The Sniffing Accountant |80132675
+The Bris |80132676
+The Lip Reader |80132677
+The Non-Fat Yogurt |80132679
+The Barber |80132678
+The Masseuse |80132680
+The Cigar Store Indian |80132681
+The Conversion |80132682
+The Stall |80132683
+The Dinner Party |80132685
+The Marine Biologist |80132684
+The Pie |80132686
+The Stand-In |80132687
+The Wife |80132688
+The Raincoats, Part I & II |80132692
+The Fire |80132689
+The Hamptons |80132691
+The Opposite |80132690
 
-Season 6:
-The Chaperone
-The Big Salad
-The Pledge Drive
-The Chinese Woman
-The Couch
-The Gymnast
-The Soup
-The Mom & Pop Store
-The Secretary
-The Race
-The Switch
-The Label Maker
-The Scofflaw
-The Highlights of 100
-The Beard
-The Kiss Hello
-The Doorman
-The Jimmy
-The Doodle
-The Fusilli Jerry
-The Diplomat's Club
-The Face Painter
-The Understudy
+Season 6
+The Chaperone |80132916
+The Big Salad |80132917
+The Pledge Drive |80132918
+The Chinese Woman |80132919
+The Couch |80132920
+The Gymnast |80132921
+The Soup |80132923
+The Mom & Pop Store |80132922
+The Secretary |80132924
+The Race |80132927
+The Switch |80132925
+The Label Maker |80132926
+The Scofflaw |80132928
+100th Episode Special |80132938
+The Beard |80132930
+The Kiss Hello |80132929
+The Doorman |80132931
+The Jimmy |80132932
+The Doodle |80132933
+The Fusilli Jerry |80132934
+The Diplomats Club |80132935
+The Face Painter |80132937
+The Understudy |80132936
 
-Season 7:
-The Engagement	
-The Postponement
-The Maestro
-The Wink
-The Hot Tub
-The Soup Nazi
-The Secret Code
-The Pool Guy
-The Sponge
-The Gum
-The Rye
-The Caddy
-The Seven
-The Cadillac
-The Shower
-The Doll
-The Friars
-The Wig Master
-The Calzone
-The Bottle Deposit
-The Wait Out
-The Invitations
+Season 7
+The Engagement |80132939
+The Postponement |80132940
+The Maestro |80132941
+The Wink |80132942
+The Hot Tub |80132943
+The Soup Nazi |80132944
+The Secret Code |80132945
+The Pool Guy |80132946
+The Sponge |80132947
+The Gum |80132948
+The Rye |80132949
+The Caddy |80132950
+The Seven |80132951
+The Cadillac, Part I & II |80132959
+The Shower Head |80132952
+The Doll |80132953
+The Friars Club |80132954
+The Wig Master |80132955
+The Calzone |80132956
+The Bottle Deposit, Part I & II |80132960
+The Wait Out |80132957
+The Invitations |80132958
 
-Season 8:
-The Foundation
-The Soul Mate
-The Bizarro Jerry
-The Little Kicks
-The Package
-The Fatigues
-The Checks
-The Chicken Roaster
-The Abstinence
-The Andrea Doria
-The Little Jerry
-The Money
-The Comeback
-The Van Buren Boys
-The Susie
-The Pothole
-The English Patient
-The Nap
-The Yada Yada
-The Millennium
-The Muffin Tops
-The Summer of George
+Season 8
+The Foundation |80132693
+The Soulmate |80132694
+The Bizarro Jerry |80132695
+The Little Kicks |80132696
+The Package |80132697
+The Fatigues |80132698
+The Checks |80132699
+The Chicken Roaster |80133000
+The Abstinence |80133001
+The Andrea Doria |80133002
+The Little Jerry |80133003
+The Money |80133005
+The Comeback |80133004
+The Van Buren Boys |80133006
+The Susie |80133007
+The Pothole |80133008
+The English Patient |80133009
+The Nap |80133010
+The Yada Yada |80133011
+The Millennium |80133012
+The Muffin Tops |80133013
+The Summer of George |80133014
 
-Season 9:
-The Butter Shave
-The Voice
-The Serenity Now
-The Blood
-The Junk Mail
-The Merv Griffin Show
-The Slicer
-The Betrayal
-The Apology
-The Strike
-The Dealership
-The Reverse Peephole
-The Cartoon
-The Strongbox
-The Wizard
-The Burning
-The Bookstore
-The Frogger
-The Maid
-The Puerto Rican Day
-The Chronicle
-The Clip Show
-The Finale
+Season 9
+The Butter Shave |80133015
+The Voice |80133016
+The Serenity Now |80133017
+The Blood |80133018
+The Junk Mail |80133019
+The Merv Griffin Show |80133020
+The Slicer |80133021
+The Betrayal |80133022
+The Apology |80133023
+The Strike |80133024
+The Dealership |80133025
+The Reverse Peephole |80133026
+The Cartoon |80133027
+The Strongbox |80133028
+The Wizard |80133029
+The Burning |80133030
+The Bookstore |80133031
+The Frogger |80133032
+The Maid |80133033
+The Puerto Rican Day |80133034
+The Clip Show, Part I & II |80133035
+Finale, Part I & II |80133036

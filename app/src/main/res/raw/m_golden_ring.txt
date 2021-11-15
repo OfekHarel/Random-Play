@@ -1,7 +1,7 @@
 Inception |70131314
 Tenet
 Interstellar
-Into The Wild
+Into The Wild |70075064
 Captain Philips
 Midway
 Dunkrik
@@ -28,3 +28,5 @@ Bohemian Rhapsody
 Papilon
 The Imitation Game
 Lucy
+Dune
+Cast Away |60020683
