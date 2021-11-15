@@ -22,6 +22,7 @@ import com.horizon.randomplay.components.series.Episode;
 import com.horizon.randomplay.components.HistoryComp;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.components.series.MoodsSeries;
+import com.horizon.randomplay.series.SeriesLogosManager;
 import com.horizon.randomplay.util.SharedData;
 import com.horizon.randomplay.util.Tuple;
 import com.horizon.randomplay.util.Vars;

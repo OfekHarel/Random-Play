@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities.movies;
+package com.horizon.randomplay.movies;
 
 import android.view.View;
 import android.widget.ImageView;

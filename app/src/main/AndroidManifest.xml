@@ -28,7 +28,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.RandomPlay.popWindow" />
         <activity
-            android:name=".Activities.movies.MovieLogosManager"
+            android:name=".movies.MovieLogosManager"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.movies.MovieResultActivity"

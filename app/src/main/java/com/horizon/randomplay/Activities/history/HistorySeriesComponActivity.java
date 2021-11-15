@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi;
 import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.StreamingServicesLogoManager;
 import com.horizon.randomplay.Activities.base.BaseActivity;
-import com.horizon.randomplay.Activities.series.SeriesLogosManager;
+import com.horizon.randomplay.series.SeriesLogosManager;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.components.stream.StreamHelper;
 import com.horizon.randomplay.components.stream.StreamingServices;

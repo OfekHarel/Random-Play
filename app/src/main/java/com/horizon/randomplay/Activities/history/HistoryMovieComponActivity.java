@@ -12,7 +12,7 @@ import androidx.annotation.RequiresApi;
 import com.horizon.randomplay.Activities.MainActivity;
 import com.horizon.randomplay.Activities.StreamingServicesLogoManager;
 import com.horizon.randomplay.Activities.base.BaseActivity;
-import com.horizon.randomplay.Activities.movies.MovieLogosManager;
+import com.horizon.randomplay.movies.MovieLogosManager;
 import com.horizon.randomplay.R;
 import com.horizon.randomplay.components.movies.MoodMovieCollection;
 import com.horizon.randomplay.components.movies.Movie;

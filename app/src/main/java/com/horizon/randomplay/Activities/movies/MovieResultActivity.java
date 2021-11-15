@@ -20,6 +20,7 @@ import com.horizon.randomplay.components.movies.MoodMovieCollection;
 import com.horizon.randomplay.components.movies.Movie;
 import com.horizon.randomplay.components.stream.StreamHelper;
 import com.horizon.randomplay.components.stream.StreamingServices;
+import com.horizon.randomplay.movies.MovieLogosManager;
 import com.horizon.randomplay.movies.MoviesHolder;
 import com.horizon.randomplay.components.Mood;
 import com.horizon.randomplay.util.SharedData;

@@ -1,4 +1,4 @@
-package com.horizon.randomplay.Activities.series;
+package com.horizon.randomplay.series;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -21,7 +21,8 @@ public class SeriesLogosManager {
         ATLA(R.id.atla_logo),
         TLOK(R.id.tlog_logo),
         BLACK_MIRROR(R.id.black_mirror_logo),
-        SEINFELD(R.id.seinfeld_logo);
+        SEINFELD(R.id.seinfeld_logo),
+        GOT(R.id.got_logo);
 
         private final int logoId;
 
@@ -79,6 +80,9 @@ public class SeriesLogosManager {
                 break;
             case SEINFELD:
                 LogoSeries.SEINFELD.display(activity);
+                break;
+            case GAMES_OF_THRONES:
+                LogoSeries.GOT.display(activity);
                 break;
         }
     }

@@ -30,13 +30,14 @@ public class SeriesHolder {
         HOW_I_MET_YOUR_MOTHER("How I Met Your Mother"),
         BROOKLYN_NINE_NINE("Brooklyn Nine Nine"),
         THE_OFFICE("The Office"),
-        RICK_AND_MORTY("Rick And Morty"),
+        SEINFELD("Seinfeld"),
         MODERN_FAMILY("Modern Family"),
+        RICK_AND_MORTY("Rick And Morty"),
         GRAYS_ANATOMY("Grays Anatomy"),
         AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender"),
         THE_LEGEND_OF_KORRA("The Legend Of Korra"),
         BLACK_MIRROR("Black Mirror"),
-        SEINFELD("Seinfeld");
+        GAMES_OF_THRONES("Games Of Thrones");
 
         private final String name;
 
