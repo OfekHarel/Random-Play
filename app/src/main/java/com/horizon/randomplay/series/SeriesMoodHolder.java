@@ -136,7 +136,7 @@ public class SeriesMoodHolder {
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_OFFICE.getName())).setMood(
                 Mood.HAPPY,
-                new Tuple<>(9, 24), new Tuple<>(5, 1), new Tuple<>(5, 2),
+                new Tuple<>(9, 23), new Tuple<>(5, 1), new Tuple<>(5, 2),
                 new Tuple<>(7, 19), new Tuple<>(6, 4), new Tuple<>(6, 5), new Tuple<>(3, 23)
         );
     }

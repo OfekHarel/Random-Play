@@ -47,7 +47,6 @@ public class JavaMailAPI extends AsyncTask<Void, Void, Void> {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

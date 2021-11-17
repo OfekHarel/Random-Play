@@ -43,11 +43,6 @@ public class ClosedBoundDynamicArray<T> {
         }
     }
 
-    public static int getIdealSize(int size) {
-        int calc = (size - 1) / 3;
-        return Math.max(calc, 2);
-    }
-
     public void retrieveSize() {
         changeSize(SIZE);
     }
