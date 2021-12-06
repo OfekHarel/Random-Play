@@ -78,17 +78,28 @@ public class SeriesMoodHolder {
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_BIG_BANG_THEORY.getName())).setMood(
+                Mood.HAPPY,
+                new Tuple<>(1, 4), new Tuple<>(2, 11), new Tuple<>(5, 10),
+                new Tuple<>(5, 24), new Tuple<>(9, 11)
+        );
+
+        Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_BIG_BANG_THEORY.getName())).setMood(
                 Mood.CRY,
                 new Tuple<>(6, 19), new Tuple<>(8, 18), new Tuple<>(8, 24),
-                new Tuple<>(3, 19), new Tuple<>(12, 24), new Tuple<>(7, 22), new Tuple<>(9, 9), new Tuple<>(7, 24),
-                new Tuple<>(12, 9), new Tuple<>(7, 12)
+                new Tuple<>(3, 19), new Tuple<>(12, 24), new Tuple<>(7, 22),
+                new Tuple<>(9, 9), new Tuple<>(7, 24), new Tuple<>(8, 24),
+                new Tuple<>(12, 9), new Tuple<>(7, 12) , new Tuple<>(8, 15),
+                new Tuple<>(9, 7), new Tuple<>(12, 22)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_BIG_BANG_THEORY.getName())).setMood(
                 Mood.LAUGH,
                 new Tuple<>(3, 22), new Tuple<>(5, 10), new Tuple<>(4, 24),
-                new Tuple<>(4, 21), new Tuple<>(4, 18), new Tuple<>(3, 23), new Tuple<>(3, 8), new Tuple<>(2, 11),
-                new Tuple<>(3, 11), new Tuple<>(4, 10)
+                new Tuple<>(4, 21), new Tuple<>(4, 18), new Tuple<>(3, 23),
+                new Tuple<>(3, 8), new Tuple<>(2, 11), new Tuple<>(3, 17),
+                new Tuple<>(3, 11), new Tuple<>(4, 10), new Tuple<>(2, 3),
+                new Tuple<>(3, 14), new Tuple<>(4, 1), new Tuple<>(5, 11),
+                new Tuple<>(7, 6)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.THE_BIG_BANG_THEORY.getName())).setMood(
