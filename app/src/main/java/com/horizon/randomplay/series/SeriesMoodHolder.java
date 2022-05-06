@@ -11,33 +11,39 @@ public class SeriesMoodHolder {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.FRIENDS.getName())).setMood(
                 Mood.CRY,
                 new Tuple<>(3, 16), new Tuple<>(4, 12), new Tuple<>(5, 3), new Tuple<>(6, 24),
-                new Tuple<>(6, 25), new Tuple<>(9, 21), new Tuple<>(10, 8), new Tuple<>(10, 17)
+                new Tuple<>(6, 25), new Tuple<>(9, 21), new Tuple<>(10, 8), new Tuple<>(10, 17),
+                new Tuple<>(10, 9)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.FRIENDS.getName())).setMood(
                 Mood.LAUGH,
                 new Tuple<>(1, 13), new Tuple<>(2, 23), new Tuple<>(3, 8), new Tuple<>(4, 20),
-                new Tuple<>(5, 14), new Tuple<>(6, 8), new Tuple<>(6, 17), new Tuple<>(7, 6), new Tuple<>(8, 15),
-                new Tuple<>(9, 7), new Tuple<>(10, 3)
+                new Tuple<>(5, 14), new Tuple<>(6, 8), new Tuple<>(6, 17), new Tuple<>(7, 6),
+                new Tuple<>(8, 15), new Tuple<>(4, 8), new Tuple<>(5, 9), new Tuple<>(5, 11),
+                new Tuple<>(9, 7), new Tuple<>(10, 3), new Tuple<>(1, 7), new Tuple<>(3, 2),
+                new Tuple<>(5, 1), new Tuple<>(6, 9)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.FRIENDS.getName())).setMood(
                 Mood.HAPPY,
                 new Tuple<>(1, 10), new Tuple<>(2, 11), new Tuple<>(3, 9), new Tuple<>(5, 13),
-                new Tuple<>(6, 7), new Tuple<>(7, 7), new Tuple<>(8, 6), new Tuple<>(9, 4), new Tuple<>(10, 4)
+                new Tuple<>(6, 7), new Tuple<>(7, 7), new Tuple<>(8, 6), new Tuple<>(9, 4),
+                new Tuple<>(10, 4), new Tuple<>(2, 7), new Tuple<>(2, 14), new Tuple<>(10, 4),
+                new Tuple<>(4, 12), new Tuple<>(5, 12)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.FRIENDS.getName())).setMood(
                 Mood.ROMANTIC,
                 new Tuple<>(2, 7), new Tuple<>(2, 14), new Tuple<>(2, 15),
-                new Tuple<>(3, 13), new Tuple<>(6, 25), new Tuple<>(9, 19), new Tuple<>(10, 12), new Tuple<>(10, 17)
+                new Tuple<>(3, 13), new Tuple<>(6, 25), new Tuple<>(9, 19),
+                new Tuple<>(10, 12), new Tuple<>(10, 17)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.FRIENDS.getName())).setMood(
                 Mood.BEST,
                 new Tuple<>(1, 24), new Tuple<>(2, 14), new Tuple<>(4, 12),
-                new Tuple<>(5, 8), new Tuple<>(5, 14), new Tuple<>(6, 24), new Tuple<>(6, 25), new Tuple<>(8, 2),
-                new Tuple<>(8, 4), new Tuple<>(8, 9), new Tuple<>(10, 17)
+                new Tuple<>(5, 8), new Tuple<>(5, 14), new Tuple<>(6, 24), new Tuple<>(6, 25),
+                new Tuple<>(8, 2), new Tuple<>(8, 4), new Tuple<>(8, 9), new Tuple<>(10, 17)
         );
     }
 
@@ -45,8 +51,8 @@ public class SeriesMoodHolder {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.HOW_I_MET_YOUR_MOTHER.getName())).setMood(
                 Mood.CRY,
                 new Tuple<>(3, 13), new Tuple<>(6, 14), new Tuple<>(6, 19),
-                new Tuple<>(7, 10), new Tuple<>(8, 12), new Tuple<>(8, 20), new Tuple<>(9, 16), new Tuple<>(9, 23),
-                new Tuple<>(9, 24)
+                new Tuple<>(7, 10), new Tuple<>(8, 12), new Tuple<>(8, 20),
+                new Tuple<>(9, 16), new Tuple<>(9, 23), new Tuple<>(9, 24)
         );
 
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.HOW_I_MET_YOUR_MOTHER.getName())).setMood(
@@ -64,8 +70,8 @@ public class SeriesMoodHolder {
         Objects.requireNonNull(SeriesHolder.getAllSeries().get(SeriesHolder.SeriesKind.HOW_I_MET_YOUR_MOTHER.getName())).setMood(
                 Mood.BEST,
                 new Tuple<>(1, 22), new Tuple<>(2, 9), new Tuple<>(3, 13),
-                new Tuple<>(4, 2), new Tuple<>(4, 4), new Tuple<>(4, 13), new Tuple<>(4, 14), new Tuple<>(5, 8),
-                new Tuple<>(5, 12), new Tuple<>(6, 13)
+                new Tuple<>(4, 2), new Tuple<>(4, 4), new Tuple<>(4, 13), new Tuple<>(4, 14),
+                new Tuple<>(5, 8), new Tuple<>(5, 12), new Tuple<>(6, 13)
         );
     }
 

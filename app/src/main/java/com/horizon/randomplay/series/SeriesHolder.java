@@ -10,6 +10,8 @@ import com.horizon.randomplay.components.series.Season;
 import com.horizon.randomplay.components.series.Series;
 import com.horizon.randomplay.util.SharedData;
 
+import org.jetbrains.annotations.Contract;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +39,9 @@ public class SeriesHolder {
         AVATAR_THE_LAST_AIRBENDER("Avatar The Last Airbender"),
         THE_LEGEND_OF_KORRA("The Legend Of Korra"),
         BLACK_MIRROR("Black Mirror"),
-        GAMES_OF_THRONES("Games Of Thrones");
+        GAMES_OF_THRONES("Games Of Thrones"),
+        SHERLOCK("Sherlock"),
+        JANE_THE_VIRGIN("Jane The Virgin");
 
         private final String name;
 

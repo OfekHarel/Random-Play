@@ -13,7 +13,7 @@
         android:scaleX="0.9"
         android:scaleY="0.9"
         android:src="@drawable/friends_logo"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/himym_logo"
@@ -22,7 +22,7 @@
         android:scaleX="0.8"
         android:scaleY="0.8"
         android:src="@drawable/himym_logo"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/bnn_logo"
@@ -31,7 +31,7 @@
         android:scaleX="0.65"
         android:scaleY="0.65"
         android:src="@drawable/bnn_logo"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/rick_and_morty_logo"
@@ -103,7 +103,7 @@
         android:scaleX="1"
         android:scaleY="1"
         android:src="@drawable/black_mirror_logo"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/seinfeld_logo"
@@ -112,7 +112,7 @@
         android:scaleX="0.75"
         android:scaleY="0.75"
         android:src="@drawable/seinfeld_logo"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/got_logo"
@@ -121,5 +121,25 @@
         android:scaleX="0.75"
         android:scaleY="0.75"
         android:src="@drawable/games_of_thrones_logo"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/jtv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
+        android:src="@drawable/jtv_logo"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/sherlock_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.85"
+        android:scaleY="0.85"
+        android:src="@drawable/sherlock_logo"
+        android:layout_centerInParent="true"
         android:visibility="visible" />
 </RelativeLayout>

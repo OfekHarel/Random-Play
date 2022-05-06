@@ -22,7 +22,9 @@ public class SeriesLogosManager {
         TLOK(R.id.tlog_logo),
         BLACK_MIRROR(R.id.black_mirror_logo),
         SEINFELD(R.id.seinfeld_logo),
-        GOT(R.id.got_logo);
+        GOT(R.id.got_logo),
+        SHERLOCK(R.id.sherlock_logo),
+        JANE_THE_VIRGIN(R.id.jtv_logo);
 
         private final int logoId;
 
@@ -83,6 +85,12 @@ public class SeriesLogosManager {
                 break;
             case GAMES_OF_THRONES:
                 LogoSeries.GOT.display(activity);
+                break;
+            case JANE_THE_VIRGIN:
+                LogoSeries.JANE_THE_VIRGIN.display(activity);
+                break;
+            case SHERLOCK:
+                LogoSeries.SHERLOCK.display(activity);
                 break;
         }
     }

@@ -8,13 +8,13 @@ public class MovieMoodsHolder {
 
     private static void marvel() {
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
-                setMood(Mood.CRY, 25, 22);
+                setMood(Mood.CRY, 25, 22, 32);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
-                setMood(Mood.LAUGH, 20, 18, 13);
+                setMood(Mood.LAUGH, 20, 18, 13, 32);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
-                setMood(Mood.BEST, 25, 22, 21, 20, 18, 4);
+                setMood(Mood.BEST, 25, 22, 21, 20, 18, 4, 32);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MARVEL.getName())).
                 setMood(Mood.SMART, 4, 6, 10, 17);
@@ -22,7 +22,7 @@ public class MovieMoodsHolder {
 
     private static void goldens() {
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MY_GOLDENS.getName())).
-                setMood(Mood.SMART, 1, 2, 3, 8, 12, 30);
+                setMood(Mood.SMART, 1, 2, 3, 8, 12, 30, 34, 33);
 
         Objects.requireNonNull(MoviesHolder.getAllMovies().get(MoviesHolder.MovieKind.MY_GOLDENS.getName())).
                 setMood(Mood.WAR, 22, 20, 19, 16, 9, 7, 6);
